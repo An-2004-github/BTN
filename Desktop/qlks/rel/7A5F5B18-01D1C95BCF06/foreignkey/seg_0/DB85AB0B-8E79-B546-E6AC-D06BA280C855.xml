@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DB85AB0B-8E79-B546-E6AC-D06BA280C855" containerWithKeyObject="CCDD15E4-759F-9AF6-5E0F-304D632346E8" localFKIndex="340DD015-64C5-9E64-4AB6-D42FD77CC21B" name="SYS_C008378">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008378</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:54 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<referredTableLongName>SYSTEM.HOADON</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>67406BFB-81F9-29FC-832C-28B1F5D489B9</referredTableID>
+<keyObject>768C4B5C-E833-BF3F-CC31-470266C17906</keyObject>
+<referredKeyID>768C4B5C-E833-BF3F-CC31-470266C17906</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>MAHOADON</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

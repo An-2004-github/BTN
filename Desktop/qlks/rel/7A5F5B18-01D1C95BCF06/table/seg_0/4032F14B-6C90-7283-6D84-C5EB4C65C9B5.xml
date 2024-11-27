@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4032F14B-6C90-7283-6D84-C5EB4C65C9B5" schemaObject="16E3C9F2-6436-48E7-E8EC-167FEE023C57" name="CHITIETHOADON">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>CHITIETHOADON</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:51 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAHOADON" id="7534098C-7072-B3B4-6B8B-9522BA6DCFBD">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>CHITIETHOADON</sourceObjSchema>
+<sourceObjName>MAHOADON</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B57A582B-C25F-558A-643A-03D81774B615" referredColumn="D5DCD729-CFBD-DCD8-CB99-297AF83C1906"/>
+</associations>
+</Column>
+<Column name="MADICHVU" id="6B47C87B-BDE7-C308-53F0-A6393D2FB3C8">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>CHITIETHOADON</sourceObjSchema>
+<sourceObjName>MADICHVU</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="09E06A4B-6645-5417-F41C-EEC8B3A94E43" referredColumn="C506DA76-9A5C-01F0-9237-9C3A917EA33D"/>
+</associations>
+</Column>
+<Column name="SOLUONG" id="0EE5EACB-794D-DD05-94D9-13B735D06080">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>CHITIETHOADON</sourceObjSchema>
+<sourceObjName>SOLUONG</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="THOIGIAN" id="E77C0D2C-8774-ECEF-74C3-90E7CADD7165">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>CHITIETHOADON</sourceObjSchema>
+<sourceObjName>THOIGIAN</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3A40EE54-10B2-6C99-F79C-9D139949FD30" schemaObject="16E3C9F2-6436-48E7-E8EC-167FEE023C57" name="CHITIETHOADON_PK">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008383</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7534098C-7072-B3B4-6B8B-9522BA6DCFBD"/>
+<colUsage columnID="6B47C87B-BDE7-C308-53F0-A6393D2FB3C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12844786-7A38-F31D-FA1D-A5FA7D6E8EDB" name="SYS_C008384">
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:54 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7534098C-7072-B3B4-6B8B-9522BA6DCFBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2A9A82F7-9392-D96D-575C-6EB6765A234C" name="SYS_C008385">
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:54 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B47C87B-BDE7-C308-53F0-A6393D2FB3C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

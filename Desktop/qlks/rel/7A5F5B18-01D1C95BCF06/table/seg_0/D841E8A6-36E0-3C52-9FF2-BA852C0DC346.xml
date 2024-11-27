@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D841E8A6-36E0-3C52-9FF2-BA852C0DC346" schemaObject="16E3C9F2-6436-48E7-E8EC-167FEE023C57" name="PHONG">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>PHONG</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:51 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MAPHONG" id="D433C12D-61D9-2EC5-8ADB-7750205C9165">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>PHONG</sourceObjSchema>
+<sourceObjName>MAPHONG</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOAIPHONG" id="25C14D34-2AE2-E8F6-8512-19A7ED624684">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>PHONG</sourceObjSchema>
+<sourceObjName>LOAIPHONG</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GIATHEONGAY" id="11915952-506A-5C5A-053F-F2CF99A698E9">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>PHONG</sourceObjSchema>
+<sourceObjName>GIATHEONGAY</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TRANGTHAIPHONG" id="A36E150A-A43C-8ADF-3C31-6BBDFCE2D91F">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>PHONG</sourceObjSchema>
+<sourceObjName>TRANGTHAIPHONG</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<constraintName>SYS_C008353</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;DaDat&apos;" description=""/>
+<valueDef value="&apos;SuaChua&apos;" description=""/>
+<valueDef value="&apos;Trong&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1946A05C-6311-AA67-2564-5C022CE9BBEC" schemaObject="16E3C9F2-6436-48E7-E8EC-167FEE023C57" name="PHONG_PK">
+<sourceConnName>thinh</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C008354</sourceObjName>
+<createdBy>Admin</createdBy>
+<createdTime>2024-11-27 09:37:52 UTC</createdTime>
+<ownerDesignName>qlks</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D433C12D-61D9-2EC5-8ADB-7750205C9165"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
