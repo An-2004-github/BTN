@@ -47,6 +47,41 @@
     .active {
       opacity: 1;
     }
+
+    /* Phần bộ lọc */
+    .filters {
+      padding: 15px;
+      border: 1px solid #ddd;
+      background-color: #f8f9fa;
+      margin-bottom: 20px;
+    }
+
+    .filters select,
+    .filters input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .filters label {
+      font-weight: bold;
+    }
+
+    /* Chia cột lọc và sản phẩm */
+    .filter-col {
+      margin-bottom: 20px;
+    }
+
+    .product-col {
+      margin-top: 20px;
+    }
+
+    .filter-section {
+      margin-bottom: 20px;
+    }
+
+    .product-list {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -58,84 +93,90 @@
 
 <!-- Logo các hãng -->
 <div class="container">
-    <div class="brand-logos">
-      <img src="https://via.placeholder.com/100x50?text=iPhone" alt="iPhone">
-      <img src="https://via.placeholder.com/100x50?text=Samsung" alt="Samsung">
-      <img src="https://via.placeholder.com/100x50?text=Xiaomi" alt="Xiaomi">
-      <img src="https://via.placeholder.com/100x50?text=Oppo" alt="Oppo">
-      <img src="https://via.placeholder.com/100x50?text=HONOR" alt="HONOR">
-      <img src="https://via.placeholder.com/100x50?text=Tecno" alt="Tecno">
-      <img src="https://via.placeholder.com/100x50?text=realme" alt="realme">
-      <img src="https://via.placeholder.com/100x50?text=ZTE" alt="ZTE">
-      <img src="https://via.placeholder.com/100x50?text=Nubia" alt="Nubia">
-      <img src="https://via.placeholder.com/100x50?text=TCL" alt="TCL">
-      <img src="https://via.placeholder.com/100x50?text=mobell" alt="mobell">
-      <img src="https://via.placeholder.com/100x50?text=itel" alt="itel">
-    </div>
+  <div class="brand-logos">
+    <img src="https://via.placeholder.com/100x50?text=iPhone" alt="iPhone">
+    <img src="https://via.placeholder.com/100x50?text=Samsung" alt="Samsung">
+    <img src="https://via.placeholder.com/100x50?text=Xiaomi" alt="Xiaomi">
+    <img src="https://via.placeholder.com/100x50?text=Oppo" alt="Oppo">
+    <img src="https://via.placeholder.com/100x50?text=HONOR" alt="HONOR">
+    <img src="https://via.placeholder.com/100x50?text=Tecno" alt="Tecno">
+    <img src="https://via.placeholder.com/100x50?text=realme" alt="realme">
+    <img src="https://via.placeholder.com/100x50?text=ZTE" alt="ZTE">
+    <img src="https://via.placeholder.com/100x50?text=Nubia" alt="Nubia">
+    <img src="https://via.placeholder.com/100x50?text=TCL" alt="TCL">
+    <img src="https://via.placeholder.com/100x50?text=mobell" alt="mobell">
+    <img src="https://via.placeholder.com/100x50?text=itel" alt="itel">
   </div>
-  
-  <!-- Banner tự chuyển động -->
-  <div class="banner">
-    <div class="banner-slide">
-      <img src="Images/483308563_1369379677568959_1915114775029361786_n.jpg" alt="Banner 1" class="banner-img active">
-      <img src="https://via.placeholder.com/1200x350?text=Banner+2" alt="Banner 2" class="banner-img active">
-      <img src="https://via.placeholder.com/1200x350?text=Banner+3" alt="Banner 3" class="banner-img active">
-    </div>
-  </div>  
+</div>
+
+<!-- Banner tự chuyển động -->
+<div class="banner">
+  <div class="banner-slide">
+    <img src="Images/483308563_1369379677568959_1915114775029361786_n.jpg" alt="Banner 1" class="banner-img active">
+    <img src="https://via.placeholder.com/1200x350?text=Banner+2" alt="Banner 2" class="banner-img">
+    <img src="https://via.placeholder.com/1200x350?text=Banner+3" alt="Banner 3" class="banner-img">
+  </div>
+</div>
 
 <!-- Bộ lọc và tìm kiếm -->
 <div class="container mt-4">
-  <div class="row mb-3">
-    <div class="col-md-4">
-      <select id="brandFilter" class="form-select">
-        <option value="all">-- Lọc theo hãng --</option>
-        <option value="apple">Apple</option>
-        <option value="samsung">Samsung</option>
-        <option value="xiaomi">Xiaomi</option>
-      </select>
-    </div>
-    <div class="col-md-4">
-      <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm tên điện thoại..." />
-    </div>
-    <div class="col-md-4 text-end">
-      <button class="btn btn-warning" onclick="showCart()">🛒 Giỏ hàng (<span id="cartCount">0</span>)</button>
-    </div>
-  </div>
+  <div class="row">
+    <!-- Bộ lọc -->
+    <div class="col-md-3 filter-col">
+      <div class="filters">
+        <div class="filter-section">
+          <label for="brandFilter">Lọc theo hãng</label>
+          <select id="brandFilter" class="form-select">
+            <option value="all">-- Lọc theo hãng --</option>
+            <option value="apple">Apple</option>
+            <option value="samsung">Samsung</option>
+            <option value="xiaomi">Xiaomi</option>
+          </select>
+        </div>
 
-  <!-- Danh sách sản phẩm -->
-  <div class="row" id="productList">
+        <div class="filter-section">
+          <label for="priceFilter">Mức giá</label>
+          <input type="range" id="priceFilter" class="form-range" min="0" max="10000000" step="500000" />
+        </div>
+
+        <div class="filter-section">
+          <label for="osFilter">Hệ điều hành</label>
+          <select id="osFilter" class="form-select">
+            <option value="all">-- Chọn hệ điều hành --</option>
+            <option value="ios">iOS</option>
+            <option value="android">Android</option>
+          </select>
+        </div>
+
+        <div class="filter-section">
+          <label for="ramFilter">Dung lượng RAM</label>
+          <select id="ramFilter" class="form-select">
+            <option value="all">-- Chọn RAM --</option>
+            <option value="4GB">4GB</option>
+            <option value="6GB">6GB</option>
+            <option value="8GB">8GB</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <!-- Sản phẩm -->
-    <div class="col-md-4 mb-4 product-card" data-brand="apple" data-name="iphone 14 pro max">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="iPhone" />
-        <div class="card-body">
-          <h5 class="card-title">iPhone 14 Pro Max</h5>
-          <p class="card-text">Giá: 29.990.000đ</p>
-          <button class="btn btn-primary" onclick="showDetail('iPhone 14 Pro Max', '29.990.000đ')">Chi tiết</button>
-          <button class="btn btn-success" onclick="addToCart('iPhone 14 Pro Max')">Thêm giỏ hàng</button>
+    <div class="col-md-9 product-col">
+      <div class="row product-list" id="productList">
+        <!-- Sản phẩm -->
+        <div class="col-md-4 mb-4 product-card" data-brand="apple" data-name="iphone 14 pro max">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="iPhone" />
+            <div class="card-body">
+              <h5 class="card-title">iPhone 14 Pro Max</h5>
+              <p class="card-text">Giá: 29.990.000đ</p>
+              <button class="btn btn-primary" onclick="showDetail('iPhone 14 Pro Max', '29.990.000đ')">Chi tiết</button>
+              <button class="btn btn-success" onclick="addToCart('iPhone 14 Pro Max')">Thêm giỏ hàng</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4 product-card" data-brand="samsung" data-name="samsung galaxy s23">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Samsung" />
-        <div class="card-body">
-          <h5 class="card-title">Samsung Galaxy S23</h5>
-          <p class="card-text">Giá: 21.990.000đ</p>
-          <button class="btn btn-primary" onclick="showDetail('Samsung Galaxy S23', '21.990.000đ')">Chi tiết</button>
-          <button class="btn btn-success" onclick="addToCart('Samsung Galaxy S23')">Thêm giỏ hàng</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4 product-card" data-brand="xiaomi" data-name="xiaomi 13t pro">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Xiaomi" />
-        <div class="card-body">
-          <h5 class="card-title">Xiaomi 13T Pro</h5>
-          <p class="card-text">Giá: 14.990.000đ</p>
-          <button class="btn btn-primary" onclick="showDetail('Xiaomi 13T Pro', '14.990.000đ')">Chi tiết</button>
-          <button class="btn btn-success" onclick="addToCart('Xiaomi 13T Pro')">Thêm giỏ hàng</button>
-        </div>
+
+        <!-- Các sản phẩm khác... -->
       </div>
     </div>
   </div>
@@ -224,18 +265,6 @@
   }
 
   updateCartCount(); // Cập nhật khi mở web
-
-  // Hàm để thay đổi banner mỗi 5 giây
-  let currentBanner = 0;
-  const banners = document.querySelectorAll('.banner-img');
-  
-  function changeBanner() {
-    banners[currentBanner].classList.remove('active'); // Ẩn ảnh hiện tại
-    currentBanner = (currentBanner + 1) % banners.length; // Chuyển sang ảnh tiếp theo
-    banners[currentBanner].classList.add('active'); // Hiện ảnh mới
-  }
-
-  setInterval(changeBanner, 5000); // Chuyển banner mỗi 5 giây
 </script>
 
 </body>
