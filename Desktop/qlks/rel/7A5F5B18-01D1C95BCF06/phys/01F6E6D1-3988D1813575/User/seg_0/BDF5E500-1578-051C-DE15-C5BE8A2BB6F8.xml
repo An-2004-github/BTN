@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="SYSTEM" directorySegmentName="seg_0" id="BDF5E500-1578-051C-DE15-C5BE8A2BB6F8">
-<sourceConnName>thinh</sourceConnName>
-<sourceObjName>SYSTEM</sourceObjName>
-<createdBy>Admin</createdBy>
-<createdTime>2024-11-27 09:37:50 UTC</createdTime>
-<ownerDesignName>qlks</ownerDesignName>
-<schemaObject>16E3C9F2-6436-48E7-E8EC-167FEE023C57</schemaObject>
-</UserOraclev10g>
