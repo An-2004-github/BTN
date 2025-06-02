@@ -26,7 +26,7 @@
                                         <a href="#">Samsung</a>
                                         <a href="#">Oppo</a>
                                         <a href="#">Xiaomi</a>
-                                        <a href="#">Huawei</a>
+                                        <a href="#">Realme</a>
                                         <a href="#">Vivo</a>
                                     </div>
                             </div>
@@ -79,67 +79,147 @@
     </header>
 
     <div class="container my-3">
-        <div class="d-flex flex-wrap justify-content-start align-items-center gap-2">
+        <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
             <a href="iphone.html" class="brand-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" />
+                <img src="C:\Thiết kế web cuối kì\BTN\Images\Logo hãng\logo_iphone_ngang_96d4d90b82.jpg" alt="Apple" />
             </a>
             <a href="samsung.html" class="brand-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" />
-            </a>
-            <a href="xiaomi.html" class="brand-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg" alt="Xiaomi" />
+                <img src="C:\Thiết kế web cuối kì\BTN\Images\Logo hãng\logo_samsung_ngang_50f3a6621e.jpg" alt="Samsung" />
             </a>
             <a href="oppo.html" class="brand-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/OPPO_Logo_2019.svg" alt="Oppo" />
+                <img src="C:\Thiết kế web cuối kì\BTN\Images\Logo hãng\logo_oppo_ngang_56d11896a7.jpg" alt="Oppo" />
             </a>
-            <a href="honor.html" class="brand-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Honor_logo.svg" alt="Honor" />
+            <a href="xiaomi.html" class="brand-btn">
+                <img src="C:\Thiết kế web cuối kì\BTN\Images\Logo hãng\logo_xiaomi_ngang_2ebf7d9586.jpg" alt="Xiaomi" />
+            </a>
+            <a href="realme.html" class="brand-btn">
+                <img src="C:\Thiết kế web cuối kì\BTN\Images\Logo hãng\logo_realme_ngang_a94105de5b.jpg" alt="Realme" />
+            </a>
+            <a href="vivo.html" class="brand-btn">
+                <img src="C:\Thiết kế web cuối kì\BTN\Images\Logo hãng\logo_vivo_ngang_2d5d44ee23.jpg" alt="Vivo" />
             </a>
         </div>
     </div>
 
     <!-- Thanh bộ lọc nâng cao -->
-  <div class="container my-3 p-3 bg-light rounded shadow-sm">
-    <form class="row align-items-center g-2">
-      <div class="col-auto">
-        <label for="sortSelect" class="form-label font-weight-bold">Sắp xếp</label>
-        <select class="form-control form-control-sm" id="sortSelect">
-          <option selected>Chọn mục sắp xếp</option>
-          <option>Giá tăng dần</option>
-          <option>Giá giảm dần</option>
-          <option>Nổi bật</option>
-        </select>
-      </div>
-      <div class="col-auto">
-        <label for="configSelect" class="form-label font-weight-bold">Cấu hình</label>
-        <select class="form-control form-control-sm" id="configSelect">
-          <option selected>Chọn cấu hình</option>
-          <option>Cấu hình 1</option>
-          <option>Cấu hình 2</option>
-        </select>
-      </div>
-      <div class="col-auto">
-        <label for="ramSelect" class="form-label font-weight-bold">RAM</label>
-        <select class="form-control form-control-sm" id="ramSelect">
-          <option selected>Chọn số lượng RAM</option>
-          <option>4GB</option>
-          <option>8GB</option>
-        </select>
-      </div>
-      <!-- Thêm các filter khác tương tự như bạn muốn -->
+    <div class="container p-3 bg-light rounded shadow-sm">
+    <form>
+        <!-- Hàng trên: 6 mục -->
+        <div class="form-row mb-2">
+        <div class="form-group col-md-2">
+            <label for="priceSelect">Mức giá</label>
+            <select id="priceSelect" class="form-control form-control-sm">
+            <option>Chọn mức giá</option>
+            <option>Dưới 2 triệu</option>
+            <option>2 - 4 triệu</option>
+            <option>4 - 7 triệu</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="osSelect">Hệ điều hành</label>
+            <select id="osSelect" class="form-control form-control-sm">
+            <option>Chọn hệ điều hành</option>
+            <option>Android</option>
+            <option>iOS</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="romSelect">Dung lượng ROM</label>
+            <select id="romSelect" class="form-control form-control-sm">
+            <option>Chọn dung lượng</option>
+            <option>64GB</option>
+            <option>128GB</option>
+            <option>256GB</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="connectSelect">Kết nối</label>
+            <select id="connectSelect" class="form-control form-control-sm">
+            <option>Chọn kết nối</option>
+            <option>5G</option>
+            <option>4G</option>
+            <option>Wifi</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="performanceSelect">Hiệu năng & Pin</label>
+            <select id="performanceSelect" class="form-control form-control-sm">
+            <option>Chọn hiệu năng & pin</option>
+            <option>Pin cao</option>
+            <option>Hiệu năng mạnh</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="networkSelect">Hỗ trợ mạng</label>
+            <select id="networkSelect" class="form-control form-control-sm">
+            <option>Chọn hỗ trợ mạng</option>
+            <option>SIM 1</option>
+            <option>SIM 2</option>
+            <option>SIM kép</option>
+            </select>
+        </div>
+        </div>
 
-      <div class="col-auto align-self-end">
-        <button type="submit" class="btn btn-warning btn-sm px-4">LỌC</button>
-      </div>
+        <!-- Hàng dưới: 5 mục + nút lọc -->
+        <div class="form-row align-items-end">
+        <div class="form-group col-md-2">
+            <label for="ramSelect">RAM</label>
+            <select id="ramSelect" class="form-control form-control-sm">
+            <option>Chọn RAM</option>
+            <option>4GB</option>
+            <option>6GB</option>
+            <option>8GB</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="memoryCardSelect">Thẻ nhớ</label>
+            <select id="memoryCardSelect" class="form-control form-control-sm">
+            <option>Chọn thẻ nhớ</option>
+            <option>Hỗ trợ</option>
+            <option>Không hỗ trợ</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="screenSelect">Màn hình</label>
+            <select id="screenSelect" class="form-control form-control-sm">
+            <option>Chọn màn hình</option>
+            <option>LCD</option>
+            <option>OLED</option>
+            <option>AMOLED</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="refreshRateSelect">Tần số quét</label>
+            <select id="refreshRateSelect" class="form-control form-control-sm">
+            <option>Chọn tần số quét</option>
+            <option>60Hz</option>
+            <option>90Hz</option>
+            <option>120Hz</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="cameraSelect">Camera</label>
+            <select id="cameraSelect" class="form-control form-control-sm">
+            <option>Chọn camera</option>
+            <option>Đơn</option>
+            <option>Đôi</option>
+            <option>Nhiều camera</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <button type="submit" class="btn btn-warning btn-sm btn-block">LỌC</button>
+        </div>
+        </div>
     </form>
-  </div>
-
-  <!-- Khung danh sách sản phẩm -->
-  <div class="container my-3">
-    <div class="row" id="product-list">
-      <!-- Sản phẩm tạo bằng JS -->
     </div>
-  </div>
+
+
+    <!-- Khung danh sách sản phẩm -->
+    <div class="container my-3">
+        <div class="row" id="product-list">
+        <!-- Sản phẩm tạo bằng JS -->
+        </div>
+    </div>
 
     <style>
         .product-card {
@@ -185,6 +265,14 @@
         background-color: #b22222;
         }
         /*Thanh các nhãn hiệu*/
+        .brand-container {
+        display: flex;
+        justify-content: space-between; /* logo trải đều trên chiều ngang */
+        align-items: center;
+        flex-wrap: wrap; /* nếu quá nhiều logo sẽ xuống dòng */
+        gap: 10px; /* khoảng cách giữa các logo */
+        }
+
         .brand-btn {
         display: inline-block;
         border: 1px solid #ddd;
