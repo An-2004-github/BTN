@@ -260,8 +260,8 @@ body {
         background-color: #b22222;
         }
         .storage-options {
-        justify-content: center; /* Canh giữa và cách đều */
-        gap: 10px; /* Khoảng cách giữa các nút */
+        justify-content: left;
+        gap: 10px; 
         }
         .btn-outline-secondary {
         border-radius: 8px;
@@ -275,6 +275,7 @@ body {
         color: white;
         border-color: #d93025;
         }
+        
 /*Thanh các nhãn hiệu*/
         .brand-container {
         display: flex;

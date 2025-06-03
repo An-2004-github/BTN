@@ -79,7 +79,7 @@
     </header>
 
     <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
@@ -207,99 +207,246 @@
         </div>
     </div>
 
-    <script>
-        const products = [
-        {
-            id: 1,
-            name: "Điện thoại A",
-            image: "https://via.placeholder.com/300x180?text=Điện+thoại+A",
-            installment: "Trả góp 0%",
-            priceOld: 15000000,
-            discountPercent: 10,
-            priceNew: 13500000,
-        },
-        {
-            id: 2,
-            name: "Điện thoại B",
-            image: "https://via.placeholder.com/300x180?text=Điện+thoại+B",
-            installment: "Trả góp 0%",
-            priceOld: 25000000,
-            discountPercent: 15,
-            priceNew: 21250000,
-        },
-        {
-            id: 3,
-            name: "Điện thoại C",
-            image: "https://via.placeholder.com/300x180?text=Điện+thoại+C",
-            installment: "Trả góp 0%",
-            priceOld: 8000000,
-            discountPercent: 5,
-            priceNew: 7600000,
-        },
-        {
-            id: 4,
-            name: "Điện thoại D",
-            image: "https://via.placeholder.com/300x180?text=Điện+thoại+D",
-            installment: "Trả góp 0%",
-            priceOld: 35000000,
-            discountPercent: 20,
-            priceNew: 28000000,
-        },
-        {
-            id: 5,
-            name: "Điện thoại E",
-            image: "https://via.placeholder.com/300x180?text=Điện+thoại+E",
-            installment: "Trả góp 0%",
-            priceOld: 12000000,
-            discountPercent: 0,
-            priceNew: 12000000,
-        },
-        {
-            id: 6,
-            name: "Điện thoại F",
-            image: "https://via.placeholder.com/300x180?text=Điện+thoại+F",
-            installment: "Trả góp 0%",
-            priceOld: 9000000,
-            discountPercent: 12,
-            priceNew: 7920000,
-        },
-        ];
+        <script>
+    const products = [
+    {
+        id: 1,
+        name: "iPhone 16 Pro Max 256GB",
+        image: "../Images/ĐT Iphone/iphone_16_pro_max_desert_titan_3552a28ae0.jpg",
+        installment: "Trả góp 0%",
+        storages: [
+        { capacity: "256GB", priceOld: 34990000, discountPercent: 13 },
+        { capacity: "512GB", priceOld: 40990000, discountPercent: 10 },
+        ],
+    },
+    {
+        id: 2,
+        name: "iPhone 15 Pro Max 256GB",
+        image: "../Images/ĐT Iphone/2023_9_20_638307989548944936_iphone-15-promax-xanh-1.jpg",
+        installment: "Trả góp 0%",
+        storages: [
+        { capacity: "256GB", priceOld: 34990000, discountPercent: 19 },
+        { capacity: "512GB", priceOld: 40990000, discountPercent: 22 },
+        ],
+    },
+    {
+        id: 3,
+        name: "iPhone 14 Pro Max 128GB",
+        image: "../Images/ĐT Iphone/2022_11_30_638054217303176240_ip-14-pro-max-bac-1.jpg",
+        installment: "Trả góp 0%",
+        storages: [
+        { capacity: "128GB", priceOld: 30490000, discountPercent: 20 },
+        { capacity: "256GB", priceOld: 33990000, discountPercent: 16 },
+        ],
+    },
+    {
+        id: 4,
+        name: "iPhone 13 Pro Max 128GB",
+        image: "../Images/ĐT Iphone/2022_3_28_637840956036926900_iphone-13-pro-max-xanhreu-1.jpg",
+        installment: "Trả góp 0%",
+        storages: [
+        { capacity: "128GB", priceOld: 25990000, discountPercent: 15 },
+        ],
+    },
+    {
+        id: 5,
+        name: "iPhone 12 Pro Max 128GB",
+        image: "../Images/ĐT Iphone/4_185_2.jpg",
+        installment: "Trả góp 0%",
+        storages: [
+        { capacity: "128GB", priceOld: 17490000, discountPercent: 16 },
+        { capacity: "256GB", priceOld: 20490000, discountPercent: 10 },
+        ],
+    },
+    {
+        id: 6,
+        name: "iPhone 11 Pro Max 128GB",
+        image: "../Images/ĐT Iphone/iphone-11-pro-max-gold-select-2019_1_1_3_2.jpg",
+        installment: "Trả góp 0%",
+        storages: [
+        { capacity: "128GB", priceOld: 11490000, discountPercent: 5 },
+        ],
+    },
+    ];
 
-        function formatPrice(price) {
-        return price.toLocaleString("vi-VN") + " ₫";
-        }
+    function calcPriceNew(priceOld, discountPercent) {
+    return priceOld * (1 - discountPercent / 100);
+    }
 
-        function displayProducts(list) {
-        const productList = document.getElementById("product-list");
-        productList.innerHTML = "";
-        list.forEach((product) => {
-            const col = document.createElement("div");
-            col.className = "col-md-4 mb-4";
+    function formatPrice(price) {
+    return price.toLocaleString("vi-VN") + " ₫";
+    }
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.visibility = 'visible';
+        toast.style.opacity = '1';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            // Ẩn hoàn toàn sau animation
+            setTimeout(() => {
+            toast.style.visibility = 'hidden';
+        }, 500); // 500ms trùng với transition opacity
+    }, 2000); // Hiển thị trong 2 giây
+    }
+    function displayProducts(list) {
+    const productList = document.getElementById("product-list");
+    productList.innerHTML = "";
 
-            col.innerHTML = `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" />
-                <h5>${product.name}</h5>
-                <p>${product.installment}</p>
-                <div>
-                <span class="price-old">${formatPrice(product.priceOld)}</span>
-                ${
-                    product.discountPercent > 0
-                    ? `<span class="discount">-${product.discountPercent}%</span>`
-                    : ""
-                }
-                </div>
-                <h4>${formatPrice(product.priceNew)}</h4>
-                <button class="add-cart">Thêm vào giỏ hàng</button>
+    list.forEach(product => {
+        const col = document.createElement("div");
+        col.className = "col-md-3 mb-4";
+
+        const defaultStorage = product.storages[0];
+        const priceNew = calcPriceNew(defaultStorage.priceOld, defaultStorage.discountPercent);
+
+        // Tạo 3 nút button cho dung lượng
+        const storageOptions = product.storages.map((storage, idx) => `
+        <button type="button" class="btn btn-outline-secondary ${idx === 0 ? "active" : ""}" data-index="${idx}">
+            ${storage.capacity}
+        </button>
+        `).join("");
+
+        const baseName = product.name.replace(/\s+\d+(GB|TB)$/, '').trim();
+
+        col.innerHTML = `
+        <div class="product-card d-flex flex-column">
+            <img src="${product.image}" alt="${product.name}" />
+            <h5 data-basename="${baseName}">${product.name}</h5>
+            <p>${product.installment}</p>
+            <div>
+                <span class="price-old">${formatPrice(defaultStorage.priceOld)}</span>
+                <span class="discount">-${defaultStorage.discountPercent}%</span>
             </div>
-            `;
+            <h4 id="product-price-${product.id}">${formatPrice(priceNew)}</h4>
 
-            productList.appendChild(col);
+            <div class="storage-options d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Storage options">
+                ${storageOptions}
+            </div>
+
+            <button class="add-cart btn btn-danger mt-auto">Thêm vào giỏ hàng</button>
+        </div>
+        `;
+
+        productList.appendChild(col);
+
+        // Gán sự kiện click cho các nút dung lượng
+        const btnGroup = col.querySelector("div[role='group']");
+        btnGroup.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", e => {
+            const idx = parseInt(e.target.dataset.index);
+            const storage = product.storages[idx];
+            const newPrice = calcPriceNew(storage.priceOld, storage.discountPercent);
+
+            const priceOldElem = col.querySelector(".price-old");
+            const discountElem = col.querySelector(".discount");
+            const priceNewElem = document.getElementById(`product-price-${product.id}`);
+
+            priceOldElem.textContent = formatPrice(storage.priceOld);
+            discountElem.textContent = `-${storage.discountPercent}%`;
+            priceNewElem.textContent = formatPrice(newPrice);
+
+            const nameElem = col.querySelector('h5');
+            const baseName = nameElem.getAttribute('data-basename');
+            nameElem.textContent = `${baseName} ${storage.capacity}`;
+
+            btnGroup.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+            e.target.classList.add("active");
         });
+        });
+        // Gán sự kiện click cho nút thêm vào giỏ hàng ngay sau khi tạo DOM
+        const addCartBtn = col.querySelector('.add-cart');
+        addCartBtn.addEventListener('click', () => {
+        showToast('Thêm vào giỏ hàng thành công!');
+        });
+    });
+    }
+    
+    // Lấy thẻ form lọc
+    const filterForm = document.querySelector('form');
+
+    // Bắt sự kiện submit form (hoặc click nút)
+    filterForm.addEventListener('submit', e => {
+    e.preventDefault(); // ngăn submit reload trang
+
+    // Lấy giá trị từng select
+    const priceValue = document.getElementById('priceSelect').value;
+    const osValue = document.getElementById('osSelect').value;
+    const romValue = document.getElementById('romSelect').value;
+    const connectValue = document.getElementById('connectSelect').value;
+    const performanceValue = document.getElementById('performanceSelect').value;
+    const networkValue = document.getElementById('networkSelect').value;
+    const ramValue = document.getElementById('ramSelect').value;
+    const memoryCardValue = document.getElementById('memoryCardSelect').value;
+    const screenValue = document.getElementById('screenSelect').value;
+    const refreshRateValue = document.getElementById('refreshRateSelect').value;
+    const cameraValue = document.getElementById('cameraSelect').value;
+
+    // Lọc mảng products theo các điều kiện chọn
+    let filtered = products.filter(product => {
+        // Ví dụ lọc mức giá
+        let priceOk = true;
+        const minPrice = 0;
+        const maxPrice = Infinity;
+        
+        // Lấy giá mới của default storage làm đại diện giá sản phẩm
+        const priceNew = calcPriceNew(product.storages[0].priceOld, product.storages[0].discountPercent);
+
+        if (priceValue === 'Dưới 2 triệu') {
+        priceOk = priceNew < 2000000;
+        } else if (priceValue === '2 - 4 triệu') {
+        priceOk = priceNew >= 2000000 && priceNew <= 4000000;
+        } else if (priceValue === '4 - 7 triệu') {
+        priceOk = priceNew > 4000000 && priceNew <= 7000000;
         }
 
-        displayProducts(products);
+        // Ví dụ lọc hệ điều hành: ở đây bạn cần có thông tin hệ điều hành trong product
+        let osOk = true;
+        if (osValue !== 'Chọn hệ điều hành' && osValue !== '') {
+        // Giả sử product có trường os, nếu không có thì bỏ điều kiện này hoặc xử lý khác
+        if (!product.os) return false; // nếu không có os thì không lọc đc, loại luôn
+        osOk = product.os === osValue;
+        }
+
+        // Tương tự bạn làm các điều kiện khác ở đây
+
+        // Lọc dung lượng ROM: kiểm tra nếu romValue khác mặc định thì lọc
+        let romOk = true;
+        if (romValue !== 'Chọn dung lượng' && romValue !== '') {
+        romOk = product.storages.some(storage => storage.capacity === romValue);
+        }
+
+        // Các điều kiện khác bạn thêm vào tương tự
+
+        // Kết hợp tất cả điều kiện
+        return priceOk && osOk && romOk;
+    });
+
+    // Hiển thị lại sản phẩm đã lọc
+    displayProducts(filtered);
+    });
+
+    displayProducts(products);
     </script>
+    <div id="toast" style="
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #ccb8b8;
+        color: #201a1a;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;             
+        transform: translate(-50%, -50%); 
+        font-size: 17px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        ">
+    </div>
 
 </body>
 </html>
