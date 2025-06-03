@@ -6,6 +6,8 @@
     <title>Chua Dat Ten</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header class="header">
@@ -74,5 +76,171 @@
             </div>
         </div>
     </header>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="container my-3">
+        <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
+            <a href="../Trang PC của hãng\asus.html" class="brand-btn">
+                <img src="../images/Logo/logo asus.jpg" alt="Asus" />
+            </a>
+            <a href="../Trang PC của hãng\epower.html" class="brand-btn">
+                <img src="../images/Logo/logo epower.jpg" alt="E-power" />
+            </a>
+            <a href="../Trang PC của hãng/apple.html" class="brand-btn">
+                <img src="../images/Logo/apple logo.png" alt="Apple" />
+            </a>
+            <a href="../Trang PC của hãng/lenovo.html" class="brand-btn">
+                <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
+            </a>
+            <a href="../Trang PC của hãng/hp.html" class="brand-btn">
+                <img src="../images/Logo/HP  logo.png" alt="Hp" />
+            </a>
+            <a href="../Trang PC của hãng/intel.html" class="brand-btn">
+                <img src="../images/Logo/Intel.png" alt="Intel" />
+            </a>
+        </div>
+    </div>
+     <!-- Thanh bộ lọc nâng cao -->
+    <div class="container p-3 bg-light rounded shadow-sm">
+    <form>
+        <!-- Hàng trên: 6 mục -->
+        <div class="form-row mb-2">
+        <div class="form-group col-md-2">
+            <label for="priceSelect">Mức giá</label>
+            <select id="priceSelect" class="form-control form-control-sm">
+            <option>Chọn mức giá</option>
+            <option>Dưới 10 triệu</option>
+            <option>10 - 20 triệu</option>
+            <option>20 - 30 triệu</option>
+            <option>30 - 40 triệu</option>
+            <option>Trên 40 triệu</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="osSelect">Nhu cầu</label>
+            <select id="osSelect" class="form-control form-control-sm">
+            <option>Nhu cầu</option>
+            <option>PC Gaming</option>
+            <option>PC Văn phòng</option>
+            <option>PC Đồ họa</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="romSelect">Chọn CPU</label>
+            <select id="romSelect" class="form-control form-control-sm">
+            <option>Chọn CPU</option>
+            <option>Apple M3</option>
+            <option>Intel Core i5</option>
+            <option>Intel Core i3</option>
+            <option>AMD Ryzen 7</option>
+            <option>AMD Ryzen 5</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="connectSelect">RAM</label>
+            <select id="connectSelect" class="form-control form-control-sm">
+            <option>RAM</option>
+            <option>32Gb</option>
+            <option>16Gb</option>
+            <option>8Gb</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="performanceSelect">Card đồ họa</label>
+            <select id="performanceSelect" class="form-control form-control-sm">
+            <option>Card đồ họa</option>
+            <option>NVIDIA Geforce Series</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="networkSelect">Ổ cứng</label>
+            <select id="networkSelect" class="form-control form-control-sm">
+            <option>Ổ cứng</option>
+            <option>SSD 240 GB</option>
+            <option>SSD 256 GB</option>
+            <option>SSD 512 GB</option>
+            </select>
+        </div>
+        </div>
+        <div class="form-group col-md-2">
+            <button type="submit" class="btn btn-warning btn-sm btn-block">LỌC</button>
+        </div>
+        </div>
+    </form>
+    </div>
+    <!-- Khung danh sách sản phẩm -->
+    <div class="container my-3">
+        <div class="row" id="product-list">
+        <!-- Sản phẩm tạo bằng JS -->
+        </div>
+    </div>
+     <script>
+        const products = [
+        {
+             id: 1,
+            name: "Lenovo IdeaCentre AIO 3 24ITL6",
+            image: "../images/Logo/lenovo image/Lenovo IdeaCentre AIO 3 24ITL6.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 15190000,
+            discountPercent: 16,
+            priceNew: 12756000,
+        },
+        {
+            id: 2,
+            name: "Lenovo IdeaCentre AIO",
+            image: "../images/Logo/lenovo image/Lenovo IdeaCentre AIO.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 18790000,
+            discountPercent: 15,
+            priceNew: 15971500,
+        },
+        {
+            id: 3,
+            name: "Lenovo IdeaCentre AIO - 24IRH9 i5 13420",
+            image: "../images/Logo/lenovo image/Lenovo IdeaCentre AIO - 24IRH9 i5 13420.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 19390000,
+            discountPercent: 15,
+            priceNew: 16481500,
+        },
+        ];
+
+        function formatPrice(price) {
+        return price.toLocaleString("vi-VN") + " ₫";
+        }
+
+        function displayProducts(list) {
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = "";
+        list.forEach((product) => {
+            const col = document.createElement("div");
+            col.className = "col-md-3 mb-4";
+
+            col.innerHTML = `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}" />
+                <h5>${product.name}</h5>
+                <p>${product.installment}</p>
+                <div>
+                <span class="price-old">${formatPrice(product.priceOld)}</span>
+                ${
+                    product.discountPercent > 0
+                    ? `<span class="discount">-${product.discountPercent}%</span>`
+                    : ""
+                }
+                </div>
+                <h4>${formatPrice(product.priceNew)}</h4>
+                <button class="add-cart">Thêm vào giỏ hàng</button>
+            </div>
+            `;
+
+            productList.appendChild(col);
+        });
+        }
+
+        displayProducts(products);
+    </script>
 </body>
 </html>
