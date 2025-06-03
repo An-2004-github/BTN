@@ -82,10 +82,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="Trang PC của hãng\asus.html" class="brand-btn">
+            <a href="Trang PC của hãng/asus.html" class="brand-btn">
                 <img src="images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="Trang PC của hãng\epower.html" class="brand-btn">
+            <a href="Trang PC của hãng/epower.html" class="brand-btn">
                 <img src="images/Logo/logo epower.jpg" alt="E-power" />
             </a>
             <a href="Trang PC của hãng/apple.html" class="brand-btn">
@@ -186,6 +186,8 @@
             priceOld: 8940000,
             discountPercent: 22,
             priceNew: 6990000,
+            os: "PC Văn phòng",  // Nhu cầu
+            cpu: "AMD Ryzen 5",   // CPU
         },
         {
             id: 2,
@@ -195,6 +197,8 @@
             priceOld: 9999000,
             discountPercent: 14,
             priceNew: 8590000,
+            os: "PC Văn phòng",  // Nhu cầu
+            cpu: "Intel Core i3", // CPU
         },
         {
             id: 3,
@@ -204,6 +208,8 @@
             priceOld: 14990000,
             discountPercent: 5,
             priceNew: 14240500,
+            os: "PC Đồ họa",  // Nhu cầu
+            cpu: "Apple M3" ,  // CPU
         },
         {
             id: 4,
@@ -213,6 +219,8 @@
             priceOld: 27890000,
             discountPercent: 10,
             priceNew: 25101000,
+            os: "PC Gaming",
+            cpu: "AMD Ryzen 5",
         },
         {
             id: 5,
@@ -222,6 +230,8 @@
             priceOld: 18940000,
             discountPercent: 8,
             priceNew: 17400000,
+            os: "PC Gaming",
+            cpu: "Intel Core i5",
         },
         {
             id: 6,
@@ -231,6 +241,8 @@
             priceOld: 18400000,
             discountPercent: 16,
             priceNew: 15456000,
+            os: "PC Văn phòng",
+            cpu: "Intel Core i5",
         },
         {
             id: 7,
@@ -240,6 +252,8 @@
             priceOld: 15190000,
             discountPercent: 16,
             priceNew: 12756000,
+            os: "PC Văn phòng",
+            cpu: "Intel Core i5",
         },
         {
             id: 8,
@@ -249,6 +263,8 @@
             priceOld: 17990000,
             discountPercent: 7,
             priceNew: 16700000,
+            os: "PC Gaming",
+            cpu: "Intel Core i5",
         },
         {
             id: 9,
@@ -258,6 +274,8 @@
             priceOld: 13390000,
             discountPercent: 10,
             priceNew: 12051000,
+            os: "PC Gaming",
+            cpu: "AMD Ryzen 5",
         },
         {
             id: 10,
@@ -267,6 +285,8 @@
             priceOld: 18790000,
             discountPercent: 15,
             priceNew: 15971500,
+             os: "PC Văn phòng",
+            cpu: "Intel Core i5",
         },
         {
             id: 11,
@@ -276,6 +296,8 @@
             priceOld: 39990000,
             discountPercent: 1,
             priceNew: 39600000,
+            os: "PC Đồ họa",
+            cpu: "Apple M3",
         },
         {
             id: 12,
@@ -285,6 +307,8 @@
             priceOld: 19390000,
             discountPercent: 15,
             priceNew: 16481500,
+            os: "PC Văn phòng",
+            cpu: "Intel Core i5",
         },
          {
             id: 13,
@@ -294,6 +318,8 @@
             priceOld: 3990000,
             discountPercent: 15,
             priceNew: 3390000,
+            os: "PC Đồ họa",
+            cpu: "Intel Core i5",
         },
         {
             id: 14,
@@ -303,6 +329,8 @@
             priceOld: 24990000,
             discountPercent: 9,
             priceNew: 23490000,
+            os: "PC Đồ họa",
+            cpu: "Intel Core i7",
         },
         {
             id: 15,
@@ -312,6 +340,8 @@
             priceOld: 12990000,
             discountPercent: 10,
             priceNew: 11691000,
+            os: "PC Văn phòng",
+            cpu: "Intel Core i3",
         },
         {
             id: 16,
@@ -321,6 +351,8 @@
             priceOld: 4100000,
             discountPercent: 5,
             priceNew: 2890000,
+            os: "PC Văn phòng",
+            cpu: "Intel Core i5",
         },
         {
             id: 17,
@@ -330,6 +362,8 @@
             priceOld: 4390000,
             discountPercent: 5,
             priceNew: 3290000,
+            os: "PC Gaming",
+            cpu: "Intel Core i3",
         },
         { 
             id: 18,
@@ -339,7 +373,10 @@
             priceOld: 17990000,
             discountPercent: 7,
             priceNew: 13990000,
+            os: "PC Gaming",
+            cpu: "Intel Core i9",
         },
+        
 
         ];
 
@@ -369,42 +406,56 @@
             });
         }
 
-        // Hàm lọc sản phẩm theo mức giá
-        function handleFilter() {
-            const priceSelect = document.getElementById("priceSelect").value;
-            let minPrice = 0;
-            let maxPrice = Infinity;
+        //  Hàm lọc
+function handleFilter() {
+    const priceSelect = document.getElementById("priceSelect").value;
+    const osSelect = document.getElementById("osSelect").value;
+    const romSelect = document.getElementById("romSelect").value;
 
-            // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
-            switch (priceSelect) {
-                case "Dưới 10 triệu":
-                    maxPrice = 10000000;
-                    break;
-                case "10 - 20 triệu":
-                    minPrice = 10000000;
-                    maxPrice = 20000000;
-                    break;
-                case "20 - 30 triệu":
-                    minPrice = 20000000;
-                    maxPrice = 30000000;
-                    break;
-                case "30 - 40 triệu":
-                    minPrice = 30000000;
-                    maxPrice = 40000000;
-                    break;
-                case "Trên 40 triệu":
-                    minPrice = 40000000;
-                    break;
-            }
+    let minPrice = 0;
+    let maxPrice = Infinity;
 
-            const filteredProducts = filterByPrice(minPrice, maxPrice);
-            displayProducts(filteredProducts);
-        }
+    // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
+    switch (priceSelect) {
+        case "Dưới 10 triệu":
+            maxPrice = 10000000;
+            break;
+        case "10 - 20 triệu":
+            minPrice = 10000000;
+            maxPrice = 20000000;
+            break;
+        case "20 - 30 triệu":
+            minPrice = 20000000;
+            maxPrice = 30000000;
+            break;
+        case "30 - 40 triệu":
+            minPrice = 30000000;
+            maxPrice = 40000000;
+            break;
+        case "Trên 40 triệu":
+            minPrice = 40000000;
+            break;
+    }
 
-        // Hàm lọc sản phẩm theo giá
-        function filterByPrice(minPrice, maxPrice) {
-            return products.filter(product => product.priceNew >= minPrice && product.priceNew <= maxPrice);
-        }
+    const filteredProducts = filterByPrice(minPrice, maxPrice, osSelect, romSelect);
+    displayProducts(filteredProducts);
+}
+
+// Hàm lọc sản phẩm theo giá, nhu cầu và CPU
+function filterByPrice(minPrice, maxPrice, osSelect, romSelect) {
+    return products.filter(product => {
+        // Lọc theo giá
+        const priceFilter = product.priceNew >= minPrice && product.priceNew <= maxPrice;
+
+        // Lọc theo Nhu cầu
+        const osFilter = osSelect === "Chọn nhu cầu" || product.os === osSelect;
+
+        // Lọc theo CPU
+        const cpuFilter = romSelect === "Chọn CPU" || product.cpu === romSelect;
+
+        return priceFilter && osFilter && cpuFilter;
+    });
+}
 
         // Lắng nghe sự kiện khi người dùng nhấn nút Lọc
         document.getElementById("filterBtn").addEventListener("click", handleFilter);
