@@ -102,10 +102,10 @@
             </a>
         </div>
     </div>
-     <!-- Thanh bộ lọc nâng cao -->
+     <!-- Thanh bộ lọc  -->
     <div class="container p-3 bg-light rounded shadow-sm">
     <form>
-        <!-- Hàng trên: 6 mục -->
+        <!-- Bôj lọc -->
         <div class="form-row mb-2">
         <div class="form-group col-md-2">
             <label for="priceSelect">Mức giá</label>
@@ -165,7 +165,7 @@
         </div>
         </div>
         <div class="form-group col-md-2">
-            <button type="submit" class="btn btn-warning btn-sm btn-block">LỌC</button>
+            <button type="button" id="filterBtn" class="btn btn-warning btn-sm btn-block">LỌC</button>
         </div>
         </div>
     </form>
@@ -344,39 +344,75 @@
         ];
 
         function formatPrice(price) {
-        return price.toLocaleString("vi-VN") + " ₫";
+            return price.toLocaleString("vi-VN") + " ₫";
         }
 
         function displayProducts(list) {
-        const productList = document.getElementById("product-list");
-        productList.innerHTML = "";
-        list.forEach((product) => {
-            const col = document.createElement("div");
-            col.className = "col-md-3 mb-4";
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = ""; // Clear current product list
 
-            col.innerHTML = `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" />
-                <h5>${product.name}</h5>
-                <p>${product.installment}</p>
-                <div>
-                <span class="price-old">${formatPrice(product.priceOld)}</span>
-                ${
-                    product.discountPercent > 0
-                    ? `<span class="discount">-${product.discountPercent}%</span>`
-                    : ""
-                }
-                </div>
-                <h4>${formatPrice(product.priceNew)}</h4>
-                <button class="add-cart">Thêm vào giỏ hàng</button>
-            </div>
-            `;
-
-            productList.appendChild(col);
-        });
+            list.forEach(product => {
+                const col = document.createElement("div");
+                col.className = "col-md-3 mb-4";
+                col.innerHTML = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}" />
+                        <h5>${product.name}</h5>
+                        <div>
+                            <span class="price-old">${formatPrice(product.priceOld)}</span>
+                            <span class="price-new">${formatPrice(product.priceNew)}</span>
+                        </div>
+                        <button class="add-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                `;
+                productList.appendChild(col);
+            });
         }
 
-        displayProducts(products);
+        // Hàm lọc sản phẩm theo mức giá
+        function handleFilter() {
+            const priceSelect = document.getElementById("priceSelect").value;
+            let minPrice = 0;
+            let maxPrice = Infinity;
+
+            // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
+            switch (priceSelect) {
+                case "Dưới 10 triệu":
+                    maxPrice = 10000000;
+                    break;
+                case "10 - 20 triệu":
+                    minPrice = 10000000;
+                    maxPrice = 20000000;
+                    break;
+                case "20 - 30 triệu":
+                    minPrice = 20000000;
+                    maxPrice = 30000000;
+                    break;
+                case "30 - 40 triệu":
+                    minPrice = 30000000;
+                    maxPrice = 40000000;
+                    break;
+                case "Trên 40 triệu":
+                    minPrice = 40000000;
+                    break;
+            }
+
+            const filteredProducts = filterByPrice(minPrice, maxPrice);
+            displayProducts(filteredProducts);
+        }
+
+        // Hàm lọc sản phẩm theo giá
+        function filterByPrice(minPrice, maxPrice) {
+            return products.filter(product => product.priceNew >= minPrice && product.priceNew <= maxPrice);
+        }
+
+        // Lắng nghe sự kiện khi người dùng nhấn nút Lọc
+        document.getElementById("filterBtn").addEventListener("click", handleFilter);
+
+        // Hiển thị tất cả sản phẩm khi trang được tải lần đầu
+        window.onload = function() {
+            displayProducts(products);
+        };
     </script>
 
 </body>
