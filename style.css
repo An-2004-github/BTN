@@ -259,7 +259,22 @@ body {
         button.add-cart:hover {
         background-color: #b22222;
         }
-        
+        .storage-options {
+        justify-content: center; /* Canh giữa và cách đều */
+        gap: 10px; /* Khoảng cách giữa các nút */
+        }
+        .btn-outline-secondary {
+        border-radius: 8px;
+        padding: 6px 14px;
+        transition: background-color 0.3s ease;
+        }
+
+        .btn-outline-secondary.active,
+        .btn-outline-secondary:hover {
+        background-color: #d93025;
+        color: white;
+        border-color: #d93025;
+        }
 /*Thanh các nhãn hiệu*/
         .brand-container {
         display: flex;
