@@ -463,3 +463,54 @@ body {
     margin-left: 10px;
     color: #ffc107;
 }
+
+
+
+/* Khung sản phẩm */
+.product-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease-in-out; /* Hiệu ứng cho toàn bộ khung */
+    overflow: hidden; /* Ẩn các phần tử tràn ra ngoài khung */
+}
+
+/* Khi hover vào khung sản phẩm */
+.product-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ khi hover */
+    transform: scale(1.05); /* Phóng to khi hover */
+}
+
+/* Ảnh sản phẩm */
+.product-card img {
+    transition: transform 0.3s ease;
+}
+
+/* Khi hover vào ảnh sản phẩm, ảnh sẽ phóng to */
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Button "Thêm vào giỏ hàng" */
+.add-cart {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Khi hover vào button "Thêm vào giỏ hàng" */
+.product-card:hover .add-cart {
+    background-color: #ff6f61; /* Màu nền thay đổi khi hover */
+    transform: scale(1.1); /* Phóng to button khi hover */
+}
+
+/* Đảm bảo button có màu nền mặc định */
+.add-cart {
+    background-color: #ff4500; /* Màu nền ban đầu */
+    color: white; /* Màu chữ */
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng khi hover */
+}
+
