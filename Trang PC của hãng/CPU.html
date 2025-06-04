@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chua Dat Ten</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-row">
+            <img src="" alt="Logo" class="logo">
+            <div class="center-group">
+                <a href="#" class="menu-link">Giới thiệu</a>
+                    <div class="dropdown">
+                        <button class="menu-btn"><i class="fas fa-bars"></i> Danh mục</button>
+                            <div class="dropdown-content">
+                            <div class="submenu">
+                                <a href="#">Điện thoại</a>
+                                     <div class="submenu-content">
+                                        <a href="#">Apple</a>
+                                        <a href="#">Samsung</a>
+                                        <a href="#">Oppo</a>
+                                        <a href="#">Xiaomi</a>
+                                        <a href="#">Huawei</a>
+                                        <a href="#">Vivo</a>
+                                    </div>
+                            </div>
+
+                            <div class="submenu">
+                                <a href="#">Máy tính</a>
+                                <div class="submenu-content">
+                                    <a href="#">Apple</a>
+                                    <a href="#">Lenovo</a>
+                                    <a href="#">ASUS</a>
+                                    <a href="#">Acer</a>
+                                    <a href="#">HP</a>
+                                    <a href="#">Dell</a>
+                                </div>
+                            </div>
+
+                            <div class="submenu">
+                                <a href="#">PC</a>
+                                <div class="submenu-content">
+                                    <a href="#">CPU</a>
+                                    <a href="#">Mainboard</a>
+                                    <a href="#">VGA</a>
+                                    <a href="#">RAM</a>
+                                    <a href="#">Vỏ PC</a>
+                                    <a href="#">Thiết bị lưu trữ</a>
+                                </div>
+                            </div>
+
+                            <div class="submenu">
+                                <a href="#">Phụ kiện</a>
+                                <div class="submenu-content">
+                                    <a href="#">Chuột</a>
+                                    <a href="#">Bàn phím</a>
+                                    <a href="#">Tai nghe</a>
+                                    <a href="#">Webcam</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <div class="user-cart">
+                <button class="icon-btn"><i class="fas fa-user"></i></button>
+                <button class="cart-btn"><i class="fas fa-shopping-cart"></i> Giỏ hàng</button>
+            </div>
+        </div>
+    </header>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="container my-3">
+        <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
+            <a href="Trang PC của hãng/asus.html" class="brand-btn">
+                <img src="../images/Logo/logo asus.jpg" alt="Asus" />
+            </a>
+            <a href="Trang PC của hãng/epower.html" class="brand-btn">
+                <img src="../images/Logo/logo epower.jpg" alt="E-power" />
+            </a>
+            <a href="Trang PC của hãng/apple.html" class="brand-btn">
+                <img src="../images/Logo/apple logo.png" alt="Apple" />
+            </a>
+            <a href="Trang PC của hãng/lenovo.html" class="brand-btn">
+                <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
+            </a>
+            <a href="Trang PC của hãng/hp.html" class="brand-btn">
+                <img src="../images/Logo/HP  logo.png" alt="Hp" />
+            </a>
+            <a href="Trang PC của hãng/intel.html" class="brand-btn">
+                <img src="../images/Logo/Intel.png" alt="Intel" />
+            </a>
+        </div>
+    </div>
+     <!-- Thanh bộ lọc  -->
+    <div class="container p-3 bg-light rounded shadow-sm">
+    <form>
+        <!-- Bô lọc -->
+        <div class="form-row mb-2">
+        <div class="form-group col-md-2">
+            <label for="priceSelect">Mức giá</label>
+            <select id="priceSelect" class="form-control form-control-sm">
+            <option>Chọn mức giá</option>
+            <option>Dưới 10 triệu</option>
+            <option>10 - 20 triệu</option>
+            <option>20 - 30 triệu</option>
+            <option>30 - 40 triệu</option>
+            <option>Trên 40 triệu</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="osSelect">Nhu cầu</label>
+            <select id="osSelect" class="form-control form-control-sm">
+            <option>Nhu cầu</option>
+            <option>PC Gaming</option>
+            <option>PC Văn phòng</option>
+            <option>PC Đồ họa</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="romSelect">Chọn CPU</label>
+            <select id="romSelect" class="form-control form-control-sm">
+            <option>Chọn CPU</option>
+            <option>Apple M3</option>
+            <option>Intel Core i5</option>
+            <option>Intel Core i3</option>
+            <option>AMD Ryzen 7</option>
+            <option>AMD Ryzen 5</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="connectSelect">RAM</label>
+            <select id="connectSelect" class="form-control form-control-sm">
+            <option>RAM</option>
+            <option>32Gb</option>
+            <option>16Gb</option>
+            <option>8Gb</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="performanceSelect">Card đồ họa</label>
+            <select id="performanceSelect" class="form-control form-control-sm">
+            <option>Card đồ họa</option>
+            <option>NVIDIA Geforce Series</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="networkSelect">Ổ cứng</label>
+            <select id="networkSelect" class="form-control form-control-sm">
+            <option>Ổ cứng</option>
+            <option>SSD 240 GB</option>
+            <option>SSD 256 GB</option>
+            <option>SSD 512 GB</option>
+            </select>
+        </div>
+        </div>
+         <div class="form-group col-md-2">
+            <button type="button" id="filterBtn" class="btn btn-warning btn-sm btn-block">LỌC</button>
+        </div>
+        </div>
+    </form>
+    </div>
+    <!-- Khung danh sách sản phẩm -->
+    <div class="container my-3">
+        <div class="row" id="product-list">
+        <!-- Sản phẩm tạo bằng JS -->
+        </div>
+    </div>
+     <script>
+        const products = [
+            {
+            id: 16,
+            name: "intel core i5",
+            image: "../images/Logo/intel image/intel core i5.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 4100000,
+            discountPercent: 5,
+            priceNew: 2890000,
+            os: "PC Văn phòng",
+            cpu: "Intel Core i5",
+        },
+        {
+            id: 17,
+            name: "intel core i3",
+            image: "../images/Logo/intel image/intel core i3.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 4390000,
+            discountPercent: 5,
+            priceNew: 3290000,
+            os: "PC Gaming",
+            cpu: "Intel Core i3",
+        },
+        { 
+            id: 18,
+            name: "CPU Intel Core i9 14900K",
+            image: "../images/Logo/intel image/CPU Intel Core i9 14900K.png",
+            installment: "Trả góp 0%",
+            priceOld: 17990000,
+            discountPercent: 7,
+            priceNew: 13990000,
+            os: "PC Gaming",
+            cpu: "Intel Core i9",
+        },
+        ];
+
+        function formatPrice(price) {
+            return price.toLocaleString("vi-VN") + " ₫";
+        }
+
+        function displayProducts(list) {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = ""; // Clear current product list
+
+            list.forEach(product => {
+                const col = document.createElement("div");
+                col.className = "col-md-3 mb-4";
+                col.innerHTML = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}" />
+                        <h5>${product.name}</h5>
+                        <div>
+                            <span class="price-old">${formatPrice(product.priceOld)}</span>
+                            ${
+                        product.discountPercent > 0
+                        ? `<span class="discount">-${product.discountPercent}%</span>`
+                        : ""
+                        } </div>
+                        <h4>    <span class="price-new">${formatPrice(product.priceNew)}</span></h4>
+                            
+                        
+                        <button class="add-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                `;
+                productList.appendChild(col);
+            });
+        }
+
+    //  Hàm lọc
+    function handleFilter() {
+    const priceSelect = document.getElementById("priceSelect").value;
+    const osSelect = document.getElementById("osSelect").value;
+    const romSelect = document.getElementById("romSelect").value;
+
+    let minPrice = 0;
+    let maxPrice = Infinity;
+
+    // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
+    switch (priceSelect) {
+        case "Dưới 10 triệu":
+            maxPrice = 10000000;
+            break;
+        case "10 - 20 triệu":
+            minPrice = 10000000;
+            maxPrice = 20000000;
+            break;
+        case "20 - 30 triệu":
+            minPrice = 20000000;
+            maxPrice = 30000000;
+            break;
+        case "30 - 40 triệu":
+            minPrice = 30000000;
+            maxPrice = 40000000;
+            break;
+        case "Trên 40 triệu":
+            minPrice = 40000000;
+            break;
+    }
+
+    const filteredProducts = filterByPrice(minPrice, maxPrice, osSelect, romSelect);
+    displayProducts(filteredProducts);
+}
+
+// Hàm lọc sản phẩm theo giá, nhu cầu và CPU
+function filterByPrice(minPrice, maxPrice, osSelect, romSelect) {
+    return products.filter(product => {
+        // Lọc theo giá
+        const priceFilter = product.priceNew >= minPrice && product.priceNew <= maxPrice;
+
+        // Lọc theo Nhu cầu
+        const osFilter = osSelect === "Chọn nhu cầu" || product.os === osSelect;
+
+        // Lọc theo CPU
+        const cpuFilter = romSelect === "Chọn CPU" || product.cpu === romSelect;
+
+        return priceFilter && osFilter && cpuFilter;
+    });
+}
+
+        // Lắng nghe sự kiện khi người dùng nhấn nút Lọc
+        document.getElementById("filterBtn").addEventListener("click", handleFilter);
+
+        // Hiển thị tất cả sản phẩm khi trang được tải lần đầu
+        window.onload = function() {
+            displayProducts(products);
+        };
+    </script>
+
+</body>
+</html>
