@@ -72,14 +72,19 @@ body {
     padding: 10px 15px;
     border: none;
     background-color: transparent;
-    color: white;
+    color: rgb(255, 255, 255);
+}
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
 }
 
 .search-bar button {
     padding: 10px 15px;
     border: none;
     background-color: transparent;
-    color: white;
+    color: #000000;
     cursor: pointer;
 }
 
@@ -469,6 +474,22 @@ body {
     margin-left: 10px;
     color: #ffc107;
 }
+.breadcrumb {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #ccc;
+  padding-left: 60px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #2f80ed;
+  font-weight: bold;
+}
+
+.breadcrumb span {
+  color: #e0e0e0;
+}
 
 
 
@@ -509,14 +530,77 @@ body {
     transform: scale(1.1); /* Phóng to button khi hover */
 }
 
-/* Đảm bảo button có màu nền mặc định */
-.add-cart {
-    background-color: #ff4500; /* Màu nền ban đầu */
-    color: white; /* Màu chữ */
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng khi hover */
+
+
+/* Lưu ý đây đang là chỗ chỉnh sửa trang chi tiết sản phẩm*/
+/* Khung thông tin sản phẩm */
+.product-info {
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.product-info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.price-new {
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+}
+
+.product-specs p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Các nút */
+.product-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-buy-now {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-add-cart {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-installment {
+    background-color: #2196f3;
+    color: white;
+}
+
+/* Khung thông số kỹ thuật và chi tiết sản phẩm */
+.table td, .table th {
+    padding: 10px;
+}
+
+.product-buttons {
+    margin-top: 20px;
+}
+
+.container .row {
+    margin-top: 20px;
+}
+
+.col-md-6 {
+    padding: 20px;
+}
