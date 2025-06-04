@@ -72,14 +72,19 @@ body {
     padding: 10px 15px;
     border: none;
     background-color: transparent;
-    color: white;
+    color: rgb(255, 255, 255);
+}
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
 }
 
 .search-bar button {
     padding: 10px 15px;
     border: none;
     background-color: transparent;
-    color: white;
+    color: #000000;
     cursor: pointer;
 }
 
@@ -468,6 +473,22 @@ body {
 .fa-cart-shopping {
     margin-left: 10px;
     color: #ffc107;
+}
+.breadcrumb {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #ccc;
+  padding-left: 60px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #2f80ed;
+  font-weight: bold;
+}
+
+.breadcrumb span {
+  color: #e0e0e0;
 }
 
 
