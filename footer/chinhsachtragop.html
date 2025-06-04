@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chính sách bảo mật - LapVerse</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div id="header"></div>
+<main>
+    <nav class="breadcrumb">
+        <a href="../index.html">Trang chủ</a> / <span>Chính sách trả góp</span>
+    </nav>
+    <div class="content-container">
+        <h1 class="title">CHÍNH SÁCH TRẢ GÓP</h1>
+            <h3>1. HÌNH THỨC TRẢ GÓP</h3>
+            <ul>
+                <li>Hỗ trợ trả góp qua thẻ tín dụng (Visa, MasterCard) từ các ngân hàng liên kết.</li>
+                <li>Trả góp qua công ty tài chính (Home Credit, FE Credit, Mcredit...): thủ tục nhanh chóng, duyệt hồ sơ tại cửa hàng hoặc online.</li>
+                <li>Trả góp qua ứng dụng ví điện tử (ZaloPay, MoMo, Kredivo... nếu có hỗ trợ).</li>
+            </ul>
+
+            <h3>2. ĐIỀU KIỆN THAM GIA TRẢ GÓP</h3>
+            <ul>
+                <li>Khách hàng từ 18 tuổi trở lên, có đầy đủ CMND/CCCD và sổ hộ khẩu (hoặc giấy phép lái xe).</li>
+                <li>Đối với trả góp qua thẻ tín dụng: thẻ phải còn hạn, hạn mức đủ và do ngân hàng hỗ trợ trả góp.</li>
+                <li>Khoản vay từ 3 đến 36 tháng tùy theo đơn vị tài chính và sản phẩm.</li>
+            </ul>
+
+            <h3>3. LÃI SUẤT VÀ PHÍ</h3>
+            <ul>
+                <li>Trả góp qua thẻ tín dụng: hỗ trợ 0% lãi suất nếu tham gia trong thời gian ưu đãi và theo ngân hàng quy định.</li>
+                <li>Trả góp qua công ty tài chính: lãi suất dao động từ 1.5% - 3.5%/tháng tùy vào hồ sơ và thời hạn vay.</li>
+                <li>Một số hình thức có thể thu phí hồ sơ hoặc bảo hiểm khoản vay theo chính sách từng đơn vị tài chính.</li>
+            </ul>
+
+            <h3>4. QUY TRÌNH MUA HÀNG TRẢ GÓP</h3>
+            <ul>
+                <li>Bước 1: Chọn sản phẩm cần mua tại cửa hàng hoặc website LapVerse.</li>
+                <li>Bước 2: Lựa chọn hình thức trả góp phù hợp (thẻ tín dụng hoặc công ty tài chính).</li>
+                <li>Bước 3: Cung cấp giấy tờ cần thiết và hoàn tất hồ sơ.</li>
+                <li>Bước 4: Duyệt hồ sơ và nhận hàng tại cửa hàng hoặc giao tận nơi.</li>
+            </ul>
+
+            <h3>5. LƯU Ý</h3>
+            <ul>
+                <li>Khách hàng cần đọc kỹ hợp đồng tín dụng và cam kết thanh toán đúng hạn.</li>
+                <li>Sản phẩm trả góp không áp dụng đổi trả trừ khi có lỗi phần cứng từ nhà sản xuất.</li>
+                <li>Nếu khách hàng hủy hợp đồng trả góp, mọi chi phí phát sinh sẽ do khách hàng thanh toán theo quy định của đơn vị tài chính.</li>
+            </ul>
+
+            <p><strong>LapVerse cam kết hỗ trợ khách hàng trả góp linh hoạt, minh bạch, thủ tục nhanh chóng!</strong></p>
+    </div>
+</main>
+  <section class="service-features">
+    <div class="feature">
+      <img src="../Images\footer\secure.png" alt="Đảm bảo" />
+      <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\exchange.png" alt="Đổi trả" />
+      <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
+      <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
+      <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+    </div>
+  </section>
+  <div id="footer"></div>
+  <script>
+    // Tăng line-height cho toàn bộ nội dung trong main
+    document.addEventListener("DOMContentLoaded", function () {
+      const content = document.querySelector("main");
+      if (content) {
+        content.style.lineHeight = "1.5"; 
+      }
+    });
+  </script>
+  <script>
+    fetch('../header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('../footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>

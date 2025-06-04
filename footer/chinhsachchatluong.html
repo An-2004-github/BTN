@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chính sách bảo mật - LapVerse</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div id="header"></div>
+<main>
+    <nav class="breadcrumb">
+        <a href="../index.html">Trang chủ</a> / <span>Chính sách chất lượng</span>
+    </nav>
+    <div class="content-container">
+        <h1 class="title">CHÍNH SÁCH CHẤT LƯỢNG</h1>
+
+            <h3>1. CHẤT LƯỢNG SẢN PHẨM</h3>
+            <ul>
+                <li>Sản phẩm nguyên bản 100%, không bán máy qua sửa chữa.</li>
+                <li>Luôn lắng nghe và cải tiến để nâng cao chất lượng.</li>
+                <li>Cung cấp lựa chọn đa dạng với giá cả hợp lý.</li>
+            </ul>
+
+            <h3>2. CHẤT LƯỢNG DỊCH VỤ</h3>
+            <ul>
+                <li>Cung cấp sản phẩm đúng tiêu chuẩn, giá cả cạnh tranh.</li>
+                <li>Đáp ứng nhanh chóng, tôn trọng nhu cầu khách hàng.</li>
+                <li>Tư vấn miễn phí và bảo hành nghiêm túc.</li>
+            </ul>
+
+            <h3>3. MỤC TIÊU</h3>
+            <ul>
+                <li>Xây dựng niềm tin và sự hài lòng của khách hàng.</li>
+                <li>Nâng cao chất lượng sản phẩm và dịch vụ không ngừng.</li>
+                <li>Mang lại lợi ích tốt nhất cho khách hàng.</li>
+            </ul>
+        <p><strong>LapVerse cam kết mang đến sản phẩm và dịch vụ tốt nhất!</strong></p>
+    </div>
+</main>
+  <section class="service-features">
+    <div class="feature">
+      <img src="../Images\footer\secure.png" alt="Đảm bảo" />
+      <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\exchange.png" alt="Đổi trả" />
+      <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
+      <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
+      <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+    </div>
+  </section>
+  <div id="footer"></div>
+  <script>
+    // Tăng line-height cho toàn bộ nội dung trong main
+    document.addEventListener("DOMContentLoaded", function () {
+      const content = document.querySelector("main");
+      if (content) {
+        content.style.lineHeight = "1.5"; 
+      }
+    });
+  </script>
+  <script>
+    fetch('../header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('../footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>

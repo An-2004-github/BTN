@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chính sách bảo mật - LapVerse</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div id="header"></div>
+<main>
+    <nav class="breadcrumb">
+        <a href="../index.html">Trang chủ</a> / <span>Chính sách vận chuyển/span>
+    </nav>
+    <div class="content-container">
+        <h1 class="title">CHÍNH SÁCH VẬN CHUYỂN</h1>
+            <h3>1. MIỄN PHÍ VẬN CHUYỂN</h3>
+            <ul>
+                <li>Áp dụng cho các đơn hàng giao trong nội thành Hà Nội, trong bán kính 40 km tính từ cửa hàng.</li>
+                <li>Miễn phí vận chuyển toàn quốc với các đơn hàng có tổng giá trị từ 100.000.000 VNĐ trở lên.</li>
+            </ul>
+
+            <h3>2. TÍNH PHÍ VẬN CHUYỂN</h3>
+            <ul>
+                <li>Đối với các đơn hàng không nằm trong diện miễn phí, LapVerse sẽ thông báo cụ thể mức phí vận chuyển cho từng trường hợp sau khi khách đặt hàng.</li>
+                <li>LapVerse cam kết lựa chọn các đơn vị vận chuyển uy tín, tốc độ nhanh, giá hợp lý để đảm bảo trải nghiệm tốt nhất cho khách hàng.</li>
+            </ul>
+
+            <h3>3. TRÁCH NHIỆM VẬN CHUYỂN</h3>
+            <ul>
+                <li>Nếu sử dụng dịch vụ vận chuyển do LapVerse chỉ định, chúng tôi chịu hoàn toàn trách nhiệm với hàng hóa và các rủi ro (mất mát, hư hại) trong quá trình vận chuyển.</li>
+                <li>Khách hàng cần kiểm tra kỹ tình trạng hàng hóa trước khi ký nhận.</li>
+                <li>Nếu phát hiện sản phẩm bị hư hại, trầy xước, bể vỡ, móp méo hoặc sai hàng, Quý khách vui lòng ghi chú tình trạng với nhân viên giao nhận và liên hệ ngay với bộ phận CSKH: <strong>0859 125 686</strong>.</li>
+                <li>Sau khi đã ký nhận mà không có ghi chú, LapVerse không chịu trách nhiệm với các khiếu nại phát sinh liên quan đến tình trạng sản phẩm.</li>
+            </ul>
+
+            <h3>4. TRƯỜNG HỢP KHÁCH HÀNG TỰ CHỌN ĐƠN VỊ VẬN CHUYỂN</h3>
+            <ul>
+                <li>Nếu khách hàng tự chỉ định đơn vị vận chuyển, mọi rủi ro liên quan đến hàng hóa sẽ do khách hàng chịu trách nhiệm.</li>
+                <li>Khách hàng cũng sẽ chịu toàn bộ chi phí và thiệt hại nếu xảy ra mất mát, hư hỏng trong quá trình vận chuyển.</li>
+            </ul>
+
+            <h3>5. KHUYẾN CÁO AN TOÀN</h3>
+            <p>Để đảm bảo quyền lợi khi mua sắm trực tuyến, tránh các hành vi lừa đảo không mong muốn, LapVerse khuyến cáo:</p>
+            <ul>
+                <li>Chỉ thực hiện thanh toán qua Website chính thức, các kênh online và cửa hàng được xác thực của LapVerse.</li>
+            </ul>
+
+        <p><strong>LapVerse cam kết phục vụ tận tâm và bảo vệ tối đa quyền lợi khách hàng trong mọi hình thức giao hàng.</strong></p>
+    </div>
+</main>
+  <section class="service-features">
+    <div class="feature">
+      <img src="../Images\footer\secure.png" alt="Đảm bảo" />
+      <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\exchange.png" alt="Đổi trả" />
+      <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
+      <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+    </div>
+    <div class="feature">
+      <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
+      <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+    </div>
+  </section>
+  <div id="footer"></div>
+  <script>
+    // Tăng line-height cho toàn bộ nội dung trong main
+    document.addEventListener("DOMContentLoaded", function () {
+      const content = document.querySelector("main");
+      if (content) {
+        content.style.lineHeight = "1.5"; 
+      }
+    });
+  </script>
+  <script>
+    fetch('../header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('../footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>
