@@ -8,7 +8,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<div id="header"></div>   
+<div id="header"></div>
+<!-- Popup ảnh tự động hiển thị -->
+<div id="imagePopup" class="modal" style="display: block;">
+  <div class="modal-content" style="max-width: 600px; padding: 0; position: relative; background-color: transparent;">
+    <span class="close" onclick="document.getElementById('imagePopup').style.display='none'"
+          style="position: absolute; top: 10px; right: 15px; font-size: 24px; color: #fff; cursor: pointer;">&times;</span>
+    <img src="Images/Trang chủ/pop-up.png" alt="Ảnh popup" style="width: 100%; display: block;">
+  </div>
+</div>
+
+
+<section class="banner-slider">
+    <div class="slides">
+        <div class="slide">
+            <img src="Images/Trang chủ/banner1.png" alt="Banner 1">
+        </div>
+        <div class="slide">
+            <img src="Images/Trang chủ/banner2.png" alt="Banner 2">
+        </div>
+        <div class="slide">
+            <img src="Images/Trang chủ/banner3.png" alt="Banner 3">
+        </div>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</section>
+<!-- Modal Đăng nhập -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-target="loginModal">&times;</span>
+    <h2>Đăng nhập</h2>
+    <form>
+      <label for="username">Tên đăng nhập:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Mật khẩu:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <p style="text-align:center; margin-top: 10px;">
+      Chưa có tài khoản? <a href="#" id="showRegister">Đăng ký</a>
+    </p>
+  </div>
+</div>
+
+<!-- Modal Đăng ký -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" data-target="registerModal">&times;</span>
+    <h2>Đăng ký</h2>
+    <form>
+      <label for="new-username">Tên đăng nhập:</label>
+      <input type="text" id="new-username" name="new-username" required>
+
+      <label for="new-password">Mật khẩu:</label>
+      <input type="password" id="new-password" name="new-password" required>
+
+      <label for="confirm-password">Xác nhận mật khẩu:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+
+      <label for="phone">Số điện thoại:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,11}" placeholder="VD: 0987654321">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="email@example.com">
+
+      <label for="dob">Ngày sinh:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <button type="submit">Đăng ký</button>
+    </form>
+
+    <p style="text-align:center; margin-top: 10px;">
+      Đã có tài khoản? <a href="#" id="showLogin">Đăng nhập</a>
+    </p>
+  </div>
+</div>
+
+</div>
     <section class="service-features">
       <div class="feature">
         <img src="Images\footer\secure.png" alt="Đảm bảo" />
@@ -28,14 +111,127 @@
       </div>
     </section>
 <div id="footer"></div>
-<script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
+<script> 
+fetch('header.html')
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
 
+  // Đóng popup khi click bên ngoài hoặc nút đóng
+  document.querySelectorAll('.modal .close').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const target = this.getAttribute("data-target");
+      document.getElementById(target).style.display = "none";
+    });
+  });
+
+  window.addEventListener("click", function (event) {
+    const popup = document.getElementById("imagePopup");
+    if (event.target === popup) popup.style.display = "none";
+  });
+
+      // 👉 THÊM TOÀN BỘ JS xử lý popup vào đây:
+      const loginModal = document.getElementById("loginModal");
+      const registerModal = document.getElementById("registerModal");
+      const userIcon = document.querySelector(".icon-btn");
+
+      const showLoginBtn = document.getElementById("showLogin");
+      const showRegisterBtn = document.getElementById("showRegister");
+
+      const closeButtons = document.querySelectorAll(".modal .close");
+
+      // Mở popup đăng nhập
+      userIcon.addEventListener("click", () => {
+        loginModal.style.display = "block";
+      });
+
+      // Đóng popup
+      closeButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          const target = this.getAttribute("data-target");
+          document.getElementById(target).style.display = "none";
+        });
+      });
+
+      window.addEventListener("click", function (event) {
+        if (event.target === loginModal) loginModal.style.display = "none";
+        if (event.target === registerModal) registerModal.style.display = "none";
+      });
+
+      // Chuyển giữa Đăng nhập ↔ Đăng ký
+      showRegisterBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        loginModal.style.display = "none";
+        registerModal.style.display = "block";
+      });
+
+      showLoginBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        registerModal.style.display = "none";
+        loginModal.style.display = "block";
+      });
+    });
+</script> 
+<script>   
     fetch('footer.html')
       .then(res => res.text())
       .then(data => document.getElementById('footer').innerHTML = data);
   </script>
+  <script>
+    let slideIndex = 1;
+    let slideInterval;
+
+    showSlides(slideIndex);
+
+    // Điều khiển Next/previous
+    function plusSlides(n) {
+        clearInterval(slideInterval); // Dừng tự động chuyển khi người dùng tương tác
+        showSlides(slideIndex += n);
+        startSlideShow(); // Bắt đầu lại
+    }
+
+    // Điều khiển bằng dấu chấm
+    function currentSlide(n) {
+        clearInterval(slideInterval);
+        showSlides(slideIndex = n);
+        startSlideShow();
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.querySelector(".slides");
+        let dots = document.getElementsByClassName("dot");
+        let allSlides = document.getElementsByClassName("slide");
+
+        if (n > allSlides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = allSlides.length}
+
+        slides.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        dots[slideIndex-1].className += " active";
+    }
+    
+    // Tự động chuyển slide
+    function startSlideShow() {
+        slideInterval = setInterval(() => {
+            plusSlides(1);
+        }, 5000); // Thay đổi 5000 thành thời gian bạn muốn (tính bằng mili giây)
+    }
+
+    // Khởi chạy
+    startSlideShow();
+</script>
+<script>
+  // Hiện popup sau 2 giây
+  window.onload = function () {
+    setTimeout(function () {
+      document.getElementById('imagePopup').style.display = 'block';
+    }, 500); // 2000ms = 2 giây
+  };
+</script>
+
 </body>
 </html>
