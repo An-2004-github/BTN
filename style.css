@@ -404,3 +404,62 @@ body {
   font-size: 14px;
 }
 
+/* Các chính sách và hỗ trợ */
+/* Đặt font và màu nền tổng thể */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Khung chứa nội dung */
+.content-container {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Tiêu đề lớn */
+.content-container h1.title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+/* Các tiêu đề cấp nhỏ hơn */
+.content-container h3.title,
+.content-container h4.title {
+    color: #f2f2f2;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Danh sách gạch đầu dòng */
+.content-container ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.content-container li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Định dạng số hotline */
+.content-container strong {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Biểu tượng giỏ hàng */
+.fa-cart-shopping {
+    margin-left: 10px;
+    color: #ffc107;
+}

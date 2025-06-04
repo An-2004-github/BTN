@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chua Dat Ten</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <div class="content-container">
+            <h1 class="title">
+                HƯỚNG DẪN THANH TOÁN 
+            </h1>
+
+            <p>Chúng tôi luôn muốn mang đến sự thuận tiện và tính linh hoạt trong thanh toán tới quý khách hàng. Dưới đây là các phương thức thanh toán mà LapVerse đang cung cấp:</p>
+
+            <h3 class="title">PHƯƠNG THỨC 1: THANH TOÁN TRỰC TIẾP TẠI CỬA HÀNG</h3>
+            <ul>
+                <li>
+                    Quý khách có thể đến trực tiếp cửa hàng LapVerse để trải nghiệm sản phẩm và dịch vụ, sau đó thanh toán trực tiếp cho nhân viên bán hàng tại địa chỉ:
+                    <strong>Số 12 Chùa Bộc, Phường Quang Trung, Quận Đống Đa, Hà Nội.</strong>
+                </li>
+            </ul>
+
+            <h3 class="title">PHƯƠNG THỨC 2: CHUYỂN KHOẢN NGÂN HÀNG</h3>
+            <ul>
+                <li>
+                    Nếu quý khách ưa thích phương thức chuyển khoản, vui lòng sử dụng thông tin dưới đây:
+                    <ul>
+                        <li>Ngân hàng: <strong>Vietcombank - Ngân hàng TMCP Ngoại Thương Việt Nam</strong></li>
+                        <li>Tên tài khoản: <strong>LÊ HOÀNG AN</strong></li>
+                        <li>Số tài khoản: <strong>1046739932</strong></li>
+                    </ul>
+                </li>
+                <li>
+                    Quý khách cần kiểm tra chính xác thông tin về số tài khoản, chủ tài khoản và số tiền giao dịch trước khi tiến hành thanh toán.
+                </li>
+                <li>
+                    Sau khi chuyển tiền, vui lòng thông báo cho chúng tôi bằng cách cung cấp <strong>tên hoặc số tài khoản đã chuyển</strong> và <strong>địa chỉ nhận hàng</strong>. LapVerse sẽ kiểm tra và gửi hàng theo phương thức chuyển phát nhanh hoặc chậm tùy theo yêu cầu.
+                </li>
+            </ul>
+
+            <h4 class="title">LƯU Ý QUAN TRỌNG</h4>
+            <ul>
+                <li>Hàng hóa sẽ được chuyển phát sau khi <strong>kiểm tra tiền thành công</strong>.</li>
+                <li>Thời gian vận chuyển có thể thay đổi tùy thuộc vào phương thức chuyển phát mà quý khách chọn.</li>
+            </ul>
+
+            <p>Chúng tôi chân thành cảm ơn sự tin tưởng và ủng hộ của quý khách. Vui lòng liên hệ với LapVerse nếu có bất kỳ thắc mắc hay yêu cầu hỗ trợ nào khác.</p>
+
+            <p><strong>LapVerse xin chân thành cảm ơn quý khách!</strong></p>
+        </div>
+    </main>
+    <section class="service-features">
+        <div class="feature">
+          <img src="../Images\footer\secure.png" alt="Đảm bảo" />
+          <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+        </div>
+        <div class="feature">
+          <img src="../Images\footer\exchange.png" alt="Đổi trả" />
+          <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
+        </div>
+        <div class="feature">
+          <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
+          <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+        </div>
+        <div class="feature">
+          <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
+          <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+        </div>
+      </section>
+    <div id="footer"></div>
+    <script>
+        fetch('../header.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('header').innerHTML = data);
+    
+        fetch('../footer.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('footer').innerHTML = data);
+      </script>
+</body>
+</html>

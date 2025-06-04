@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính Sách Bảo Hành - LapVerse</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <div class="content-container">
+            <h1 class="title">CHÍNH SÁCH BẢO HÀNH</h1>
+
+            <h3>1. BẢO HÀNH TIÊU CHUẨN</h3>
+            <ul>
+                <li><strong>Laptop, Điện thoại, PC:</strong> Tất cả sản phẩm đều được bảo hành theo tiêu chuẩn chính hãng.</li>
+                <li><strong>Trong 30 ngày đầu:</strong> Nếu thiết bị gặp lỗi phần cứng từ nhà sản xuất, khách hàng được đổi 1-1 sản phẩm tương đương.</li>
+                <li><strong>Hàng đã qua sử dụng:</strong> Đổi máy khác miễn phí trong 15 ngày nếu khách không hài lòng.</li>
+                <li><strong>Phụ kiện (chuột, bàn phím, tai nghe...):</strong> Bảo hành từ 3-6 tháng tùy loại.</li>
+            </ul>
+
+            <h3>2. BẢO HÀNH LẤY NGAY</h3>
+            <ul>
+                <li><strong>Linh kiện có sẵn:</strong> (pin, bàn phím, màn hình, RAM, SSD...) xử lý lấy ngay tại cửa hàng.</li>
+                <li><strong>Linh kiện không có sẵn:</strong> Thời gian xử lý tối đa 15 ngày. Nếu quá thời gian, khách hàng được đổi máy tương đương.</li>
+            </ul>
+
+            <h3>3. HỖ TRỢ KHÁCH HÀNG MUA TỪ XA</h3>
+            <ul>
+                <li><strong>Trong 30 ngày đầu:</strong> Nếu sản phẩm lỗi phần cứng từ nhà sản xuất, hỗ trợ vận chuyển 2 chiều miễn phí khi đổi/trả.</li>
+            </ul>
+
+            <h3>4. ĐIỀU KIỆN ĐƯỢC BẢO HÀNH</h3>
+            <ul>
+                <li>Sản phẩm còn thời hạn bảo hành.</li>
+                <li>Còn tem bảo hành của LapVerse, không rách/mờ/xóa.</li>
+                <li>Có phiếu bảo hành hoặc cung cấp đúng thông tin (tên, SĐT mua hàng).</li>
+            </ul>
+
+            <h3>5. CÁC TRƯỜNG HỢP KHÔNG ĐƯỢC BẢO HÀNH</h3>
+            <ul>
+                <li>Hết thời hạn bảo hành.</li>
+                <li>Tem bảo hành bị rách, mất hoặc thay đổi.</li>
+                <li>Hư hỏng do rơi, va đập, ẩm ướt, cháy nổ, thiên tai, côn trùng.</li>
+                <li>Tự ý tháo mở hoặc sửa chữa không đúng quy định.</li>
+                <li>Gãy bản lề, bể màn hình, cong vênh khung máy,...</li>
+            </ul>
+
+            <h3>6. THÔNG TIN LIÊN HỆ HỖ TRỢ</h3>
+            <p>Hotline: <strong>0338 529 184</strong><br>
+            Địa chỉ: <strong>Số 12 Chùa Bộc, Phường Quang Trung, Quận Đống Đa, Hà Nội</strong></p>
+        </div>
+    </main>
+    <section class="service-features">
+        <div class="feature">
+          <img src="../Images\footer\secure.png" alt="Đảm bảo" />
+          <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+        </div>
+        <div class="feature">
+          <img src="../Images\footer\exchange.png" alt="Đổi trả" />
+          <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
+        </div>
+        <div class="feature">
+          <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
+          <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+        </div>
+        <div class="feature">
+          <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
+          <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+        </div>
+      </section>
+    <div id="footer"></div>
+    <script>
+        // Tăng line-height cho toàn bộ nội dung trong main
+        document.addEventListener("DOMContentLoaded", function () {
+          const content = document.querySelector("main");
+          if (content) {
+            content.style.lineHeight = "1.5"; 
+          }
+        });
+      </script>
+    <script>
+        fetch('../header.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
