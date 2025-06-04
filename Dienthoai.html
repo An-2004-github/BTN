@@ -115,9 +115,15 @@
             <label for="priceSelect">Mức giá</label>
             <select id="priceSelect" class="form-control form-control-sm">
             <option>Chọn mức giá</option>
-            <option>Dưới 2 triệu</option>
-            <option>2 - 4 triệu</option>
-            <option>4 - 7 triệu</option>
+            <option>Giá tăng dần</option>
+            <option>Giá giảm dần</option>
+            <option>Dưới 3 triệu</option>
+            <option>Từ 3 - 5 triệu</option>
+            <option>Từ 5 - 8 triệu</option>
+            <option>Từ 8 - 12 triệu</option>
+            <option>Từ 12 - 20 triệu</option>
+            <option>Từ 20 - 30 triệu</option>
+            <option>Trên 30 triệu</option>
             </select>
         </div>
         <div class="form-group col-md-2">
@@ -135,32 +141,35 @@
             <option>64GB</option>
             <option>128GB</option>
             <option>256GB</option>
+            <option>512GB</option>
+            <option>1TB</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="connectSelect">Kết nối</label>
             <select id="connectSelect" class="form-control form-control-sm">
             <option>Chọn kết nối</option>
-            <option>5G</option>
-            <option>4G</option>
-            <option>Wifi</option>
+            <option>NFC</option>
+            <option>Bluetooth</option>
+            <option>Hồng ngoại</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="performanceSelect">Hiệu năng & Pin</label>
             <select id="performanceSelect" class="form-control form-control-sm">
             <option>Chọn hiệu năng & pin</option>
-            <option>Pin cao</option>
-            <option>Hiệu năng mạnh</option>
+            <option>Dưới 3000 mah</option>
+            <option>Từ 3000 - 4000 mah</option>
+            <option>Từ 4000 - 5000 mah</option>
+            <option>Trên 5000 mah</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="networkSelect">Hỗ trợ mạng</label>
             <select id="networkSelect" class="form-control form-control-sm">
             <option>Chọn hỗ trợ mạng</option>
-            <option>SIM 1</option>
-            <option>SIM 2</option>
-            <option>SIM kép</option>
+            <option>4G</option>
+            <option>5G</option>
             </select>
         </div>
         </div>
@@ -171,44 +180,54 @@
             <label for="ramSelect">RAM</label>
             <select id="ramSelect" class="form-control form-control-sm">
             <option>Chọn RAM</option>
+            <option>3GB</option>
             <option>4GB</option>
             <option>6GB</option>
             <option>8GB</option>
+            <option>12GB</option>
+            <option>16GB</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="memoryCardSelect">Thẻ nhớ</label>
             <select id="memoryCardSelect" class="form-control form-control-sm">
             <option>Chọn thẻ nhớ</option>
-            <option>Hỗ trợ</option>
-            <option>Không hỗ trợ</option>
+            <option>MicroSD</option>
+            <option>Không</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="screenSelect">Màn hình</label>
             <select id="screenSelect" class="form-control form-control-sm">
             <option>Chọn màn hình</option>
-            <option>LCD</option>
-            <option>OLED</option>
-            <option>AMOLED</option>
+            <option>Dưới 5 inch</option>
+            <option>Từ 5 - 6.5 inch</option>
+            <option>Từ 6 - 6.5 inch</option>
+            <option>Từ 6.5 - 6.8 inch</option>
+            <option>Trên 6.8 inch</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="refreshRateSelect">Tần số quét</label>
             <select id="refreshRateSelect" class="form-control form-control-sm">
             <option>Chọn tần số quét</option>
-            <option>60Hz</option>
-            <option>90Hz</option>
-            <option>120Hz</option>
+            <option>60 Hz</option>
+            <option>90 Hz</option>
+            <option>120 Hz</option>
             </select>
         </div>
         <div class="form-group col-md-2">
             <label for="cameraSelect">Camera</label>
             <select id="cameraSelect" class="form-control form-control-sm">
             <option>Chọn camera</option>
-            <option>Đơn</option>
-            <option>Đôi</option>
-            <option>Nhiều camera</option>
+            <option>Quay phim Slow Motion</option>
+            <option>AI Camera</option>
+            <option>Hiệu ứng làm đẹp</option>
+            <option>Zoom quang học</option>
+            <option>Chống rung OIS</option>
+            <option>Chụp macro</option>
+            <option>Chụp góc rộng</option>
+            <option>Chụp xóa phông</option>
             </select>
         </div>
         <div class="form-group col-md-2">
@@ -549,64 +568,80 @@
 
     // Bắt sự kiện submit form (hoặc click nút)
     filterForm.addEventListener('submit', e => {
-    e.preventDefault(); // ngăn submit reload trang
+        e.preventDefault(); // ngăn submit reload trang
 
-    // Lấy giá trị từng select
-    const priceValue = document.getElementById('priceSelect').value;
-    const osValue = document.getElementById('osSelect').value;
-    const memoryValue = document.getElementById('memomrySelect').value;
-    const connectValue = document.getElementById('connectSelect').value;
-    const performanceValue = document.getElementById('performanceSelect').value;
-    const networkValue = document.getElementById('networkSelect').value;
-    const ramValue = document.getElementById('ramSelect').value;
-    const memoryCardValue = document.getElementById('memoryCardSelect').value;
-    const screenValue = document.getElementById('screenSelect').value;
-    const refreshRateValue = document.getElementById('refreshRateSelect').value;
-    const cameraValue = document.getElementById('cameraSelect').value;
+        // Lấy giá trị từng select
+        const priceValue = document.getElementById('priceSelect').value;
+        const osValue = document.getElementById('osSelect').value;
+        const memoryValue = document.getElementById('romSelect').value;
+        const connectValue = document.getElementById('connectSelect').value;
+        const performanceValue = document.getElementById('performanceSelect').value;
+        const networkValue = document.getElementById('networkSelect').value;
+        const ramValue = document.getElementById('ramSelect').value;
+        const memoryCardValue = document.getElementById('memoryCardSelect').value;
+        const screenValue = document.getElementById('screenSelect').value;
+        const refreshRateValue = document.getElementById('refreshRateSelect').value;
+        const cameraValue = document.getElementById('cameraSelect').value;
 
-    // Lọc mảng products theo các điều kiện chọn
-    let filtered = products.filter(product => {
-        // Ví dụ lọc mức giá
-        let priceOk = true;
-        const minPrice = 0;
-        const maxPrice = Infinity;
-        
-        // Lấy giá mới của default storage làm đại diện giá sản phẩm
-        const priceNew = calcPriceNew(product.storages[0].priceOld, product.storages[0].discountPercent);
-
-        if (priceValue === 'Dưới 2 triệu') {
-        priceOk = priceNew < 2000000;
-        } else if (priceValue === '2 - 4 triệu') {
-        priceOk = priceNew >= 2000000 && priceNew <= 4000000;
-        } else if (priceValue === '4 - 7 triệu') {
-        priceOk = priceNew > 4000000 && priceNew <= 7000000;
+        // Hàm tính giá sau khi giảm
+        const calculateDiscountPrice = (priceOld, discountPercent) => {
+            return priceOld * (1 - discountPercent / 100);
         }
 
-        // Ví dụ lọc hệ điều hành: ở đây bạn cần có thông tin hệ điều hành trong product
-        let osOk = true;
-        if (osValue !== 'Chọn hệ điều hành' && osValue !== '') {
-        // Giả sử product có trường os, nếu không có thì bỏ điều kiện này hoặc xử lý khác
-        if (!product.os) return false; // nếu không có os thì không lọc đc, loại luôn
-        osOk = product.os === osValue;
-        }
+        // Lọc các sản phẩm theo điều kiện
+        const filteredProducts = products.filter(product => {
+            // Lọc theo mức giá (dùng giá sau khi giảm)
+            let priceMatch = true;
+            if (priceValue !== "Chọn mức giá") {
+                // Các mức giá cụ thể (ví dụ: dưới 3 triệu, từ 3-5 triệu...)
+                const priceRanges = {
+                    "Giá tăng dần": (a, b) => calculateDiscountPrice(a.storages[0].priceOld, a.storages[0].discountPercent) - calculateDiscountPrice(b.storages[0].priceOld, b.storages[0].discountPercent),
+                    "Giá giảm dần": (a, b) => calculateDiscountPrice(b.storages[0].priceOld, b.storages[0].discountPercent) - calculateDiscountPrice(a.storages[0].priceOld, a.storages[0].discountPercent),
+                    "Dưới 3 triệu": [0, 3000000],
+                    "Từ 3 - 5 triệu": [3000000, 5000000],
+                    "Từ 5 - 8 triệu": [5000000, 8000000],
+                    "Từ 8 - 12 triệu": [8000000, 12000000],
+                    "Từ 12 - 20 triệu": [12000000, 20000000],
+                    "Từ 20 - 30 triệu": [20000000, 30000000],
+                    "Trên 30 triệu": [30000000, Infinity]
+                };
 
-        // Tương tự bạn làm các điều kiện khác ở đây
+                // Lọc theo giá tăng dần hoặc giảm dần
+                if (priceRanges[priceValue] && typeof priceRanges[priceValue] === 'function') {
+                    products.sort(priceRanges[priceValue]);
+                }
 
-        // Lọc dung lượng ROM: kiểm tra nếu romValue khác mặc định thì lọc
-        let romOk = true;
-        if (romValue !== 'Chọn dung lượng' && romValue !== '') {
-        romOk = product.storages.some(storage => storage.capacity === romValue);
-        }
+                // Lọc theo giá cụ thể (theo khoảng giá)
+                if (priceRanges[priceValue] && Array.isArray(priceRanges[priceValue])) {
+                    const [minPrice, maxPrice] = priceRanges[priceValue];
+                    priceMatch = product.storages.some(storage => {
+                        const discountedPrice = calculateDiscountPrice(storage.priceOld, storage.discountPercent);
+                        return discountedPrice >= minPrice && discountedPrice <= maxPrice;
+                    });
+                }
+            }
 
-        // Các điều kiện khác bạn thêm vào tương tự
+            // Lọc theo các tiêu chí khác (Hệ điều hành, RAM, bộ nhớ, v.v...)
+            const osMatch = osValue === "Chọn hệ điều hành" || product.os === osValue;
+            const memoryMatch = memoryValue === "Chọn dung lượng" || product.storages.some(storage => storage.capacity === memoryValue);
+            const connectMatch = connectValue === "Chọn kết nối" || product.connect.includes(connectValue);
+            const performanceMatch = performanceValue === "Chọn hiệu năng & pin" || product.performance === performanceValue;
+            const networkMatch = networkValue === "Chọn hỗ trợ mạng" || product.networkSupport === networkValue;
+            const ramMatch = ramValue === "Chọn RAM" || product.ram === ramValue;
+            const memoryCardMatch = memoryCardValue === "Chọn thẻ nhớ" || product.memoryCard === memoryCardValue;
+            const screenMatch = screenValue === "Chọn màn hình" || product.screen === screenValue;
+            const refreshRateMatch = refreshRateValue === "Chọn tần số quét" || product.refreshRate === refreshRateValue;
+            const cameraMatch = cameraValue === "Chọn camera" || product.camera.includes(cameraValue);
 
-        // Kết hợp tất cả điều kiện
-        return priceOk && osOk && romOk;
+            // Trả về sản phẩm nếu tất cả các điều kiện lọc đều thỏa mãn
+            return priceMatch && osMatch && memoryMatch && connectMatch && performanceMatch &&
+                networkMatch && ramMatch && memoryCardMatch && screenMatch && refreshRateMatch && cameraMatch;
+        });
+
+        // Hiển thị sản phẩm đã lọc
+        displayProducts(filteredProducts);
     });
 
-    // Hiển thị lại sản phẩm đã lọc
-    displayProducts(filtered);
-    });
 
     displayProducts(products);
     </script>
