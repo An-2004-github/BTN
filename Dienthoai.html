@@ -570,77 +570,78 @@
     filterForm.addEventListener('submit', e => {
         e.preventDefault(); // ngăn submit reload trang
 
-        // Lấy giá trị từng select
-        const priceValue = document.getElementById('priceSelect').value;
-        const osValue = document.getElementById('osSelect').value;
-        const memoryValue = document.getElementById('romSelect').value;
-        const connectValue = document.getElementById('connectSelect').value;
-        const performanceValue = document.getElementById('performanceSelect').value;
-        const networkValue = document.getElementById('networkSelect').value;
-        const ramValue = document.getElementById('ramSelect').value;
-        const memoryCardValue = document.getElementById('memoryCardSelect').value;
-        const screenValue = document.getElementById('screenSelect').value;
-        const refreshRateValue = document.getElementById('refreshRateSelect').value;
-        const cameraValue = document.getElementById('cameraSelect').value;
+    // Lấy giá trị từng select
+    const priceValue = document.getElementById('priceSelect').value;
+    const osValue = document.getElementById('osSelect').value;
+    const memoryValue = document.getElementById('romSelect').value;
+    const connectValue = document.getElementById('connectSelect').value;
+    const performanceValue = document.getElementById('performanceSelect').value;
+    const networkValue = document.getElementById('networkSelect').value;
+    const ramValue = document.getElementById('ramSelect').value;
+    const memoryCardValue = document.getElementById('memoryCardSelect').value;
+    const screenValue = document.getElementById('screenSelect').value;
+    const refreshRateValue = document.getElementById('refreshRateSelect').value;
+    const cameraValue = document.getElementById('cameraSelect').value;
 
-        // Hàm tính giá sau khi giảm
-        const calculateDiscountPrice = (priceOld, discountPercent) => {
-            return priceOld * (1 - discountPercent / 100);
+    // Hàm tính giá sau khi giảm
+    const calculateDiscountPrice = (priceOld, discountPercent) => {
+        return priceOld * (1 - discountPercent / 100);
+    }
+
+    // Lọc các sản phẩm theo điều kiện
+    let filteredProducts = products.filter(product => {
+    let priceMatch = true;
+
+        if (priceValue !== "Chọn mức giá") {
+            const priceRanges = {
+                "Dưới 3 triệu": [0, 3000000],
+                "Từ 3 - 5 triệu": [3000000, 5000000],
+                "Từ 5 - 8 triệu": [5000000, 8000000],
+                "Từ 8 - 12 triệu": [8000000, 12000000],
+                "Từ 12 - 20 triệu": [12000000, 20000000],
+                "Từ 20 - 30 triệu": [20000000, 30000000],
+                "Trên 30 triệu": [30000000, 40000000]
+            };
+
+            // Lọc theo giá cụ thể (theo khoảng giá)
+            if (priceRanges[priceValue] && Array.isArray(priceRanges[priceValue])) {
+                const [minPrice, maxPrice] = priceRanges[priceValue];
+                priceMatch = product.storages.some(storage => {
+                    const discountedPrice = calculateDiscountPrice(storage.priceOld, storage.discountPercent);
+                    return discountedPrice >= minPrice && discountedPrice <= maxPrice;
+                });
+            }
         }
 
-        // Lọc các sản phẩm theo điều kiện
-        const filteredProducts = products.filter(product => {
-            // Lọc theo mức giá (dùng giá sau khi giảm)
-            let priceMatch = true;
-            if (priceValue !== "Chọn mức giá") {
-                // Các mức giá cụ thể (ví dụ: dưới 3 triệu, từ 3-5 triệu...)
-                const priceRanges = {
-                    "Giá tăng dần": (a, b) => calculateDiscountPrice(a.storages[0].priceOld, a.storages[0].discountPercent) - calculateDiscountPrice(b.storages[0].priceOld, b.storages[0].discountPercent),
-                    "Giá giảm dần": (a, b) => calculateDiscountPrice(b.storages[0].priceOld, b.storages[0].discountPercent) - calculateDiscountPrice(a.storages[0].priceOld, a.storages[0].discountPercent),
-                    "Dưới 3 triệu": [0, 3000000],
-                    "Từ 3 - 5 triệu": [3000000, 5000000],
-                    "Từ 5 - 8 triệu": [5000000, 8000000],
-                    "Từ 8 - 12 triệu": [8000000, 12000000],
-                    "Từ 12 - 20 triệu": [12000000, 20000000],
-                    "Từ 20 - 30 triệu": [20000000, 30000000],
-                    "Trên 30 triệu": [30000000, Infinity]
-                };
+        // Lọc theo các tiêu chí khác (Hệ điều hành, RAM, bộ nhớ, v.v...)
+        const osMatch = osValue === "Chọn hệ điều hành" || product.os === osValue;
+        const memoryMatch = memoryValue === "Chọn dung lượng" || product.storages.some(storage => storage.capacity === memoryValue);
+        const connectMatch = connectValue === "Chọn kết nối" || product.connect.includes(connectValue);
+        const performanceMatch = performanceValue === "Chọn hiệu năng & pin" || product.performance === performanceValue;
+        const networkMatch = networkValue === "Chọn hỗ trợ mạng" || product.networkSupport === networkValue;
+        const ramMatch = ramValue === "Chọn RAM" || product.ram === ramValue;
+        const memoryCardMatch = memoryCardValue === "Chọn thẻ nhớ" || product.memoryCard === memoryCardValue;
+        const screenMatch = screenValue === "Chọn màn hình" || product.screen === screenValue;
+        const refreshRateMatch = refreshRateValue === "Chọn tần số quét" || product.refreshRate === refreshRateValue;
+        const cameraMatch = cameraValue === "Chọn camera" || product.camera.includes(cameraValue);
 
-                // Lọc theo giá tăng dần hoặc giảm dần
-                if (priceRanges[priceValue] && typeof priceRanges[priceValue] === 'function') {
-                    products.sort(priceRanges[priceValue]);
-                }
-
-                // Lọc theo giá cụ thể (theo khoảng giá)
-                if (priceRanges[priceValue] && Array.isArray(priceRanges[priceValue])) {
-                    const [minPrice, maxPrice] = priceRanges[priceValue];
-                    priceMatch = product.storages.some(storage => {
-                        const discountedPrice = calculateDiscountPrice(storage.priceOld, storage.discountPercent);
-                        return discountedPrice >= minPrice && discountedPrice <= maxPrice;
-                    });
-                }
-            }
-
-            // Lọc theo các tiêu chí khác (Hệ điều hành, RAM, bộ nhớ, v.v...)
-            const osMatch = osValue === "Chọn hệ điều hành" || product.os === osValue;
-            const memoryMatch = memoryValue === "Chọn dung lượng" || product.storages.some(storage => storage.capacity === memoryValue);
-            const connectMatch = connectValue === "Chọn kết nối" || product.connect.includes(connectValue);
-            const performanceMatch = performanceValue === "Chọn hiệu năng & pin" || product.performance === performanceValue;
-            const networkMatch = networkValue === "Chọn hỗ trợ mạng" || product.networkSupport === networkValue;
-            const ramMatch = ramValue === "Chọn RAM" || product.ram === ramValue;
-            const memoryCardMatch = memoryCardValue === "Chọn thẻ nhớ" || product.memoryCard === memoryCardValue;
-            const screenMatch = screenValue === "Chọn màn hình" || product.screen === screenValue;
-            const refreshRateMatch = refreshRateValue === "Chọn tần số quét" || product.refreshRate === refreshRateValue;
-            const cameraMatch = cameraValue === "Chọn camera" || product.camera.includes(cameraValue);
-
-            // Trả về sản phẩm nếu tất cả các điều kiện lọc đều thỏa mãn
-            return priceMatch && osMatch && memoryMatch && connectMatch && performanceMatch &&
-                networkMatch && ramMatch && memoryCardMatch && screenMatch && refreshRateMatch && cameraMatch;
-        });
-
-        // Hiển thị sản phẩm đã lọc
-        displayProducts(filteredProducts);
+        return priceMatch && osMatch && memoryMatch && connectMatch && performanceMatch &&
+            networkMatch && ramMatch && memoryCardMatch && screenMatch && refreshRateMatch && cameraMatch;
     });
+
+    // Sắp xếp lại sản phẩm theo giá tăng dần hoặc giảm dần
+    if (priceValue === "Giá tăng dần" || priceValue === "Giá giảm dần") {
+        filteredProducts = filteredProducts.sort((a, b) => {
+            const priceA = calculateDiscountPrice(a.storages[0].priceOld, a.storages[0].discountPercent);
+            const priceB = calculateDiscountPrice(b.storages[0].priceOld, b.storages[0].discountPercent);
+            return priceValue === "Giá tăng dần" ? priceA - priceB : priceB - priceA;
+        });
+    }
+
+    // Hiển thị sản phẩm đã lọc
+    displayProducts(filteredProducts);
+});
+
 
 
     displayProducts(products);
