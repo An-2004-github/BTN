@@ -1122,7 +1122,7 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
         }
         button.add-cart {
         margin-top: auto;
-        background-color: #d93025;
+        background-color: #ce4d26;
         border: none;
         color: white;
         padding: 10px 0;
@@ -1156,6 +1156,20 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
         }
         .product-card .btn:hover {
         background: #ff4444;}
+        
+        /* Ẩn dấu mũi tên lên xuống của input number */
+        #quantity::-webkit-outer-spin-button,
+        #quantity::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        #quantity[type="number"] {
+            -webkit-appearance: textfield; /* Chrome, Safari */
+            -moz-appearance: textfield;    /* Firefox */
+            appearance: textfield;         /* Standard */
+        }
+
 .product-section h2 { /* Style cho tiêu đề section */
     color: white;
     text-align: center;
