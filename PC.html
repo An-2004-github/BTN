@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chua Dat Ten</title>
+    <title>Bộ máy tính</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Bootstrap 4 CSS -->
@@ -82,22 +82,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="Trang PC của hãng/asus.html" class="brand-btn">
+            <a href="TrangPCcuahang/asus.html" class="brand-btn">
                 <img src="images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="Trang PC của hãng/epower.html" class="brand-btn">
+            <a href="TrangPCcuahang/epower.html" class="brand-btn">
                 <img src="images/Logo/logo epower.jpg" alt="E-power" />
             </a>
-            <a href="Trang PC của hãng/apple.html" class="brand-btn">
+            <a href="TrangPCcuahang/apple.html" class="brand-btn">
                 <img src="images/Logo/apple logo.png" alt="Apple" />
             </a>
-            <a href="Trang PC của hãng/lenovo.html" class="brand-btn">
+            <a href="TrangPCcuahang/lenovo.html" class="brand-btn">
                 <img src="images/Logo/logo lenovo.jpg" alt="Lenovo" />
             </a>
-            <a href="Trang PC của hãng/hp.html" class="brand-btn">
+            <a href="TrangPCcuahang/hp.html" class="brand-btn">
                 <img src="images/Logo/HP  logo.png" alt="Hp" />
             </a>
-            <a href="Trang PC của hãng/intel.html" class="brand-btn">
+            <a href="TrangPCcuahang/intel.html" class="brand-btn">
                 <img src="images/Logo/Intel.png" alt="Intel" />
             </a>
         </div>
@@ -470,7 +470,7 @@
         },
         { 
             id: 25,
-            name: "NVIDIA GeForce RTX 3060 Ti",
+            name: "G.Skill Trident Z RGB",
             image: "images/Logo/RAM imgae/G.Skill Trident Z RGB 32GB (2x16GB) DDR4 3600MHz.png",
             installment: "Trả góp 0%",
             priceOld: 4550000,
@@ -525,10 +525,39 @@
         function formatPrice(price) {
             return price.toLocaleString("vi-VN") + " ₫";
         }
+        
+        function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.visibility = 'visible';
+        toast.style.opacity = '1';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            // Ẩn hoàn toàn sau animation
+            setTimeout(() => {
+            toast.style.visibility = 'hidden';
+        }, 500); // 500ms trùng với transition opacity
+    }, 2000); // Hiển thị trong 2 giây
+    }
+    // Gán sự kiện click cho các nút "Thêm vào giỏ hàng"
+function addToCart() {
+    const addCartButtons = document.querySelectorAll('.add-cart');
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            showToast('Thêm vào giỏ hàng thành công!'); // Gọi hàm hiển thị thông báo
+        });
+    });
+}
+        
 
         function displayProducts(list) {
             const productList = document.getElementById("product-list");
             productList.innerHTML = ""; // Clear current product list
+             if (list.length === 0) {
+             productList.innerHTML = "<div class='no-products'>Không có sản phẩm phù hợp!</div>";
+             return;
+            }
 
             list.forEach(product => {
                 const col = document.createElement("div");
@@ -553,6 +582,7 @@
                 productList.appendChild(col);
             });
         }
+        
 
     //  Hàm lọc
     function handleFilter() {
@@ -619,6 +649,62 @@ function filterByPrice(minPrice, maxPrice, osSelect, romSelect, ssdSelect, ramSe
         window.onload = function() {
             displayProducts(products);
         };
+        displayProducts(products);
+         // Hiển thị tất cả sản phẩm khi trang được tải lần đầu
+         window.onload = function() {
+         displayProducts(products); // Hiển thị sản phẩm
+         addToCart(); // Gán sự kiện cho các nút "Thêm vào giỏ hàng"
+};
+    </script>
+
+    
+    </script>
+    <div id="toast" style="
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #ccb8b8;
+        color: #201a1a;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;             
+        transform: translate(-50%, -50%); 
+        font-size: 17px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        ">
+    </div>
+    <section class="service-features">
+      <div class="feature">
+        <img src="Images\footer\secure.png" alt="Đảm bảo" />
+        <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+      </div>
+      <div class="feature">
+        <img src="Images\footer\exchange.png" alt="Đổi trả" />
+        <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại TechStore</p>
+      </div>
+      <div class="feature">
+        <img src="Images\footer\good-quality.png" alt="Chất lượng" />
+        <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+      </div>
+      <div class="feature">
+        <img src="Images\footer\fast-delivery.png" alt="Giao hàng" />
+        <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+      </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
     </script>
 
 </body>

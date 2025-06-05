@@ -82,22 +82,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="Trang PC của hãng/asus.html" class="brand-btn">
+            <a href="../Trang PC của hãng/asus.html" class="brand-btn">
                 <img src="../images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="Trang PC của hãng/epower.html" class="brand-btn">
+            <a href="../Trang PC của hãng/epower.html" class="brand-btn">
                 <img src="../images/Logo/logo epower.jpg" alt="E-power" />
             </a>
-            <a href="Trang PC của hãng/apple.html" class="brand-btn">
+            <a href="../Trang PC của hãng/apple.html" class="brand-btn">
                 <img src="../images/Logo/apple logo.png" alt="Apple" />
             </a>
-            <a href="Trang PC của hãng/lenovo.html" class="brand-btn">
+            <a href="../Trang PC của hãng/lenovo.html" class="brand-btn">
                 <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
             </a>
-            <a href="Trang PC của hãng/hp.html" class="brand-btn">
+            <a href="../Trang PC của hãng/hp.html" class="brand-btn">
                 <img src="../images/Logo/HP  logo.png" alt="Hp" />
             </a>
-            <a href="Trang PC của hãng/intel.html" class="brand-btn">
+            <a href="../Trang PC của hãng/intel.html" class="brand-btn">
                 <img src="../images/Logo/Intel.png" alt="Intel" />
             </a>
         </div>
@@ -178,20 +178,42 @@
     </div>
      <script>
         const products = [
-             { 
-            id: 24,
-            name: "NVIDIA GeForce RTX 3060 Ti",
-            image: "../images/Logo/RAM imgae/Corsair Vengeance LPX 16GB (2x8GB) DDR4 3600MHz.png",
+            { 
+            id: 1,
+            name: "NVIDIA GeForce RTX 4090",
+            image: "../images/Logo/VGA/NVIDIA GeForce RTX 4090.jpg",
             installment: "Trả góp 0%",
-            priceOld: 2240000,
-            discountPercent: 10,
-            priceNew: 1490000,
+            priceOld: 69990000,
+            discountPercent: 5,
+            priceNew: 64990000,
             os: "PC Gaming",
             //cpu: "Intel Core i5",
         },
         { 
-            id: 25,
+            id: 2,
             name: "NVIDIA GeForce RTX 3060 Ti",
+            image: "../images/Logo/VGA/NVIDIA GeForce RTX 3060 Ti.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 12000000,
+            discountPercent: 10,
+            priceNew: 10500000,
+            os: "PC Văn phòng",
+            //cpu: "Intel Core i5",
+        },
+        { 
+            id: 3,
+            name: "Kingston Fury Beast 8GB DDR4 3200MHz",
+            image: "../images/Logo/RAM imgae/Kingston Fury Beast 8GB DDR4 3200MHz.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 1099000,
+            discountPercent: 5,
+            priceNew: 699000,
+            os: "PC Văn phòng",
+            //cpu: "Intel Core i5",
+        },
+        { 
+            id: 4,
+            name: "G.Skill Trident Z RGB",
             image: "../images/Logo/RAM imgae/G.Skill Trident Z RGB 32GB (2x16GB) DDR4 3600MHz.png",
             installment: "Trả góp 0%",
             priceOld: 4550000,
@@ -199,6 +221,7 @@
             priceNew: 3100000,
             os: "PC Đồ họa",
             //cpu: "Intel Core i5",
+            ssd: "SSD 512 GB",  // Ổ cứng
         },
         ];
 
@@ -248,7 +271,6 @@
         case "Dưới 10 triệu":
             maxPrice = 10000000;
             break;
-            
         case "10 - 20 triệu":
             minPrice = 10000000;
             maxPrice = 20000000;

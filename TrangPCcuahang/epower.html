@@ -76,30 +76,29 @@
             </div>
         </div>
     </header>
-    </header>
     <!-- jQuery, Popper.js, Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="Trang PC của hãng\asus.html" class="brand-btn"> 
-                <img src="../images\Logo\logo asus.jpg" alt="Asus" />
+            <a href="../Trang PC của hãng/asus.html" class="brand-btn">
+                <img src="../images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="Trang PC của hãng\epower.html" class="brand-btn">
-                <img src="../images\Logo\logo epower.jpg" alt="E-power" />
+            <a href="../Trang PC của hãng/epower.html" class="brand-btn">
+                <img src="../images/Logo/logo epower.jpg" alt="E-power" />
             </a>
-            <a href="Trang PC của hãng/apple.html" class="brand-btn">
+            <a href="../Trang PC của hãng/apple.html" class="brand-btn">
                 <img src="../images/Logo/apple logo.png" alt="Apple" />
             </a>
-            <a href="Trang PC của hãng\lenovo.html" class="brand-btn">
-                <img src="../images\Logo\logo lenovo.jpg" alt="Lenovo" />
+            <a href="../Trang PC của hãng/lenovo.html" class="brand-btn">
+                <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
             </a>
-            <a href="Trang PC của hãng\hp.html" class="brand-btn">
-                <img src="../images\Logo\HP  logo.png" alt="Hp" />
+            <a href="../Trang PC của hãng/hp.html" class="brand-btn">
+                <img src="../images/Logo/HP  logo.png" alt="Hp" />
             </a>
-            <a href="Trang PC của hãng\intel.html" class="brand-btn">
-                <img src="../images\Logo\Intel.png" alt="Intel" />
+            <a href="../Trang PC của hãng/intel.html" class="brand-btn">
+                <img src="../images/Logo/Intel.png" alt="Intel" />
             </a>
         </div>
     </div>
@@ -181,8 +180,8 @@
         const products = [
         {
             id: 1,
-            name: "AIO Asus A3402WBAK-WPC049W",
-            image: "../images/Logo/asus image/AIO Asus A3402WBAK-WPC049W,png.webp",
+            name: "PC E-Power Office 31 AMD Ryzen 5",
+            image: "../images/Logo/epower image/AMD Ryzen 5.png",
             installment: "Trả góp 0%",
             priceOld: 8940000,
             discountPercent: 22,
@@ -190,35 +189,53 @@
         },
         {
             id: 2,
-            name: "PC Mini Asus NUC 13 Pro RNUC13ANHi3000",
-            image: "../images/Logo/asus image/PC Mini Asus NUC 13 Pro RNUC13ANHi3000.jpg",
+            name: "PC Gaming E-Power Poseidon",
+            image: "../images/Logo/epower image/Pc gaming e-power poseidon.png",
             installment: "Trả góp 0%",
-            priceOld: 9999000,
-            discountPercent: 14,
-            priceNew: 8590000,
+            priceOld: 27890000,
+            discountPercent: 10,
+            priceNew: 25101000,
         },
         {
             id: 3,
-            name: "Màn hình Asus MB166C 16inch",
-            image: "../images/Logo/asus image/Asus MB166C 16inch.png",
+            name: "PC Gaming E-Power I3060",
+            image: "../images/Logo/epower image/pc gaming e-power i3060.jpg",
             installment: "Trả góp 0%",
-            priceOld: 3990000,
-            discountPercent: 15,
-            priceNew: 3390000,
+            priceOld: 18940000,
+            discountPercent: 8,
+            priceNew: 17400000,
         },
         {
             id: 4,
-            name: "Asus ProArt 32inch",
-            image: "../images/Logo/asus image/Asus ProArt 32inch.jpg",
+            name: "PC Gaming E-Power F3060",
+            image: "../images/Logo/epower image/PC Gaming E-Power F3060.jpg",
             installment: "Trả góp 0%",
-            priceOld: 24990000,
-            discountPercent: 9,
-            priceNew: 23490000,
+            priceOld: 17990000,
+            discountPercent: 7,
+            priceNew: 16700000,
         },
-        
-        
+        {
+            id: 5,
+            name: "PC Gaming E-Power Ryzen 5",
+            image: "../images/Logo/epower image/PC Gaming E-Power Ryzen 5.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 13390000,
+            discountPercent: 10,
+            priceNew: 12051000,
+        },
+        { 
+            id: 6,
+            name: "MSi G255F 25inch",
+            image: "../images/Logo/epower image/MSi G255F 25inch.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 3590000,
+            discountPercent: 20,
+            priceNew: 2890000,
+            os: "PC Gaming",
+            // cpu: "Intel Core i9",
+        },
     ];
-        function formatPrice(price) {
+    function formatPrice(price) {
         return price.toLocaleString("vi-VN") + " ₫";
         }
 

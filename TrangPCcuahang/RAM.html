@@ -82,30 +82,30 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="Trang PC của hãng\asus.html" class="brand-btn">
+            <a href="../Trang PC của hãng/asus.html" class="brand-btn">
                 <img src="../images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="Trang PC của hãng\epower.html" class="brand-btn">
+            <a href="../Trang PC của hãng/epower.html" class="brand-btn">
                 <img src="../images/Logo/logo epower.jpg" alt="E-power" />
             </a>
-            <a href="Trang PC của hãng/apple.html" class="brand-btn">
+            <a href="../Trang PC của hãng/apple.html" class="brand-btn">
                 <img src="../images/Logo/apple logo.png" alt="Apple" />
             </a>
-            <a href="Trang PC của hãng/lenovo.html" class="brand-btn">
+            <a href="../Trang PC của hãng/lenovo.html" class="brand-btn">
                 <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
             </a>
-            <a href="Trang PC của hãng/hp.html" class="brand-btn">
+            <a href="../Trang PC của hãng/hp.html" class="brand-btn">
                 <img src="../images/Logo/HP  logo.png" alt="Hp" />
             </a>
-            <a href="Trang PC của hãng/intel.html" class="brand-btn">
+            <a href="../Trang PC của hãng/intel.html" class="brand-btn">
                 <img src="../images/Logo/Intel.png" alt="Intel" />
             </a>
         </div>
     </div>
-     <!-- Thanh bộ lọc nâng cao -->
+     <!-- Thanh bộ lọc  -->
     <div class="container p-3 bg-light rounded shadow-sm">
     <form>
-        <!-- Hàng trên: 6 mục -->
+        <!-- Bô lọc -->
         <div class="form-row mb-2">
         <div class="form-group col-md-2">
             <label for="priceSelect">Mức giá</label>
@@ -164,8 +164,8 @@
             </select>
         </div>
         </div>
-        <div class="form-group col-md-2">
-            <button type="submit" class="btn btn-warning btn-sm btn-block">LỌC</button>
+         <div class="form-group col-md-2">
+            <button type="button" id="filterBtn" class="btn btn-warning btn-sm btn-block">LỌC</button>
         </div>
         </div>
     </form>
@@ -178,83 +178,122 @@
     </div>
      <script>
         const products = [
-        {
-            id: 1,
-            name: "intel core i5",
-            image: "../images/Logo/intel image/intel core i5.jpg",
+             { 
+            id: 24,
+            name: "NVIDIA GeForce RTX 3060 Ti",
+            image: "../images/Logo/RAM imgae/Corsair Vengeance LPX 16GB (2x8GB) DDR4 3600MHz.png",
             installment: "Trả góp 0%",
-            priceOld: 12990000,
+            priceOld: 2240000,
             discountPercent: 10,
-            priceNew: 11691000,
-        },
-        {
-            id: 2,
-            name: "intel core i3",
-            image: "../images/Logo/intel image/intel core i3.jpg",
-            installment: "Trả góp 0%",
-            priceOld: 4390000,
-            discountPercent: 5,
-            priceNew: 3290000,
-        },
-        { 
-            id: 3,
-            name: "CPU Intel Core i9 14900K",
-            image: "../images/Logo/intel image/CPU Intel Core i9 14900K.png",
-            installment: "Trả góp 0%",
-            priceOld: 17990000,
-            discountPercent: 7,
-            priceNew: 13990000,
-        },
-        { 
-            id: 3,
-            name: "PC CPS Gaming G07",
-            image: "../images/Logo/intel image/PC CPS Gaming G07.jpg",
-            installment: "Trả góp 0%",
-            priceOld: 21790000,
-            discountPercent: 5,
-            priceNew: 20490000,
+            priceNew: 1490000,
             os: "PC Gaming",
-            cpu: "Intel Core i5",
+            //cpu: "Intel Core i5",
         },
-        
+        { 
+            id: 25,
+            name: "NVIDIA GeForce RTX 3060 Ti",
+            image: "../images/Logo/RAM imgae/G.Skill Trident Z RGB 32GB (2x16GB) DDR4 3600MHz.png",
+            installment: "Trả góp 0%",
+            priceOld: 4550000,
+            discountPercent: 10,
+            priceNew: 3100000,
+            os: "PC Đồ họa",
+            //cpu: "Intel Core i5",
+        },
         ];
 
         function formatPrice(price) {
-        return price.toLocaleString("vi-VN") + " ₫";
+            return price.toLocaleString("vi-VN") + " ₫";
         }
 
         function displayProducts(list) {
-        const productList = document.getElementById("product-list");
-        productList.innerHTML = "";
-        list.forEach((product) => {
-            const col = document.createElement("div");
-            col.className = "col-md-3 mb-4";
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = ""; // Clear current product list
 
-            col.innerHTML = `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" />
-                <h5>${product.name}</h5>
-                <p>${product.installment}</p>
-                <div>
-                <span class="price-old">${formatPrice(product.priceOld)}</span>
-                ${
-                    product.discountPercent > 0
-                    ? `<span class="discount">-${product.discountPercent}%</span>`
-                    : ""
-                }
-                </div>
-                <h4>${formatPrice(product.priceNew)}</h4>
-                <button class="add-cart">Thêm vào giỏ hàng</button>
-            </div>
-            `;
-
-            productList.appendChild(col);
-        });
+            list.forEach(product => {
+                const col = document.createElement("div");
+                col.className = "col-md-3 mb-4";
+                col.innerHTML = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}" />
+                        <h5>${product.name}</h5>
+                        <div>
+                            <span class="price-old">${formatPrice(product.priceOld)}</span>
+                            ${
+                        product.discountPercent > 0
+                        ? `<span class="discount">-${product.discountPercent}%</span>`
+                        : ""
+                        } </div>
+                        <h4>    <span class="price-new">${formatPrice(product.priceNew)}</span></h4>
+                            
+                        
+                        <button class="add-cart">Thêm vào giỏ hàng</button>
+                    </div>
+                `;
+                productList.appendChild(col);
+            });
         }
 
-        displayProducts(products);
-    </script>
+    //  Hàm lọc
+    function handleFilter() {
+    const priceSelect = document.getElementById("priceSelect").value;
+    const osSelect = document.getElementById("osSelect").value;
+    const romSelect = document.getElementById("romSelect").value;
 
+    let minPrice = 0;
+    let maxPrice = Infinity;
+
+    // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
+    switch (priceSelect) {
+        case "Dưới 10 triệu":
+            maxPrice = 10000000;
+            break;
+            
+        case "10 - 20 triệu":
+            minPrice = 10000000;
+            maxPrice = 20000000;
+            break;
+        case "20 - 30 triệu":
+            minPrice = 20000000;
+            maxPrice = 30000000;
+            break;
+        case "30 - 40 triệu":
+            minPrice = 30000000;
+            maxPrice = 40000000;
+            break;
+        case "Trên 40 triệu":
+            minPrice = 40000000;
+            break;
+    }
+
+    const filteredProducts = filterByPrice(minPrice, maxPrice, osSelect, romSelect);
+    displayProducts(filteredProducts);
+}
+
+// Hàm lọc sản phẩm theo giá, nhu cầu và CPU
+function filterByPrice(minPrice, maxPrice, osSelect, romSelect) {
+    return products.filter(product => {
+        // Lọc theo giá
+        const priceFilter = product.priceNew >= minPrice && product.priceNew <= maxPrice;
+
+        // Lọc theo Nhu cầu
+        const osFilter = osSelect === "Chọn nhu cầu" || product.os === osSelect;
+
+        // Lọc theo CPU
+        const cpuFilter = romSelect === "Chọn CPU" || product.cpu === romSelect;
+
+        return priceFilter && osFilter && cpuFilter;
+    });
+}
+
+        // Lắng nghe sự kiện khi người dùng nhấn nút Lọc
+        document.getElementById("filterBtn").addEventListener("click", handleFilter);
+
+        // Hiển thị tất cả sản phẩm khi trang được tải lần đầu
+        window.onload = function() {
+            displayProducts(products);
+        };
+    </script>
 
 </body>
 </html>
