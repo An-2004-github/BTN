@@ -534,24 +534,41 @@
         
         setTimeout(() => {
             toast.style.opacity = '0';
-            // Ẩn hoàn toàn sau animation
             setTimeout(() => {
-            toast.style.visibility = 'hidden';
-        }, 500); // 500ms trùng với transition opacity
-    }, 2000); // Hiển thị trong 2 giây
+                toast.style.visibility = 'hidden';
+            }, 500);
+        }, 2000);
     }
+    
+    function showToast(productName) {
+        
+    const toast = document.getElementById('toast'); // Lấy phần tử thông báo
+    toast.textContent = `Đã thêm "${productName}" vào giỏ!`; // Thêm tên sản phẩm vào thông báo
+    toast.style.visibility = 'visible'; // Hiển thị thông báo
+    toast.style.opacity = '1'; // Đảm bảo thông báo có thể nhìn thấy
+    
+    setTimeout(() => {
+        toast.style.opacity = '0'; // Từ từ ẩn thông báo
+        setTimeout(() => {
+            toast.style.visibility = 'hidden'; // Ẩn hoàn toàn sau khi chuyển opacity về 0
+        }, 500);
+    }, 2000); // Hiển thị trong 2 giây
+}
+
     // Gán sự kiện click cho các nút "Thêm vào giỏ hàng"
-function addToCart() {
+    function addToCart() {
     const addCartButtons = document.querySelectorAll('.add-cart');
     addCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            showToast('Thêm vào giỏ hàng thành công!'); // Gọi hàm hiển thị thông báo
+        button.addEventListener('click', (event) => {
+            const productName = event.target.closest('.product-card').querySelector('h5').textContent; // Lấy tên sản phẩm
+            showToast(productName); // Gọi hàm hiển thị thông báo
         });
     });
 }
         
 
         function displayProducts(list) {
+            
             const productList = document.getElementById("product-list");
             productList.innerHTML = ""; // Clear current product list
              if (list.length === 0) {
@@ -662,8 +679,8 @@ function filterByPrice(minPrice, maxPrice, osSelect, romSelect, ssdSelect, ramSe
     <div id="toast" style="
         visibility: hidden;
         min-width: 250px;
-        background-color: #ccb8b8;
-        color: #201a1a;
+        background-color: #4CAF50;
+        color: white;
         text-align: center;
         border-radius: 8px;
         padding: 16px;
