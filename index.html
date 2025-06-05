@@ -509,16 +509,15 @@ const products = [
         },
         {
             id: 6,
-            name: "Logitech K120",
-            image: "../../Images/BanPhim/Logitech K120.jpg",
-            brand: "Logitech",
-            type: "Văn phòng",
-            switchType: "Khác",
-            layout: "Full-size",
-            connect: ["Có dây"],
-            led: "Không LED",
-            priceOld: 250000,
-            discountPercent: 20,
+            name: "PC CPS Quantum Blaze 5090",
+            image: "../images/Logo/epower image/PC CPS Quantum Blaze 5090.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 169990000,
+            discountPercent: 5,
+            os: "PC Đồ họa",
+            cpu: "Intel Core i9",
+            ssd: "SSD 256",  // Ổ cứng
+            ram: "16Gb", // RAM
         },
         {
             id: 7,
@@ -694,7 +693,7 @@ function createProductCard(product) {
         <span class="discount">-${discountPercent}%</span>
       </div>
       <h4 class="product-price" style="margin-bottom: 1em; color: white;">${formatPrice(priceNew)}</h4>
-      <button class="add-cart btn btn-danger mt-auto" style="width:100%;">Thêm vào giỏ hàng</button>
+      <button class="add-cart">Thêm vào giỏ hàng</button>
     </div>
   `;
 }
@@ -706,6 +705,14 @@ function loadProductSection(sectionId, productsToLoad) { // Đổi tên biến �
   } else {
     console.warn(`Không tìm thấy container cho section: ${sectionId}`);
   }
+  // Gắn sự kiện cho từng nút "Thêm vào giỏ"
+  const addCartButtons = container.querySelectorAll('.add-cart');
+  addCartButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      const product = productsToLoad[index];
+      showToast(`Đã thêm "${product.name}" vào giỏ!`);
+    });
+  });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -724,6 +731,44 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+<div id="toast" style="visibility: hidden; min-width: 250px; background-color: #4CAF50; color: white; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 1000; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 17px; opacity: 0; transition: opacity 0.5s ease-in-out;">
+    </div>
+<script>
+function renderProducts(products) {
+  const container = document.getElementById('product-container');
+  container.innerHTML = '';
 
+  products.forEach(product => {
+    const cardHTML = createProductCard(product);
+    const tempDiv = document.createElement('div');
+    tempDiv.className = 'col-md-3 mb-4';
+    tempDiv.innerHTML = cardHTML;
+
+    const addCartBtn = tempDiv.querySelector('.add-cart');
+    addCartBtn.addEventListener('click', () => {
+      showToast(`Đã thêm "${product.name}" vào giỏ!`);
+    });
+
+    container.appendChild(tempDiv);
+  });
+}
+</script>
+<script>
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.style.visibility = "visible";
+  toast.style.opacity = "1";
+
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    setTimeout(() => {
+      toast.style.visibility = "hidden";
+    }, 500);
+  }, 2000);
+}
+</script>
 </body>
 </html>
