@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop - Tech Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="container my-3">
+      <h1 class="text-center text-danger font-weight-bold mb-4">LAPTOP</h1>
+
+      <!-- Hiển thị các hãng laptop -->
+      <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
+        <a href="TrangLaptopcuahang/apple.html" class="brand-btn">
+          <img src="Images/Logo hãng/apple_logo.png" alt="Apple" style="height: 40px; width: auto;" />
+        </a>
+        <a href="TrangLaptopcuahang/asus.html" class="brand-btn">
+          <img src="Images/Logo hãng/asus_logo.png" alt="Asus" style="height: 40px; width: auto;" />
+        </a>
+        <a href="TrangLaptopcuahang/acer.html" class="brand-btn">
+          <img src="Images/Logo hãng/acer_logo.png" alt="Acer" style="height: 40px; width: auto;" />
+        </a>
+        <a href="TrangLaptopcuahang/dell.html" class="brand-btn">
+          <img src="Images/Logo hãng/dell_logo.png" alt="Dell" style="height: 40px; width: auto;" />
+        </a>
+        <a href="TrangLaptopcuahang/hp.html" class="brand-btn">
+          <img src="Images/Logo hãng/hp_logo.png" alt="HP" style="height: 40px; width: auto;" />
+        </a>
+        <a href="TrangLaptopcuahang/lenovo.html" class="brand-btn">
+          <img src="Images/Logo hãng/lenovo_logo.png" alt="Lenovo" style="height: 40px; width: auto;" />
+        </a>      </div>
+
+      <!-- Thanh bộ lọc nâng cao -->
+      <div class="container p-3 bg-light rounded shadow-sm">
+        <form>
+          <!-- Hàng trên: 6 mục -->
+          <div class="form-row mb-2">
+            <div class="form-group col-md-2">
+              <label for="priceSelect">Mức giá</label>
+              <select id="priceSelect" class="form-control form-control-sm">
+                <option>Chọn mức giá</option>
+                <option>Giá tăng dần</option>
+                <option>Giá giảm dần</option>
+                <option>Dưới 10 triệu</option>
+                <option>Từ 10 - 15 triệu</option>
+                <option>Từ 15 - 20 triệu</option>
+                <option>Từ 20 - 25 triệu</option>
+                <option>Từ 25 - 35 triệu</option>
+                <option>Từ 35 - 50 triệu</option>
+                <option>Trên 50 triệu</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="brandSelect">Thương hiệu</label>
+              <select id="brandSelect" class="form-control form-control-sm">
+                <option>Chọn thương hiệu</option>
+                <option>Apple</option>
+                <option>Asus</option>
+                <option>Acer</option>
+                <option>Dell</option>
+                <option>HP</option>
+                <option>Lenovo</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="osSelect">Hệ điều hành</label>
+              <select id="osSelect" class="form-control form-control-sm">
+                <option>Chọn hệ điều hành</option>
+                <option>Windows</option>
+                <option>MacOS</option>
+                <option>Linux</option>
+                <option>ChromeOS</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="cpuSelect">CPU</label>
+              <select id="cpuSelect" class="form-control form-control-sm">
+                <option>Chọn CPU</option>
+                <option>Intel Core i3</option>
+                <option>Intel Core i5</option>
+                <option>Intel Core i7</option>
+                <option>Intel Core i9</option>
+                <option>Intel Celeron</option>
+                <option>AMD Ryzen 3</option>
+                <option>AMD Ryzen 5</option>
+                <option>AMD Ryzen 7</option>
+                <option>AMD Ryzen 9</option>
+                <option>Apple M1</option>
+                <option>Apple M2</option>
+                <option>Apple M3</option>
+                <option>Apple M4</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="ramSelect">RAM</label>
+              <select id="ramSelect" class="form-control form-control-sm">
+                <option>Chọn RAM</option>
+                <option>4GB</option>
+                <option>8GB</option>
+                <option>16GB</option>
+                <option>32GB</option>
+                <option>64GB</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="storageSelect">Ổ cứng</label>
+              <select id="storageSelect" class="form-control form-control-sm">
+                <option>Chọn ổ cứng</option>
+                <option>SSD 256GB</option>
+                <option>SSD 512GB</option>                <option>SSD 1TB</option>
+                <option>SSD 2TB</option>
+                <option>HDD 1TB</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Hàng dưới: 5 mục + nút lọc -->
+          <div class="form-row align-items-end">
+            <div class="form-group col-md-2">
+              <label for="gpuSelect">Card đồ họa</label>
+              <select id="gpuSelect" class="form-control form-control-sm">
+                <option>Chọn card đồ họa</option>
+                <option>Intel HD Graphics</option>
+                <option>Intel Iris Xe</option>
+                <option>NVIDIA GeForce RTX</option>
+                <option>NVIDIA GeForce GTX</option>
+                <option>AMD Radeon</option>
+                <option>Apple GPU</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="screenSizeSelect">Kích thước màn hình</label>
+              <select id="screenSizeSelect" class="form-control form-control-sm">
+                <option>Chọn kích thước</option>
+                <option>Dưới 13 inch</option>
+                <option>13-14 inch</option>
+                <option>15-16 inch</option>
+                <option>Trên 16 inch</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="resolutionSelect">Độ phân giải</label>
+              <select id="resolutionSelect" class="form-control form-control-sm">
+                <option>Chọn độ phân giải</option>
+                <option>HD</option>
+                <option>Full HD</option>
+                <option>2K</option>
+                <option>4K</option>
+                <option>Retina</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="refreshRateSelect">Tần số quét</label>
+              <select id="refreshRateSelect" class="form-control form-control-sm">
+                <option>Chọn tần số quét</option>
+                <option>60 Hz</option>
+                <option>90 Hz</option>
+                <option>120 Hz</option>
+                <option>144 Hz</option>
+                <option>165 Hz</option>
+                <option>240 Hz</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="purposeSelect">Mục đích sử dụng</label>
+              <select id="purposeSelect" class="form-control form-control-sm">
+                <option>Chọn mục đích</option>
+                <option>Gaming</option>
+                <option>Đồ họa - Kỹ thuật</option>
+                <option>Học tập - Văn phòng</option>
+                <option>Mỏng nhẹ - Di động</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <button type="submit" class="btn btn-warning btn-sm btn-block">LỌC</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Khung danh sách sản phẩm -->
+      <div class="container my-3">
+        <div class="row" id="product-list">
+          <!-- Sản phẩm tạo bằng JS -->
+        </div>
+      </div>
+
+    <script>
+    const products = [
+    {
+        id: 1,
+        name: "Apple MacBook Air M2 13.6 inch 8GB 256GB",
+        image: "Images/Laptop/Apple/macbook-air-m2-8gb-256gb.jpg",
+        brand: "Apple",
+        installment: "Trả góp 0%",
+        os: "MacOS",
+        cpu: "Apple M2",
+        ram: "8GB",
+        storage: "SSD 256GB",
+        screenSize: "13-14 inch",
+        resolution: "Retina",
+        refreshRate: "60 Hz",
+        gpu: "Apple GPU",
+        weight: "1.24 kg",
+        purpose: "Học tập - Văn phòng, Mỏng nhẹ - Di động",
+        ports: "2 x Thunderbolt, 1 x Jack 3.5mm, MagSafe",
+        battery: "Lên đến 18 giờ",
+        storages: [
+            { capacity: "256GB", priceOld: 25990000, discountPercent: 10 },
+            { capacity: "512GB", priceOld: 29990000, discountPercent: 12 },
+        ],
+    },
+    {
+        id: 2,
+        name: "Apple MacBook Pro M3 Pro 16 inch 18GB 512GB",
+        image: "Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg",
+        brand: "Apple",
+        installment: "Trả góp 0%",
+        os: "MacOS",
+        cpu: "Apple M3 Pro",
+        ram: "18GB",
+        storage: "SSD 512GB",
+        screenSize: "15-16 inch",
+        resolution: "Retina",
+        refreshRate: "120 Hz",
+        gpu: "Apple GPU",
+        weight: "1.61 kg",
+        purpose: "Đồ họa - Kỹ thuật",
+        ports: "3 x Thunderbolt, 1 x Jack 3.5mm, 1 x HDMI, MagSafe, SD Card",
+        battery: "Lên đến 22 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 59990000, discountPercent: 15 },
+            { capacity: "1TB", priceOld: 64990000, discountPercent: 10 },
+        ],
+    },
+    {
+        id: 3,
+        name: "Asus ROG Zephyrus G14 GA402 14 inch 16GB 512GB",
+        image: "Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg",
+        brand: "Asus",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "AMD Ryzen 9",
+        ram: "16GB",
+        storage: "SSD 512GB",
+        screenSize: "13-14 inch",
+        resolution: "2K",
+        refreshRate: "144 Hz",
+        gpu: "NVIDIA GeForce RTX",
+        weight: "1.65 kg",
+        purpose: "Gaming, Mỏng nhẹ - Di động",
+        ports: "2 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm",
+        battery: "Lên đến 10 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 38990000, discountPercent: 18 },
+            { capacity: "1TB", priceOld: 42990000, discountPercent: 15 },
+        ],
+    },
+    {
+        id: 4,
+        name: "Asus Vivobook 15 X1504 15.6 inch 8GB 512GB",
+        image: "Images/Laptop/Asus/asus-vivobook-15-x1504.jpg",
+        brand: "Asus",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i5",
+        ram: "8GB",
+        storage: "SSD 512GB",
+        screenSize: "15-16 inch",
+        resolution: "Full HD",
+        refreshRate: "60 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.7 kg",
+        purpose: "Học tập - Văn phòng",
+        ports: "1 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm",
+        battery: "Lên đến 8 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 15990000, discountPercent: 12 },
+        ],
+    },
+    {
+        id: 5,
+        name: "Acer Nitro 5 Tiger 15.6 inch 16GB 512GB",
+        image: "Images/Laptop/Acer/acer-nitro-5-tiger.jpg",
+        brand: "Acer",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i7",
+        ram: "16GB",
+        storage: "SSD 512GB",
+        screenSize: "15-16 inch",
+        resolution: "Full HD",
+        refreshRate: "165 Hz",
+        gpu: "NVIDIA GeForce RTX",
+        weight: "2.5 kg",
+        purpose: "Gaming",
+        ports: "1 x USB-C, 3 x USB-A, 1 x HDMI, 1 x Jack 3.5mm, LAN",
+        battery: "Lên đến 6 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 27990000, discountPercent: 14 },
+            { capacity: "1TB", priceOld: 30990000, discountPercent: 10 },
+        ],
+    },
+    {
+        id: 6,
+        name: "Acer Swift Go 14 inch 16GB 512GB",
+        image: "Images/Laptop/Acer/acer-swift-go-14.jpg",
+        brand: "Acer",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i5",
+        ram: "16GB",
+        storage: "SSD 512GB",
+        screenSize: "13-14 inch",
+        resolution: "2K",
+        refreshRate: "90 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.3 kg",
+        purpose: "Học tập - Văn phòng, Mỏng nhẹ - Di động",
+        ports: "2 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm",
+        battery: "Lên đến 12 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 19990000, discountPercent: 15 },
+        ],
+    },
+    {
+        id: 7,
+        name: "Dell XPS 13 Plus 13.4 inch 16GB 512GB",
+        image: "Images/Laptop/Dell/dell-xps-13-plus.jpg",
+        brand: "Dell",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i7",
+        ram: "16GB",
+        storage: "SSD 512GB",
+        screenSize: "13-14 inch",
+        resolution: "4K",
+        refreshRate: "60 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.26 kg",
+        purpose: "Mỏng nhẹ - Di động, Đồ họa - Kỹ thuật",
+        ports: "2 x Thunderbolt, 1 x USB-C",
+        battery: "Lên đến 12 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 41990000, discountPercent: 10 },
+            { capacity: "1TB", priceOld: 46990000, discountPercent: 8 },
+        ],
+    },
+    {
+        id: 8,
+        name: "Dell Inspiron 14 5430 14 inch 8GB 512GB",
+        image: "Images/Laptop/Dell/dell-inspiron-14-5430.jpg",
+        brand: "Dell",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i5",
+        ram: "8GB",
+        storage: "SSD 512GB",
+        screenSize: "13-14 inch",
+        resolution: "Full HD",
+        refreshRate: "60 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.55 kg",
+        purpose: "Học tập - Văn phòng",
+        ports: "1 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm, SD Card",
+        battery: "Lên đến 10 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 18990000, discountPercent: 16 },
+        ],
+    },
+    {
+        id: 9,
+        name: "HP Spectre x360 14 inch 16GB 1TB",
+        image: "Images/Laptop/HP/hp-spectre-x360-14.jpg",
+        brand: "HP",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i7",
+        ram: "16GB",
+        storage: "SSD 1TB",
+        screenSize: "13-14 inch",
+        resolution: "2K",
+        refreshRate: "60 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.36 kg",
+        purpose: "Mỏng nhẹ - Di động, Đồ họa - Kỹ thuật",
+        ports: "2 x Thunderbolt, 1 x USB-A, 1 x Jack 3.5mm",
+        battery: "Lên đến 14 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 36990000, discountPercent: 12 },
+            { capacity: "1TB", priceOld: 39990000, discountPercent: 10 },
+        ],
+    },
+    {
+        id: 10,
+        name: "HP Pavilion 15 15.6 inch 8GB 512GB",
+        image: "Images/Laptop/HP/hp-pavilion-15.jpg",
+        brand: "HP",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i5",
+        ram: "8GB",
+        storage: "SSD 512GB",
+        screenSize: "15-16 inch",
+        resolution: "Full HD",
+        refreshRate: "60 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.75 kg",
+        purpose: "Học tập - Văn phòng",
+        ports: "1 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm, SD Card",
+        battery: "Lên đến 8 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 16990000, discountPercent: 15 },
+        ],
+    },
+    {
+        id: 11,
+        name: "Lenovo ThinkPad X1 Carbon Gen 11 14 inch 16GB 512GB",
+        image: "Images/Laptop/Lenovo/lenovo-thinkpad-x1-carbon-gen-11.jpg",
+        brand: "Lenovo",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "Intel Core i7",
+        ram: "16GB",
+        storage: "SSD 512GB",
+        screenSize: "13-14 inch",
+        resolution: "2K",
+        refreshRate: "60 Hz",
+        gpu: "Intel Iris Xe",
+        weight: "1.12 kg",
+        purpose: "Học tập - Văn phòng, Mỏng nhẹ - Di động",
+        ports: "2 x Thunderbolt, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm",
+        battery: "Lên đến 15 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 44990000, discountPercent: 18 },
+            { capacity: "1TB", priceOld: 48990000, discountPercent: 15 },
+        ],
+    },
+    {
+        id: 12,
+        name: "Lenovo Legion 5 Pro 16 inch 16GB 512GB",
+        image: "Images/Laptop/Lenovo/lenovo-legion-5-pro.jpg",
+        brand: "Lenovo",
+        installment: "Trả góp 0%",
+        os: "Windows",
+        cpu: "AMD Ryzen 7",
+        ram: "16GB",
+        storage: "SSD 512GB",
+        screenSize: "15-16 inch",
+        resolution: "2K",
+        refreshRate: "165 Hz",
+        gpu: "NVIDIA GeForce RTX",
+        weight: "2.45 kg",
+        purpose: "Gaming",
+        ports: "2 x USB-C, 4 x USB-A, 1 x HDMI, 1 x Jack 3.5mm, LAN",
+        battery: "Lên đến 8 giờ",
+        storages: [
+            { capacity: "512GB", priceOld: 32990000, discountPercent: 12 },
+            { capacity: "1TB", priceOld: 35990000, discountPercent: 10 },
+        ],
+    },
+    ];
+
+    function calcPriceNew(priceOld, discountPercent) {
+    return priceOld * (1 - discountPercent / 100);
+    }
+
+    function formatPrice(price) {
+    return price.toLocaleString("vi-VN") + " ₫";
+    }    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.visibility = 'visible';
+        toast.style.opacity = '1';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            // Ẩn hoàn toàn sau animation
+            setTimeout(() => {
+                toast.style.visibility = 'hidden';
+            }, 500); // 500ms trùng với transition opacity
+        }, 2000); // Hiển thị trong 2 giây
+    }    function displayProducts(list) {
+      const productList = document.getElementById("product-list");
+      productList.innerHTML = "";
+
+      if (list.length === 0) {
+        productList.innerHTML = "<div class='col-12 text-center my-5'><h3>Không tìm thấy sản phẩm nào phù hợp</h3></div>";
+        return;
+      }
+
+      list.forEach(product => {
+        const col = document.createElement("div");
+        col.className = "col-md-3 mb-4";
+
+        const defaultStorage = product.storages[0];
+        const priceNew = calcPriceNew(defaultStorage.priceOld, defaultStorage.discountPercent);
+
+        // Tạo các nút cho dung lượng ổ cứng
+        const storageOptions = product.storages.map((storage, idx) => `
+          <button type="button" class="btn btn-outline-secondary ${idx === 0 ? "active" : ""}" data-index="${idx}">
+              ${storage.capacity}
+          </button>
+        `).join("");
+
+        const baseName = product.name.replace(/\s+\d+(GB|TB)$/, '').trim();
+
+        col.innerHTML = `
+          <div class="product-card d-flex flex-column">
+              <img src="${product.image}" alt="${product.name}" />
+              <h5 data-basename="${baseName}">${product.name}</h5>
+              <p>${product.installment}</p>
+              <div class="specs">
+                  <span><i class="fas fa-microchip"></i> ${product.cpu}</span>
+                  <span><i class="fas fa-memory"></i> ${product.ram}</span>
+                  <span><i class="fas fa-hdd"></i> ${product.storage}</span>
+                  <span><i class="fas fa-desktop"></i> ${product.screenSize}</span>
+              </div>
+              <div>
+                  <span class="price-old">${formatPrice(defaultStorage.priceOld)}</span>
+                  <span class="discount">-${defaultStorage.discountPercent}%</span>
+              </div>
+              <h4 id="product-price-${product.id}">${formatPrice(priceNew)}</h4>
+
+              <div class="storage-options d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Storage options">
+                  ${storageOptions}
+              </div>
+
+              <button class="add-cart btn btn-danger mt-auto">Thêm vào giỏ hàng</button>
+          </div>
+        `;
+
+        productList.appendChild(col);
+
+        // Gán sự kiện click cho các nút dung lượng
+        const btnGroup = col.querySelector("div[role='group']");
+        btnGroup.querySelectorAll("button").forEach(button => {
+          button.addEventListener("click", e => {
+            const idx = parseInt(e.target.dataset.index);
+            const storage = product.storages[idx];
+            const newPrice = calcPriceNew(storage.priceOld, storage.discountPercent);
+
+            const priceOldElem = col.querySelector(".price-old");
+            const discountElem = col.querySelector(".discount");
+            const priceNewElem = document.getElementById(`product-price-${product.id}`);
+
+            priceOldElem.textContent = formatPrice(storage.priceOld);
+            discountElem.textContent = `-${storage.discountPercent}%`;
+            priceNewElem.textContent = formatPrice(newPrice);
+
+            const nameElem = col.querySelector('h5');
+            const baseName = nameElem.getAttribute('data-basename');
+            nameElem.textContent = `${baseName} ${storage.capacity}`;
+
+            btnGroup.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+            e.target.classList.add("active");
+          });
+        });
+        
+        // Gán sự kiện click cho nút thêm vào giỏ hàng
+        const addCartBtn = col.querySelector('.add-cart');
+        addCartBtn.addEventListener('click', () => {
+          showToast(`Đã thêm "${product.name}" vào giỏ!`);
+        });
+      });
+    }
+      // Lấy thẻ form lọc
+    const filterForm = document.querySelector('form');
+
+    // Bắt sự kiện submit form (hoặc click nút)
+    filterForm.addEventListener('submit', e => {
+      e.preventDefault(); // ngăn submit reload trang
+
+      // Lấy giá trị từng select
+      const priceValue = document.getElementById('priceSelect').value;
+      const brandValue = document.getElementById('brandSelect').value;
+      const osValue = document.getElementById('osSelect').value;
+      const cpuValue = document.getElementById('cpuSelect').value;
+      const ramValue = document.getElementById('ramSelect').value;
+      const storageValue = document.getElementById('storageSelect').value;
+      const gpuValue = document.getElementById('gpuSelect').value;
+      const screenSizeValue = document.getElementById('screenSizeSelect').value;
+      const resolutionValue = document.getElementById('resolutionSelect').value;
+      const refreshRateValue = document.getElementById('refreshRateSelect').value;
+      const purposeValue = document.getElementById('purposeSelect').value;
+
+      // Hàm tính giá sau khi giảm
+      const calculateDiscountPrice = (priceOld, discountPercent) => {
+        return priceOld * (1 - discountPercent / 100);
+      }
+
+      // Lọc các sản phẩm theo điều kiện
+      let filteredProducts = products.filter(product => {
+        let priceMatch = true;
+
+        if (priceValue !== "Chọn mức giá") {
+          const priceRanges = {
+            "Dưới 10 triệu": [0, 10000000],
+            "Từ 10 - 15 triệu": [10000000, 15000000],
+            "Từ 15 - 20 triệu": [15000000, 20000000],
+            "Từ 20 - 25 triệu": [20000000, 25000000],
+            "Từ 25 - 35 triệu": [25000000, 35000000],
+            "Từ 35 - 50 triệu": [35000000, 50000000],
+            "Trên 50 triệu": [50000000, Infinity],
+          };
+
+          // Lọc theo giá cụ thể (theo khoảng giá)
+          if (priceRanges[priceValue] && Array.isArray(priceRanges[priceValue])) {
+            const [minPrice, maxPrice] = priceRanges[priceValue];
+            priceMatch = product.storages.some(storage => {
+              const discountedPrice = calculateDiscountPrice(storage.priceOld, storage.discountPercent);
+              return discountedPrice >= minPrice && discountedPrice <= maxPrice;
+            });
+          }
+        }
+
+        // Lọc theo các tiêu chí khác
+        const brandMatch = brandValue === "Chọn thương hiệu" || product.brand === brandValue;
+        const osMatch = osValue === "Chọn hệ điều hành" || product.os === osValue;
+        const cpuMatch = cpuValue === "Chọn CPU" || product.cpu.includes(cpuValue);
+        const ramMatch = ramValue === "Chọn RAM" || product.ram === ramValue;
+        const storageMatch = storageValue === "Chọn ổ cứng" || product.storage === storageValue;
+        const gpuMatch = gpuValue === "Chọn card đồ họa" || product.gpu.includes(gpuValue);
+        const screenSizeMatch = screenSizeValue === "Chọn kích thước" || product.screenSize === screenSizeValue;
+        const resolutionMatch = resolutionValue === "Chọn độ phân giải" || product.resolution === resolutionValue;
+        const refreshRateMatch = refreshRateValue === "Chọn tần số quét" || product.refreshRate === refreshRateValue;
+        const purposeMatch = purposeValue === "Chọn mục đích" || product.purpose.includes(purposeValue);
+
+        return priceMatch && brandMatch && osMatch && cpuMatch && ramMatch && storageMatch &&
+          gpuMatch && screenSizeMatch && resolutionMatch && refreshRateMatch && purposeMatch;
+    });
+
+    // Sắp xếp lại sản phẩm theo giá tăng dần hoặc giảm dần
+    if (priceValue === "Giá tăng dần" || priceValue === "Giá giảm dần") {
+        filteredProducts = filteredProducts.sort((a, b) => {
+            const priceA = calculateDiscountPrice(a.storages[0].priceOld, a.storages[0].discountPercent);
+            const priceB = calculateDiscountPrice(b.storages[0].priceOld, b.storages[0].discountPercent);
+            return priceValue === "Giá tăng dần" ? priceA - priceB : priceB - priceA;
+        });
+    }    // Hiển thị sản phẩm đã lọc
+    displayProducts(filteredProducts);
+});
+
+    // Hiển thị tất cả sản phẩm khi trang vừa load
+    displayProducts(products);
+    </script>
+    <div
+      id="toast"
+      style="
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;             
+        transform: translate(-50%, -50%); 
+        font-size: 17px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;      "
+    ></div>
+
+    <div class="container-fluid p-0">
+      <section class="service-features">
+        <div class="feature">
+          <img src="Images\footer\secure.png" alt="Đảm bảo" />
+          <p>
+            <strong>Thương hiệu đảm bảo</strong><br />Nhập khẩu, bảo hành chính
+            hãng
+          </p>
+        </div>
+        <div class="feature">
+          <img src="Images\footer\exchange.png" alt="Đổi trả" />
+          <p>
+            <strong>Đổi trả dễ dàng</strong><br />Theo chính sách đổi trả tại
+            Tech Store
+          </p>
+        </div>
+        <div class="feature">
+          <img src="Images\footer\good-quality.png" alt="Chất lượng" />
+          <p>
+            <strong>Sản phẩm chất lượng</strong><br />Đảm bảo tương thích và độ
+            bền cao
+          </p>
+        </div>        <div class="feature">
+          <img src="Images\footer\fast-delivery.png" alt="Giao hàng" />
+          <p><strong>Giao hàng tận nơi</strong><br />Tại 63 tỉnh thành</p>
+        </div>
+      </section>
+    </div>
+    
+    <div id="footer"></div>
+    <script>
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("footer").innerHTML = data));
+    </script>
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("header").innerHTML = data));
+    </script>
+  </body>
+</html>

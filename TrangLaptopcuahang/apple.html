@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop Apple - Tech Store</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Bootstrap 4 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="header"></div>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="container my-3 text-center">
+      <h1 class="display-4 text-danger font-weight-bold">
+        <img
+          src="../Images/Logo hãng/apple_logo.png"
+          alt="Apple Logo"
+          style="width: auto; height: 70px"
+        />
+      </h1>
+    </div>
+
+    <!-- Thanh bộ lọc nâng cao -->
+    <div class="container p-3 bg-light rounded shadow-sm">
+      <form>
+        <!-- Hàng trên: 6 mục -->
+        <div class="form-row mb-2">
+          <div class="form-group col-md-2">
+            <label for="priceSelect">Mức giá</label>
+            <select id="priceSelect" class="form-control form-control-sm">
+              <option>Chọn mức giá</option>
+              <option>Giá tăng dần</option>
+              <option>Giá giảm dần</option>
+              <option>Dưới 25 triệu</option>
+              <option>Từ 25 - 35 triệu</option>
+              <option>Từ 35 - 50 triệu</option>
+              <option>Từ 50 - 70 triệu</option>
+              <option>Trên 70 triệu</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="cpuSelect">CPU</label>
+            <select id="cpuSelect" class="form-control form-control-sm">
+              <option>Chọn CPU</option>
+              <option>Apple M1</option>
+              <option>Apple M2</option>
+              <option>Apple M3</option>
+              <option>Apple M4</option>
+              <option>Apple M2 Pro</option>
+              <option>Apple M2 Max</option>
+              <option>Apple M3 Pro</option>
+              <option>Apple M3 Max</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="ramSelect">RAM</label>
+            <select id="ramSelect" class="form-control form-control-sm">
+              <option>Chọn RAM</option>
+              <option>8GB</option>
+              <option>16GB</option>
+              <option>18GB</option>
+              <option>24GB</option>
+              <option>32GB</option>
+              <option>48GB</option>
+              <option>64GB</option>
+              <option>96GB</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="storageSelect">Ổ cứng</label>
+            <select id="storageSelect" class="form-control form-control-sm">
+              <option>Chọn ổ cứng</option>
+              <option>SSD 256GB</option>
+              <option>SSD 512GB</option>
+              <option>SSD 1TB</option>
+              <option>SSD 2TB</option>
+              <option>SSD 4TB</option>
+              <option>SSD 8TB</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="screenSizeSelect">Kích thước màn hình</label>
+            <select id="screenSizeSelect" class="form-control form-control-sm">
+              <option>Chọn kích thước</option>
+              <option>13-14 inch</option>
+              <option>15-16 inch</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="modelSelect">Dòng sản phẩm</label>
+            <select id="modelSelect" class="form-control form-control-sm">
+              <option>Chọn dòng sản phẩm</option>
+              <option>MacBook Air</option>
+              <option>MacBook Pro</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Hàng dưới: 4 mục + nút lọc -->
+        <div class="form-row align-items-end">
+          <div class="form-group col-md-2">
+            <label for="refreshRateSelect">Tần số quét</label>
+            <select id="refreshRateSelect" class="form-control form-control-sm">
+              <option>Chọn tần số quét</option>
+              <option>60 Hz</option>
+              <option>120 Hz</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="colorSelect">Màu sắc</label>
+            <select id="colorSelect" class="form-control form-control-sm">
+              <option>Chọn màu sắc</option>
+              <option>Bạc (Silver)</option>
+              <option>Xám (Space Gray)</option>
+              <option>Vàng (Gold)</option>
+              <option>Xanh dương (Blue)</option>
+              <option>Xám bạc (Starlight)</option>
+              <option>Đen (Midnight)</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="purposeSelect">Mục đích sử dụng</label>
+            <select id="purposeSelect" class="form-control form-control-sm">
+              <option>Chọn mục đích</option>
+              <option>Đồ họa - Kỹ thuật</option>
+              <option>Học tập - Văn phòng</option>
+              <option>Mỏng nhẹ - Di động</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="releaseYearSelect">Năm ra mắt</label>
+            <select id="releaseYearSelect" class="form-control form-control-sm">
+              <option>Chọn năm ra mắt</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <button type="submit" class="btn btn-warning btn-sm btn-block">
+              LỌC
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Khung danh sách sản phẩm -->
+    <div class="container my-3">
+      <div class="row" id="product-list">
+        <!-- Sản phẩm tạo bằng JS -->
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Apple MacBook Air M2 13.6 inch 8GB 256GB",
+          image: "../Images/Laptop/Apple/macbook-air-m2-8gb-256gb.jpg",
+          installment: "Trả góp 0%",
+          os: "MacOS",
+          cpu: "Apple M2",
+          ram: "8GB",
+          storage: "SSD 256GB",
+          screenSize: "13-14 inch",
+          resolution: "Retina",
+          refreshRate: "60 Hz",
+          gpu: "Apple GPU",
+          weight: "1.24 kg",
+          purpose: "Học tập - Văn phòng, Mỏng nhẹ - Di động",
+          ports: "2 x Thunderbolt, 1 x Jack 3.5mm, MagSafe",
+          battery: "Lên đến 18 giờ",
+          color:
+            "Xám (Space Gray), Bạc (Silver), Xám bạc (Starlight), Đen (Midnight)",
+          model: "MacBook Air",
+          releaseYear: "2022",
+          storages: [
+            { capacity: "256GB", priceOld: 25990000, discountPercent: 10 },
+            { capacity: "512GB", priceOld: 29990000, discountPercent: 12 },
+          ],
+        },
+        {
+          id: 2,
+          name: "Apple MacBook Pro M3 Pro 16 inch 18GB 512GB",
+          image: "../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg",
+          installment: "Trả góp 0%",
+          os: "MacOS",
+          cpu: "Apple M3 Pro",
+          ram: "18GB",
+          storage: "SSD 512GB",
+          screenSize: "15-16 inch",
+          resolution: "Retina",
+          refreshRate: "120 Hz",
+          gpu: "Apple GPU",
+          weight: "1.61 kg",
+          purpose: "Đồ họa - Kỹ thuật",
+          ports: "3 x Thunderbolt, 1 x Jack 3.5mm, 1 x HDMI, MagSafe, SD Card",
+          battery: "Lên đến 22 giờ",
+          color: "Xám (Space Gray), Bạc (Silver)",
+          model: "MacBook Pro",
+          releaseYear: "2023",
+          storages: [
+            { capacity: "512GB", priceOld: 59990000, discountPercent: 15 },
+            { capacity: "1TB", priceOld: 64990000, discountPercent: 10 },
+          ],
+        },
+        {
+          id: 3,
+          name: "Apple MacBook Air M4 13.6 inch 16GB 512GB",
+          image: "../Images/Laptop/Apple/macbook-air-m4-13-inch.jpg",
+          installment: "Trả góp 0%",
+          os: "MacOS",
+          cpu: "Apple M4",
+          ram: "16GB",
+          storage: "SSD 512GB",
+          screenSize: "13-14 inch",
+          resolution: "Retina",
+          refreshRate: "60 Hz",
+          gpu: "Apple GPU",
+          weight: "1.22 kg",
+          purpose: "Học tập - Văn phòng, Mỏng nhẹ - Di động",
+          ports: "2 x Thunderbolt, 1 x Jack 3.5mm, MagSafe",
+          battery: "Lên đến 20 giờ",
+          color:
+            "Xám (Space Gray), Bạc (Silver), Xám bạc (Starlight), Đen (Midnight)",
+          model: "MacBook Air",
+          releaseYear: "2024",
+          storages: [
+            { capacity: "512GB", priceOld: 32990000, discountPercent: 5 },
+            { capacity: "1TB", priceOld: 36990000, discountPercent: 7 },
+          ],
+        },
+        {
+          id: 4,
+          name: "Apple MacBook Pro M4 16 inch 32GB 1TB",
+          image: "../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg",
+          installment: "Trả góp 0%",
+          os: "MacOS",
+          cpu: "Apple M4",
+          ram: "32GB",
+          storage: "SSD 1TB",
+          screenSize: "15-16 inch",
+          resolution: "Retina",
+          refreshRate: "120 Hz",
+          gpu: "Apple GPU",
+          weight: "1.59 kg",
+          purpose: "Đồ họa - Kỹ thuật",
+          ports: "3 x Thunderbolt, 1 x Jack 3.5mm, 1 x HDMI, MagSafe, SD Card",
+          battery: "Lên đến 24 giờ",
+          color: "Xám (Space Gray), Bạc (Silver)",
+          model: "MacBook Pro",
+          releaseYear: "2024",
+          storages: [
+            { capacity: "1TB", priceOld: 72990000, discountPercent: 5 },
+            { capacity: "2TB", priceOld: 82990000, discountPercent: 3 },
+          ],
+        },
+        {
+          id: 5,
+          name: "Apple MacBook Air M3 15.3 inch 16GB 512GB",
+          image: "../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg",
+          installment: "Trả góp 0%",
+          os: "MacOS",
+          cpu: "Apple M3",
+          ram: "16GB",
+          storage: "SSD 512GB",
+          screenSize: "15-16 inch",
+          resolution: "Retina",
+          refreshRate: "60 Hz",
+          gpu: "Apple GPU",
+          weight: "1.51 kg",
+          purpose: "Học tập - Văn phòng, Đồ họa - Kỹ thuật",
+          ports: "2 x Thunderbolt, 1 x Jack 3.5mm, MagSafe",
+          battery: "Lên đến 18 giờ",
+          color:
+            "Xám (Space Gray), Bạc (Silver), Xám bạc (Starlight), Đen (Midnight)",
+          model: "MacBook Air",
+          releaseYear: "2023",
+          storages: [
+            { capacity: "512GB", priceOld: 38990000, discountPercent: 15 },
+            { capacity: "1TB", priceOld: 42990000, discountPercent: 12 },
+          ],
+        },
+        {
+          id: 6,
+          name: "Apple MacBook Pro M3 Max 16 inch 48GB 2TB",
+          image: "../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg",
+          installment: "Trả góp 0%",
+          os: "MacOS",
+          cpu: "Apple M3 Max",
+          ram: "48GB",
+          storage: "SSD 2TB",
+          screenSize: "15-16 inch",
+          resolution: "Retina",
+          refreshRate: "120 Hz",
+          gpu: "Apple GPU",
+          weight: "1.65 kg",
+          purpose: "Đồ họa - Kỹ thuật",
+          ports: "3 x Thunderbolt, 1 x Jack 3.5mm, 1 x HDMI, MagSafe, SD Card",
+          battery: "Lên đến 22 giờ",
+          color: "Xám (Space Gray), Bạc (Silver)",
+          model: "MacBook Pro",
+          releaseYear: "2023",
+          storages: [
+            { capacity: "2TB", priceOld: 98990000, discountPercent: 10 },
+            { capacity: "4TB", priceOld: 118990000, discountPercent: 8 },
+          ],
+        },
+      ];
+
+      function calcPriceNew(priceOld, discountPercent) {
+        return priceOld * (1 - discountPercent / 100);
+      }
+
+      function formatPrice(price) {
+        return price.toLocaleString("vi-VN") + " ₫";
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.style.visibility = "visible";
+        toast.style.opacity = "1";
+
+        setTimeout(() => {
+          toast.style.opacity = "0";
+          // Ẩn hoàn toàn sau animation
+          setTimeout(() => {
+            toast.style.visibility = "hidden";
+          }, 500); // 500ms trùng với transition opacity
+        }, 2000); // Hiển thị trong 2 giây
+      }
+
+      function displayProducts(list) {
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = "";
+
+        if (list.length === 0) {
+          productList.innerHTML =
+            "<div class='col-12 text-center my-5'><h3>Không tìm thấy sản phẩm nào phù hợp</h3></div>";
+          return;
+        }
+
+        list.forEach((product) => {
+          const col = document.createElement("div");
+          col.className = "col-md-3 mb-4";
+
+          const defaultStorage = product.storages[0];
+          const priceNew = calcPriceNew(
+            defaultStorage.priceOld,
+            defaultStorage.discountPercent
+          );
+
+          // Tạo các nút cho dung lượng ổ cứng
+          const storageOptions = product.storages
+            .map(
+              (storage, idx) => `
+        <button type="button" class="btn btn-outline-secondary ${
+          idx === 0 ? "active" : ""
+        }" data-index="${idx}">
+            ${storage.capacity}
+        </button>
+        `
+            )
+            .join("");
+
+          const baseName = product.name.replace(/\s+\d+(GB|TB)$/, "").trim();
+
+          col.innerHTML = `
+        <div class="product-card d-flex flex-column">
+            <img src="${product.image}" alt="${product.name}" />
+            <h5 data-basename="${baseName}">${product.name}</h5>
+            <p>${product.installment}</p>
+            <div class="specs">
+                <span><i class="fas fa-microchip"></i> ${product.cpu}</span>
+                <span><i class="fas fa-memory"></i> ${product.ram}</span>
+                <span><i class="fas fa-hdd"></i> ${product.storage}</span>
+                <span><i class="fas fa-desktop"></i> ${
+                  product.screenSize
+                }</span>
+            </div>
+            <div>
+                <span class="price-old">${formatPrice(
+                  defaultStorage.priceOld
+                )}</span>
+                <span class="discount">-${
+                  defaultStorage.discountPercent
+                }%</span>
+            </div>
+            <h4 id="product-price-${product.id}">${formatPrice(priceNew)}</h4>
+
+            <div class="storage-options d-flex flex-wrap gap-2 mb-3" role="group" aria-label="Storage options">
+                ${storageOptions}
+            </div>
+
+            <button class="add-cart btn btn-danger mt-auto">Thêm vào giỏ hàng</button>
+        </div>
+        `;
+
+          productList.appendChild(col);
+
+          // Gán sự kiện click cho các nút dung lượng
+          const btnGroup = col.querySelector("div[role='group']");
+          btnGroup.querySelectorAll("button").forEach((button) => {
+            button.addEventListener("click", (e) => {
+              const idx = parseInt(e.target.dataset.index);
+              const storage = product.storages[idx];
+              const newPrice = calcPriceNew(
+                storage.priceOld,
+                storage.discountPercent
+              );
+
+              const priceOldElem = col.querySelector(".price-old");
+              const discountElem = col.querySelector(".discount");
+              const priceNewElem = document.getElementById(
+                `product-price-${product.id}`
+              );
+
+              priceOldElem.textContent = formatPrice(storage.priceOld);
+              discountElem.textContent = `-${storage.discountPercent}%`;
+              priceNewElem.textContent = formatPrice(newPrice);
+
+              const nameElem = col.querySelector("h5");
+              const baseName = nameElem.getAttribute("data-basename");
+              nameElem.textContent = `${baseName} ${storage.capacity}`;
+
+              btnGroup
+                .querySelectorAll("button")
+                .forEach((btn) => btn.classList.remove("active"));
+              e.target.classList.add("active");
+            });
+          });
+
+          // Gán sự kiện click cho nút thêm vào giỏ hàng
+          const addCartBtn = col.querySelector(".add-cart");
+          addCartBtn.addEventListener("click", () => {
+            showToast(`Đã thêm "${product.name}" vào giỏ!`);
+          });
+        });
+      }
+
+      // Lấy thẻ form lọc
+      const filterForm = document.querySelector("form");
+
+      // Bắt sự kiện submit form (hoặc click nút)
+      filterForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // ngăn submit reload trang
+
+        // Lấy giá trị từng select
+        const priceValue = document.getElementById("priceSelect").value;
+        const cpuValue = document.getElementById("cpuSelect").value;
+        const ramValue = document.getElementById("ramSelect").value;
+        const storageValue = document.getElementById("storageSelect").value;
+        const screenSizeValue =
+          document.getElementById("screenSizeSelect").value;
+        const modelValue = document.getElementById("modelSelect").value;
+        const refreshRateValue =
+          document.getElementById("refreshRateSelect").value;
+        const colorValue = document.getElementById("colorSelect").value;
+        const purposeValue = document.getElementById("purposeSelect").value;
+        const releaseYearValue =
+          document.getElementById("releaseYearSelect").value;
+
+        // Hàm tính giá sau khi giảm
+        const calculateDiscountPrice = (priceOld, discountPercent) => {
+          return priceOld * (1 - discountPercent / 100);
+        };
+
+        // Lọc các sản phẩm theo điều kiện
+        let filteredProducts = products.filter((product) => {
+          let priceMatch = true;
+
+          if (priceValue !== "Chọn mức giá") {
+            const priceRanges = {
+              "Dưới 25 triệu": [0, 25000000],
+              "Từ 25 - 35 triệu": [25000000, 35000000],
+              "Từ 35 - 50 triệu": [35000000, 50000000],
+              "Từ 50 - 70 triệu": [50000000, 70000000],
+              "Trên 70 triệu": [70000000, Infinity],
+            };
+
+            // Lọc theo giá cụ thể (theo khoảng giá)
+            if (
+              priceRanges[priceValue] &&
+              Array.isArray(priceRanges[priceValue])
+            ) {
+              const [minPrice, maxPrice] = priceRanges[priceValue];
+              priceMatch = product.storages.some((storage) => {
+                const discountedPrice = calculateDiscountPrice(
+                  storage.priceOld,
+                  storage.discountPercent
+                );
+                return (
+                  discountedPrice >= minPrice && discountedPrice <= maxPrice
+                );
+              });
+            }
+          }
+
+          // Lọc theo các tiêu chí khác
+          const cpuMatch = cpuValue === "Chọn CPU" || product.cpu === cpuValue;
+          const ramMatch = ramValue === "Chọn RAM" || product.ram === ramValue;
+          const storageMatch =
+            storageValue === "Chọn ổ cứng" || product.storage === storageValue;
+          const screenSizeMatch =
+            screenSizeValue === "Chọn kích thước" ||
+            product.screenSize === screenSizeValue;
+          const modelMatch =
+            modelValue === "Chọn dòng sản phẩm" || product.model === modelValue;
+          const refreshRateMatch =
+            refreshRateValue === "Chọn tần số quét" ||
+            product.refreshRate === refreshRateValue;
+          const colorMatch =
+            colorValue === "Chọn màu sắc" || product.color.includes(colorValue);
+          const purposeMatch =
+            purposeValue === "Chọn mục đích" ||
+            product.purpose.includes(purposeValue);
+          const releaseYearMatch =
+            releaseYearValue === "Chọn năm ra mắt" ||
+            product.releaseYear === releaseYearValue;
+
+          return (
+            priceMatch &&
+            cpuMatch &&
+            ramMatch &&
+            storageMatch &&
+            screenSizeMatch &&
+            modelMatch &&
+            refreshRateMatch &&
+            colorMatch &&
+            purposeMatch &&
+            releaseYearMatch
+          );
+        });
+
+        // Sắp xếp lại sản phẩm theo giá tăng dần hoặc giảm dần
+        if (priceValue === "Giá tăng dần" || priceValue === "Giá giảm dần") {
+          filteredProducts = filteredProducts.sort((a, b) => {
+            const priceA = calculateDiscountPrice(
+              a.storages[0].priceOld,
+              a.storages[0].discountPercent
+            );
+            const priceB = calculateDiscountPrice(
+              b.storages[0].priceOld,
+              b.storages[0].discountPercent
+            );
+            return priceValue === "Giá tăng dần"
+              ? priceA - priceB
+              : priceB - priceA;
+          });
+        }
+
+        // Hiển thị sản phẩm đã lọc
+        displayProducts(filteredProducts);
+      });
+
+      // Hiển thị tất cả sản phẩm khi trang vừa load
+      displayProducts(products);
+    </script>
+    <div
+      id="toast"
+      style="
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 17px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      "
+    ></div>
+
+    <div class="container-fluid p-0">
+      <section class="service-features">
+        <div class="feature">
+          <img src="../Images/footer/secure.png" alt="Đảm bảo" />
+          <p>
+            <strong>Thương hiệu đảm bảo</strong><br />Nhập khẩu, bảo hành chính
+            hãng
+          </p>
+        </div>
+        <div class="feature">
+          <img src="../Images/footer/exchange.png" alt="Đổi trả" />
+          <p>
+            <strong>Đổi trả dễ dàng</strong><br />Theo chính sách đổi trả tại
+            Tech Store
+          </p>
+        </div>
+        <div class="feature">
+          <img src="../Images/footer/good-quality.png" alt="Chất lượng" />
+          <p>
+            <strong>Sản phẩm chất lượng</strong><br />Đảm bảo tương thích và độ
+            bền cao
+          </p>
+        </div>
+        <div class="feature">
+          <img src="../Images/footer/fast-delivery.png" alt="Giao hàng" />
+          <p><strong>Giao hàng tận nơi</strong><br />Tại 63 tỉnh thành</p>
+        </div>
+      </section>
+    </div>
+    <div id="footer"></div>
+    <script>
+      fetch("../footer.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("footer").innerHTML = data));
+    </script>
+    <script>
+      fetch("../header.html")
+        .then((res) => res.text())
+        .then((data) => (document.getElementById("header").innerHTML = data));
+    </script>
+  </body>
+</html>
