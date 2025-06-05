@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chua Dat Ten</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <div id="header"></div>
-<!-- Popup ảnh tự động hiển thị -->
-<div id="imagePopup" class="modal" style="display: block;">
-  <div class="modal-content" style="max-width: 600px; padding: 0; position: relative; background-color: transparent;">
+<div id="imagePopup" class="popup" style="display: block;">
+  <div class="popup-content" style="max-width: 700px; padding: 0; position: relative; background-color: transparent;">
     <span class="close" onclick="document.getElementById('imagePopup').style.display='none'"
           style="position: absolute; top: 10px; right: 15px; font-size: 24px; color: #fff; cursor: pointer;">&times;</span>
     <img src="Images/Trang chủ/pop-up.png" alt="Ảnh popup" style="width: 100%; display: block;">
   </div>
 </div>
-
 
 <section class="banner-slider">
     <div class="slides">
@@ -40,7 +39,35 @@
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 </section>
-<!-- Modal Đăng nhập -->
+<section class="dual-promo-banner-section container my-4">
+    <div class="row">
+        <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="promo-banner-slider" id="leftPhonePromoSlider">
+                <div class="promo-slides">
+                    {/* Các slide banner điện thoại sẽ được tạo bởi JavaScript */}
+                </div>
+                <a class="promo-prev" onclick="plusIndividualPromoSlide('leftPhone', -1)">&#10094;</a>
+                <a class="promo-next" onclick="plusIndividualPromoSlide('leftPhone', 1)">&#10095;</a>
+                <div class="promo-dots-container">
+                    {/* Các dấu chấm điều hướng cho slider trái */}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="promo-banner-slider" id="rightComputerPromoSlider">
+                <div class="promo-slides">
+                    {/* Các slide banner máy tính sẽ được tạo bởi JavaScript */}
+                </div>
+                <a class="promo-prev" onclick="plusIndividualPromoSlide('rightComputer', -1)">&#10094;</a>
+                <a class="promo-next" onclick="plusIndividualPromoSlide('rightComputer', 1)">&#10095;</a>
+                <div class="promo-dots-container">
+                    {/* Các dấu chấm điều hướng cho slider phải */}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div id="loginModal" class="modal">
   <div class="modal-content">
     <span class="close" data-target="loginModal">&times;</span>
@@ -58,7 +85,6 @@
   </div>
 </div>
 
-<!-- Modal Đăng ký -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
     <span class="close" data-target="registerModal">&times;</span>
@@ -85,13 +111,30 @@
       <button type="submit">Đăng ký</button>
     </form>
 
-    <p style="text-align:center; margin-top: 10px;">
+    <p style="text-align:center; margin-top: 5px;">
       Đã có tài khoản? <a href="#" id="showLogin">Đăng nhập</a>
     </p>
   </div>
 </div>
 
-</div>
+<section class="product-section container my-3 featured-section">
+  <h2>SẢN PHẨM BÁN CHẠY</h2>
+  <div class="product-slider" id="hot-products">
+    <button class="prev" onclick="scrollSlider('hot-products', -1)">&#10094;</button>
+    <div class="product-container"></div>
+    <button class="next" onclick="scrollSlider('hot-products', 1)">&#10095;</button>
+  </div>
+</section>
+
+<section class="product-section container my-3 featured-section">
+  <h2>SẢN PHẨM NỔI BẬT</h2>
+  <div class="product-slider" id="featured-products">
+    <button class="prev" onclick="scrollSlider('featured-products', -1)">&#10094;</button>
+    <div class="product-container"></div>
+    <button class="next" onclick="scrollSlider('featured-products', 1)">&#10095;</button>
+  </div>
+</section>
+
     <section class="service-features">
       <div class="feature">
         <img src="Images\footer\secure.png" alt="Đảm bảo" />
@@ -120,77 +163,84 @@ fetch('header.html')
   // Đóng popup khi click bên ngoài hoặc nút đóng
   document.querySelectorAll('.modal .close').forEach(btn => {
     btn.addEventListener('click', function () {
-      const target = this.getAttribute("data-target");
-      document.getElementById(target).style.display = "none";
+      const targetModalId = this.getAttribute("data-target") || this.closest('.modal').id; // Sửa để lấy target modal
+      if (targetModalId) {
+        document.getElementById(targetModalId).style.display = "none";
+      }
     });
   });
 
-  window.addEventListener("click", function (event) {
-    const popup = document.getElementById("imagePopup");
-    if (event.target === popup) popup.style.display = "none";
-  });
+  // Đóng popup ảnh
+  const imagePopup = document.getElementById("imagePopup");
+  if (imagePopup) {
+    const closeImagePopup = imagePopup.querySelector(".close");
+    if(closeImagePopup) {
+        closeImagePopup.onclick = function() {
+            imagePopup.style.display = "none";
+        }
+    }
+    window.addEventListener("click", function (event) {
+        if (event.target === imagePopup) imagePopup.style.display = "none";
+    });
+  }
 
-      // 👉 THÊM TOÀN BỘ JS xử lý popup vào đây:
+
+      // Xử lý popup đăng nhập/đăng ký sau khi header được tải
       const loginModal = document.getElementById("loginModal");
       const registerModal = document.getElementById("registerModal");
-      const userIcon = document.querySelector(".icon-btn");
+      const userIcon = document.querySelector(".user-cart .icon-btn"); // Selector chính xác hơn
 
       const showLoginBtn = document.getElementById("showLogin");
       const showRegisterBtn = document.getElementById("showRegister");
 
-      const closeButtons = document.querySelectorAll(".modal .close");
-
-      // Mở popup đăng nhập
-      userIcon.addEventListener("click", () => {
-        loginModal.style.display = "block";
-      });
-
-      // Đóng popup
-      closeButtons.forEach(btn => {
-        btn.addEventListener("click", function () {
-          const target = this.getAttribute("data-target");
-          document.getElementById(target).style.display = "none";
+      if(userIcon) { // Kiểm tra userIcon tồn tại
+        userIcon.addEventListener("click", () => {
+          if(loginModal) loginModal.style.display = "block";
         });
-      });
+      }
+      
+      if (showRegisterBtn && loginModal && registerModal) {
+        showRegisterBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          loginModal.style.display = "none";
+          registerModal.style.display = "block";
+        });
+      }
 
+      if (showLoginBtn && loginModal && registerModal) {
+        showLoginBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          registerModal.style.display = "none";
+          loginModal.style.display = "block";
+        });
+      }
+      
+      // Đóng các modal khi click ra ngoài
       window.addEventListener("click", function (event) {
-        if (event.target === loginModal) loginModal.style.display = "none";
-        if (event.target === registerModal) registerModal.style.display = "none";
+        if (loginModal && event.target === loginModal) loginModal.style.display = "none";
+        if (registerModal && event.target === registerModal) registerModal.style.display = "none";
       });
-
-      // Chuyển giữa Đăng nhập ↔ Đăng ký
-      showRegisterBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        loginModal.style.display = "none";
-        registerModal.style.display = "block";
-      });
-
-      showLoginBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        registerModal.style.display = "none";
-        loginModal.style.display = "block";
-      });
-    });
+    })
+    .catch(error => console.error("Lỗi tải header:", error));
 </script> 
 <script>   
     fetch('footer.html')
       .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
-  <script>
+      .then(data => document.getElementById('footer').innerHTML = data)
+      .catch(error => console.error("Lỗi tải footer:", error));
+</script>
+<script>
     let slideIndex = 1;
     let slideInterval;
 
     showSlides(slideIndex);
 
-    // Điều khiển Next/previous
     function plusSlides(n) {
-        clearInterval(slideInterval); // Dừng tự động chuyển khi người dùng tương tác
+        clearInterval(slideInterval); 
         showSlides(slideIndex += n);
-        startSlideShow(); // Bắt đầu lại
+        startSlideShow(); 
     }
 
-    // Điều khiển bằng dấu chấm
     function currentSlide(n) {
         clearInterval(slideInterval);
         showSlides(slideIndex = n);
@@ -199,14 +249,16 @@ fetch('header.html')
 
     function showSlides(n) {
         let i;
-        let slides = document.querySelector(".slides");
+        let slidesContainer = document.querySelector(".banner-slider .slides"); // Selector chính xác hơn
         let dots = document.getElementsByClassName("dot");
         let allSlides = document.getElementsByClassName("slide");
+
+        if (!slidesContainer || allSlides.length === 0 || dots.length === 0) return; // Thoát nếu không tìm thấy element
 
         if (n > allSlides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = allSlides.length}
 
-        slides.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+        slidesContainer.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
 
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
@@ -214,23 +266,401 @@ fetch('header.html')
         dots[slideIndex-1].className += " active";
     }
     
-    // Tự động chuyển slide
     function startSlideShow() {
         slideInterval = setInterval(() => {
             plusSlides(1);
-        }, 5000); // Thay đổi 5000 thành thời gian bạn muốn (tính bằng mili giây)
+        }, 5000); 
     }
-
-    // Khởi chạy
     startSlideShow();
 </script>
 <script>
-  // Hiện popup sau 2 giây
   window.onload = function () {
-    setTimeout(function () {
-      document.getElementById('imagePopup').style.display = 'block';
-    }, 500); // 2000ms = 2 giây
+    const imagePopupOnload = document.getElementById('imagePopup');
+    if (imagePopupOnload) { // Kiểm tra imagePopupOnload tồn tại
+        setTimeout(function () {
+            imagePopupOnload.style.display = 'block';
+        }, 500);
+    }
   };
+</script>
+<script>
+  const phoneBanners = [
+    { imgSrc: "Images/Trang chủ/banner5.png", href: "Dienthoai.html", alt: "Ưu đãi Điện thoại - Banner 5" },
+    { imgSrc: "Images/Trang chủ/banner6.png", href: "Dienthoai.html", alt: "Ưu đãi Điện thoại - Banner 6" },
+    { imgSrc: "Images/Trang chủ/banner7.png", href: "Dienthoai.html", alt: "Ưu đãi Điện thoại - Banner 7" }
+];
+
+const computerBanners = [
+    { imgSrc: "Images/Trang chủ/banner8.png", href: "Maytinh.html", alt: "Khuyến mãi Máy tính - Banner 8" },
+    { imgSrc: "Images/Trang chủ/banner9.png", href: "Maytinh.html", alt: "Khuyến mãi Máy tính - Banner 9" },
+    { imgSrc: "Images/Trang chủ/banner10.png", href: "Maytinh.html", alt: "Khuyến mãi Máy tính - Banner 10" }
+];
+</script>
+<script>
+// === JavaScript cho Hai Slider Banner Quảng Cáo Độc Lập ===
+
+// Lưu trữ trạng thái và dữ liệu cho mỗi slider
+const individualSliderStates = {
+    leftPhone: { 
+        index: 1, 
+        interval: null, 
+        data: typeof phoneBanners !== 'undefined' ? phoneBanners : [], 
+        id: "leftPhonePromoSlider",
+        slideElementName: ".promo-slide", // Thêm thuộc tính này
+        dotElementName: ".promo-dot"      // Thêm thuộc tính này
+    },
+    rightComputer: { 
+        index: 1, 
+        interval: null, 
+        data: typeof computerBanners !== 'undefined' ? computerBanners : [], 
+        id: "rightComputerPromoSlider",
+        slideElementName: ".promo-slide",
+        dotElementName: ".promo-dot"
+    }
+};
+
+function setupIndividualPromoSlider(sliderKey) {
+    const state = individualSliderStates[sliderKey];
+    const sliderElement = document.getElementById(state.id);
+
+    if (!sliderElement) {
+        // console.warn(`Slider element ${state.id} not found.`);
+        return;
+    }
+
+    const slidesContainer = sliderElement.querySelector(".promo-slides");
+    const dotsContainer = sliderElement.querySelector(".promo-dots-container");
+
+    if (!slidesContainer || !dotsContainer || !state.data || state.data.length === 0) {
+        // console.warn(`Yếu tố cần thiết hoặc dữ liệu bị thiếu cho slider: ${state.id}`);
+        return;
+    }
+
+    slidesContainer.innerHTML = ""; 
+    dotsContainer.innerHTML = "";   
+
+    state.data.forEach((banner, index) => {
+        const slideDiv = document.createElement("div");
+        slideDiv.classList.add(state.slideElementName.substring(1)); // Lấy tên class không có dấu "."
+        
+        const link = document.createElement("a");
+        link.href = banner.href;
+        
+        const img = document.createElement("img");
+        img.src = banner.imgSrc;
+        img.alt = banner.alt || "Banner quảng cáo";
+        
+        link.appendChild(img);
+        slideDiv.appendChild(link);
+        slidesContainer.appendChild(slideDiv);
+
+        const dotSpan = document.createElement("span");
+        dotSpan.classList.add(state.dotElementName.substring(1)); 
+        dotSpan.onclick = () => currentIndividualPromoSlide(sliderKey, index + 1);
+        dotsContainer.appendChild(dotSpan);
+    });
+
+    showIndividualPromoSlide(sliderKey, state.index);
+    startIndividualPromoSlideShow(sliderKey);
+}
+
+function plusIndividualPromoSlide(sliderKey, n) {
+    const state = individualSliderStates[sliderKey];
+    if (!state) return;
+    clearInterval(state.interval);
+    state.index += n; 
+    showIndividualPromoSlide(sliderKey, state.index);
+    startIndividualPromoSlideShow(sliderKey);
+}
+
+function currentIndividualPromoSlide(sliderKey, n) {
+    const state = individualSliderStates[sliderKey];
+    if (!state) return;
+    clearInterval(state.interval);
+    state.index = n; 
+    showIndividualPromoSlide(sliderKey, state.index);
+    startIndividualPromoSlideShow(sliderKey);
+}
+
+function showIndividualPromoSlide(sliderKey, n) {
+    const state = individualSliderStates[sliderKey];
+    const sliderElement = document.getElementById(state.id);
+    if (!sliderElement || !state) return;
+
+    let slides = sliderElement.querySelectorAll(state.slideElementName);
+    let dots = sliderElement.querySelectorAll(state.dotElementName);
+    const slidesContainer = sliderElement.querySelector(".promo-slides");
+
+    if (!slidesContainer || slides.length === 0) return; 
+
+    if (n > slides.length) { state.index = 1; }
+    if (n < 1) { state.index = slides.length; }
+    
+    const displayIndex = state.index;
+
+    slidesContainer.style.transform = `translateX(-${(displayIndex - 1) * 100}%)`;
+    
+    if (dots.length > 0) {
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        if (dots[displayIndex - 1]) {
+            dots[displayIndex - 1].className += " active";
+        }
+    }
+}
+
+function startIndividualPromoSlideShow(sliderKey) {
+    const state = individualSliderStates[sliderKey];
+    if (!state) return;
+    clearInterval(state.interval); 
+    state.interval = setInterval(() => {
+        plusIndividualPromoSlide(sliderKey, 1);
+    }, 5000 + Math.floor(Math.random() * 1500)); // Thời gian ngẫu nhiên từ 5s đến 6.5s
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // ... (code DOMContentLoaded cũ của bạn cho sản phẩm, header, footer...)
+
+    // Thiết lập hai slider quảng cáo mới
+    if (typeof phoneBanners !== 'undefined' && typeof computerBanners !== 'undefined') {
+        setupIndividualPromoSlider('leftPhone');
+        setupIndividualPromoSlider('rightComputer');
+    } else {
+        console.warn("Dữ liệu phoneBanners hoặc computerBanners chưa được định nghĩa.");
+    }
+});
+</script>
+<script>
+const products = [
+    {
+            id: 1,
+            name: "Logitech G Pro X TKL Lightspeed",
+            image: "../../Images/BanPhim/logitech_pro_x_tkl_lightspeed.jpg",
+            brand: "Logitech",
+            type: "Cơ",
+            switchType: "Blue Switch",
+            layout: "TKL",
+            connect: ["Không dây (Wireless)"],
+            led: "RGB",
+            priceOld: 4190000,
+            discountPercent: 12,
+        },
+        {
+            id: 2,
+            name: "Corsair K70 RGB MK.2",
+            image: "../../Images/BanPhim/Corsair K70 RGB MK.2.jpg",
+            brand: "Corsair",
+            type: "Cơ",
+            switchType: "Red Switch",
+            layout: "Full-size",
+            connect: ["Có dây"],
+            led: "RGB",
+            priceOld: 3890000,
+            discountPercent: 15,
+        },
+        {
+            id: 3,
+            name: "Razer BlackWidow V4",
+            image: "../../Images/BanPhim/Razer BlackWidow V4.jpg",
+            brand: "Razer",
+            type: "Cơ",
+            switchType: "Green Switch",
+            layout: "Full-size",
+            connect: ["Có dây"],
+            led: "RGB",
+            priceOld: 3200000,
+            discountPercent: 10,
+        },
+        {
+            id: 4,
+            name: "Keychron K8 Pro",
+            image: "../../Images/BanPhim/Keychron K8 Pro.jpg",
+            brand: "Keychron",
+            type: "Cơ",
+            switchType: "Brown Switch",
+            layout: "TKL",
+            connect: ["Có dây", "Bluetooth"],
+            led: "Đơn sắc",
+            priceOld: 2590000,
+            discountPercent: 5,
+        },
+        {
+            id: 5,
+            name: "Akko 3087 v2 World Tour Tokyo",
+            image: "../../Images/BanPhim/Akko 3087 v2 World Tour Tokyo.jpg",
+            brand: "Akko",
+            type: "Cơ",
+            switchType: "Red Switch",
+            layout: "TKL",
+            connect: ["Có dây"],
+            led: "Không LED",
+            priceOld: 1850000,
+            discountPercent: 8,
+        },
+        {
+            id: 6,
+            name: "Logitech K120",
+            image: "../../Images/BanPhim/Logitech K120.jpg",
+            brand: "Logitech",
+            type: "Văn phòng",
+            switchType: "Khác",
+            layout: "Full-size",
+            connect: ["Có dây"],
+            led: "Không LED",
+            priceOld: 250000,
+            discountPercent: 20,
+        },
+        {
+            id: 7,
+            name: "Razer Huntsman Mini",
+            image: "../../Images/BanPhim/Razer Huntsman Mini.jpg",
+            brand: "Razer",
+            type: "Cơ",
+            switchType: "Razer Optical Red",
+            layout: "60%",
+            connect: ["Có dây"],
+            led: "RGB",
+            priceOld: 3100000,
+            discountPercent: 15,
+        },
+        {
+            id: 8,
+            name: "SteelSeries Apex Pro TKL",
+            image: "../../Images/BanPhim/SteelSeries Apex Pro TKL.jpg",
+            brand: "SteelSeries",
+            type: "Cơ",
+            switchType: "OmniPoint",
+            layout: "TKL",
+            connect: ["Có dây"],
+            led: "RGB",
+            priceOld: 5200000,
+            discountPercent: 10,
+        },
+        {
+            id: 9,
+            name: "Corsair K100 AIR Wireless",
+            image: "../../Images/BanPhim/Corsair K100 AIR Wireless.jpg",
+            brand: "Corsair",
+            type: "Cơ",
+            switchType: "Cherry MX Ultra Low Profile",
+            layout: "Full-size",
+            connect: ["Không dây (Wireless)", "Bluetooth"],
+            led: "RGB",
+            priceOld: 7500000,
+            discountPercent: 8,
+        },
+        {
+            id: 10,
+            name: "Akko 5075S Dracula Castle",
+            image: "../../Images/BanPhim/Akko 5075S Dracula Castle.jpg",
+            brand: "Akko",
+            type: "Cơ",
+            switchType: "Akko CS Switch",
+            layout: "75%",
+            connect: ["Có dây"],
+            led: "RGB",
+            priceOld: 2350000,
+            discountPercent: 18,
+        },
+        {
+            id: 11,
+            name: "Logitech MX Keys S",
+            image: "../../Images/BanPhim/Logitech MX Keys S.jpg",
+            brand: "Logitech",
+            type: "Văn phòng",
+            switchType: "Khác",
+            layout: "Full-size",
+            connect: ["Không dây (Wireless)", "Bluetooth"],
+            led: "Đơn sắc",
+            priceOld: 2890000,
+            discountPercent: 10,
+        },
+        {
+            id: 12,
+            name: "Keychron Q1 Pro",
+            image: "../../Images/BanPhim/Keychron Q1 Pro.jpg",
+            brand: "Keychron",
+            type: "Cơ",
+            switchType: "Brown Switch",
+            layout: "75%",
+            connect: ["Không dây (Wireless)", "Bluetooth"],
+            led: "RGB",
+            priceOld: 4990000,
+            discountPercent: 12,
+        }
+  ];
+</script>
+
+<script>
+function scrollSlider(id, direction) {
+  const container = document.querySelector(`#${id} .product-container`);
+  if (container) { // Kiểm tra container tồn tại
+    // Tính toán độ rộng của một card sản phẩm (bao gồm margin/padding nếu có)
+    // Ví dụ: nếu mỗi card rộng 280px và có gap 12px (như trong style.css .product-container)
+    // thì scrollAmount có thể là (280 + 12) * số card muốn scroll (ví dụ 3 card)
+    // Hoặc đơn giản là một giá trị cố định phù hợp với thiết kế của bạn
+    const scrollAmount = (280 + 12) * 3; // ví dụ scroll 3 card
+    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+}
+
+function calcPrice(priceOld, discountPercent) {
+  return Math.round(priceOld * (1 - discountPercent / 100));
+}
+
+function formatPrice(price) {
+  return price.toLocaleString('vi-VN') + ' ₫';
+}
+
+// *** HÀM createProductCard ĐƯỢC CẬP NHẬT Ở ĐÂY ***
+function createProductCard(product) {
+  const { id, name, image, priceOld, discountPercent, type, connect } = product; 
+  const priceNew = calcPrice(priceOld, discountPercent);
+
+  // Cấu trúc thẻ sản phẩm này sử dụng các lớp tiện ích của Bootstrap 4
+  // (cần link CSS Bootstrap ở <head>)
+  // Các style có sẵn trong style.css cho .product-card (background, padding, etc.) vẫn sẽ được áp dụng.
+  return `
+    <div class="product-card d-flex flex-column">
+    
+      <img src="${image}" alt="${name}"> 
+      
+      <h5 style="font-size: 1em; margin-top: 0.75em; margin-bottom: 0.3em; color: white; min-height: 2.4em; max-height: 2.4em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${name}</h5>
+
+      <div style="margin-bottom: 0.5em;">
+        <span class="price-old">${formatPrice(priceOld)}</span>
+        <span class="discount">-${discountPercent}%</span>
+      </div>
+      <h4 class="product-price" style="margin-bottom: 1em; color: white;">${formatPrice(priceNew)}</h4>
+      <button class="add-cart btn btn-danger mt-auto" style="width:100%;">Thêm vào giỏ hàng</button>
+    </div>
+  `;
+}
+
+function loadProductSection(sectionId, productsToLoad) { // Đổi tên biến để tránh nhầm lẫn
+  const container = document.querySelector(`#${sectionId} .product-container`);
+  if (container) { // Kiểm tra container tồn tại
+    container.innerHTML = productsToLoad.map(p => createProductCard(p)).join('');
+  } else {
+    console.warn(`Không tìm thấy container cho section: ${sectionId}`);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (typeof products !== 'undefined' && products.length > 0) {
+    // Lấy 6 sản phẩm đầu tiên cho "Sản phẩm bán chạy"
+    const hotProducts = products.slice(0, 6);
+    loadProductSection("hot-products", hotProducts);
+
+    // Lấy 6 sản phẩm tiếp theo cho "Sản phẩm nổi bật"
+    // Nếu muốn lấy sản phẩm khác, bạn có thể thay đổi logic slice ở đây
+    const featuredProducts = products.slice(6, 12); 
+    loadProductSection("featured-products", featuredProducts);
+  } else {
+    console.warn("Biến 'products' không được định nghĩa hoặc rỗng.");
+  }
+});
 </script>
 
 </body>
