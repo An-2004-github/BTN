@@ -178,6 +178,7 @@
         <!-- Sản phẩm tạo bằng JS -->
         </div>
     </div>
+    
 
     <script>
     const products = [
@@ -855,11 +856,10 @@
         
         setTimeout(() => {
             toast.style.opacity = '0';
-            // Ẩn hoàn toàn sau animation
             setTimeout(() => {
-            toast.style.visibility = 'hidden';
-        }, 500); // 500ms trùng với transition opacity
-    }, 2000); // Hiển thị trong 2 giây
+                toast.style.visibility = 'hidden';
+            }, 500);
+        }, 2000);
     }
     function displayProducts(list) {
     const productList = document.getElementById("product-list");
@@ -927,7 +927,7 @@
         // Gán sự kiện click cho nút thêm vào giỏ hàng ngay sau khi tạo DOM
         const addCartBtn = col.querySelector('.add-cart');
         addCartBtn.addEventListener('click', () => {
-        showToast('Thêm vào giỏ hàng thành công!');
+        showToast(`Đã thêm "${product.name}" vào giỏ!`);
         });
     });
     }
@@ -1015,23 +1015,7 @@
 
     displayProducts(products);
     </script>
-    <div id="toast" style="
-        visibility: hidden;
-        min-width: 250px;
-        background-color: #ccb8b8;
-        color: #201a1a;
-        text-align: center;
-        border-radius: 8px;
-        padding: 16px;
-        position: fixed;
-        z-index: 1000;
-        left: 50%;
-        top: 50%;             
-        transform: translate(-50%, -50%); 
-        font-size: 17px;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-        ">
+    <div id="toast" style="visibility: hidden; min-width: 250px; background-color: #4CAF50; color: white; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 1000; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 17px; opacity: 0; transition: opacity 0.5s ease-in-out; ">
     </div>
     <section class="service-features">
       <div class="feature">
