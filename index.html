@@ -44,12 +44,10 @@
         <div class="col-lg-6 mb-3 mb-lg-0">
             <div class="promo-banner-slider" id="leftPhonePromoSlider">
                 <div class="promo-slides">
-                    {/* Các slide banner điện thoại sẽ được tạo bởi JavaScript */}
                 </div>
                 <a class="promo-prev" onclick="plusIndividualPromoSlide('leftPhone', -1)">&#10094;</a>
                 <a class="promo-next" onclick="plusIndividualPromoSlide('leftPhone', 1)">&#10095;</a>
                 <div class="promo-dots-container">
-                    {/* Các dấu chấm điều hướng cho slider trái */}
                 </div>
             </div>
         </div>
@@ -57,12 +55,10 @@
         <div class="col-lg-6">
             <div class="promo-banner-slider" id="rightComputerPromoSlider">
                 <div class="promo-slides">
-                    {/* Các slide banner máy tính sẽ được tạo bởi JavaScript */}
                 </div>
                 <a class="promo-prev" onclick="plusIndividualPromoSlide('rightComputer', -1)">&#10094;</a>
                 <a class="promo-next" onclick="plusIndividualPromoSlide('rightComputer', 1)">&#10095;</a>
                 <div class="promo-dots-container">
-                    {/* Các dấu chấm điều hướng cho slider phải */}
                 </div>
             </div>
         </div>
@@ -118,20 +114,38 @@
 </div>
 
 <section class="product-section container my-3 featured-section">
-  <h2>SẢN PHẨM BÁN CHẠY</h2>
-  <div class="product-slider" id="hot-products">
-    <button class="prev" onclick="scrollSlider('hot-products', -1)">&#10094;</button>
+  <h2>LAPTOP NỔI BẬT</h2>
+  <div class="product-slider" id="laptop-products">
+    <button class="prev" onclick="scrollSlider('laptop-products', -1)">&#10094;</button>
     <div class="product-container"></div>
-    <button class="next" onclick="scrollSlider('hot-products', 1)">&#10095;</button>
+    <button class="next" onclick="scrollSlider('laptop-products', 1)">&#10095;</button>
   </div>
 </section>
 
 <section class="product-section container my-3 featured-section">
-  <h2>SẢN PHẨM NỔI BẬT</h2>
-  <div class="product-slider" id="featured-products">
-    <button class="prev" onclick="scrollSlider('featured-products', -1)">&#10094;</button>
+  <h2>PC NỔI BẬT</h2>
+  <div class="product-slider" id="pc-products">
+    <button class="prev" onclick="scrollSlider('pc-products', -1)">&#10094;</button>
     <div class="product-container"></div>
-    <button class="next" onclick="scrollSlider('featured-products', 1)">&#10095;</button>
+    <button class="next" onclick="scrollSlider('pc-products', 1)">&#10095;</button>
+  </div>
+</section>
+
+<section class="product-section container my-3 featured-section">
+  <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+  <div class="product-slider" id="dienthoai-products">
+    <button class="prev" onclick="scrollSlider('dienthoai-products', -1)">&#10094;</button>
+    <div class="product-container"></div>
+    <button class="next" onclick="scrollSlider('dienthoai-products', 1)">&#10095;</button>
+  </div>
+</section>
+
+<section class="product-section container my-3 featured-section">
+  <h2>PHỤ KIỆN NỔI BẬT</h2>
+  <div class="product-slider" id="phukien-products">
+    <button class="prev" onclick="scrollSlider('phukien-products', -1)">&#10094;</button>
+    <div class="product-container"></div>
+    <button class="next" onclick="scrollSlider('phukien-products', 1)">&#10095;</button>
   </div>
 </section>
 
@@ -487,16 +501,11 @@ const products = [
         },
         {
             id: 5,
-            name: "Akko 3087 v2 World Tour Tokyo",
-            image: "../../Images/BanPhim/Akko 3087 v2 World Tour Tokyo.jpg",
-            brand: "Akko",
-            type: "Cơ",
-            switchType: "Red Switch",
-            layout: "TKL",
-            connect: ["Có dây"],
-            led: "Không LED",
-            priceOld: 1850000,
-            discountPercent: 8,
+            name: "iMac 24 inch M4 2024",
+            image: "../images/Logo/apple image/iMac 24 inch M4 2024.jpg",
+            installment: "Trả góp 0%",
+            priceOld: 39990000,
+            discountPercent: 1,
         },
         {
             id: 6,
@@ -513,82 +522,134 @@ const products = [
         },
         {
             id: 7,
-            name: "Razer Huntsman Mini",
-            image: "../../Images/BanPhim/Razer Huntsman Mini.jpg",
-            brand: "Razer",
-            type: "Cơ",
-            switchType: "Razer Optical Red",
-            layout: "60%",
-            connect: ["Có dây"],
-            led: "RGB",
-            priceOld: 3100000,
-            discountPercent: 15,
+            name: "CPU Intel Core i9 14900K",
+            image: "../images/Logo/intel image/CPU Intel Core i9 14900K.png",
+            installment: "Trả góp 0%",
+            priceOld: 17990000,
+            discountPercent: 7,
+            os: "PC Gaming",
+            cpu: "Intel Core i9",
         },
         {
             id: 8,
-            name: "SteelSeries Apex Pro TKL",
-            image: "../../Images/BanPhim/SteelSeries Apex Pro TKL.jpg",
-            brand: "SteelSeries",
-            type: "Cơ",
-            switchType: "OmniPoint",
-            layout: "TKL",
-            connect: ["Có dây"],
-            led: "RGB",
-            priceOld: 5200000,
-            discountPercent: 10,
+            name: "Mac mini M4 2024",
+            image: "../images/Logo/apple image/Mac mini M4 2024.jpeg",
+            installment: "Trả góp 0%",
+            priceOld: 14990000,
+            discountPercent: 5,
         },
         {
             id: 9,
-            name: "Corsair K100 AIR Wireless",
-            image: "../../Images/BanPhim/Corsair K100 AIR Wireless.jpg",
-            brand: "Corsair",
-            type: "Cơ",
-            switchType: "Cherry MX Ultra Low Profile",
-            layout: "Full-size",
-            connect: ["Không dây (Wireless)", "Bluetooth"],
-            led: "RGB",
-            priceOld: 7500000,
-            discountPercent: 8,
+            name: "iPhone 16 Pro Max 256GB",
+            image: "../Images/ĐT Iphone/iphone_16_pro_max_desert_titan_3552a28ae0.jpg",
+            installment: "Trả góp 0%",
+            os: "iOS",
+            ram: "6GB",
+            memoryCard: "Không",
+            screen: "Trên 6.8 inch",
+            refreshRate: "120 Hz",
+            camera: "Quay phim Slow Motion, AI Camera, Hiệu ứng làm đẹp, Zoom quang học, Chống rung OIS, Chụp góc rộng, Chụp xóa phông",
+            connect: "NFC, Bluetooth, Hồng ngoại",
+            performance: "Trên 5000 mah",
+            networkSupport: "5G",
+            priceOld: 34990000,
+            discountPercent: 13,
         },
         {
             id: 10,
-            name: "Akko 5075S Dracula Castle",
-            image: "../../Images/BanPhim/Akko 5075S Dracula Castle.jpg",
-            brand: "Akko",
-            type: "Cơ",
-            switchType: "Akko CS Switch",
-            layout: "75%",
-            connect: ["Có dây"],
-            led: "RGB",
-            priceOld: 2350000,
-            discountPercent: 18,
+            name: "Samsung Galaxy S25 Ultra 5G 12GB 256GB",
+            image: "../Images/ĐT Samsung/galaxy_s25_ultra_titan_silver_blue_4_3f0c8ea577.jpg",
+            installment: "Trả góp 0%",
+            os: "Android",
+            ram: "12GB",
+            memoryCard: "MicroSD",
+            screen: "Trên 6.8 inch",
+            refreshRate: "120 Hz",
+            camera: "Quay phim Slow Motion, AI Camera, Hiệu ứng làm đẹp, Zoom quang học, Chống rung OIS, Chụp macro, Chụp góc rộng, Chụp xóa phông",
+            connect: "NFC, Bluetooth, Hồng ngoại",
+            performance: "Trên 5000 mah",
+            networkSupport: "5G",
+            priceOld: 33990000,
+            discountPercent: 16,
         },
         {
             id: 11,
-            name: "Logitech MX Keys S",
-            image: "../../Images/BanPhim/Logitech MX Keys S.jpg",
-            brand: "Logitech",
-            type: "Văn phòng",
-            switchType: "Khác",
-            layout: "Full-size",
-            connect: ["Không dây (Wireless)", "Bluetooth"],
-            led: "Đơn sắc",
-            priceOld: 2890000,
-            discountPercent: 10,
+            name: "OPPO Reno12 F 5G 8GB 256GB",
+            image: "../Images/ĐT Oppo/oppo_reno12_f_green_1_ab33e8020a.jpg",
+            installment: "Trả góp 0%",
+            os: "Android",
+            ram: "8GB",
+            memoryCard: "MicroSD",
+            screen: "Từ 6.5 - 6.8 inch",
+            refreshRate: "90 Hz",
+            camera: "AI Camera, Hiệu ứng làm đẹp",
+            connect: "NFC, Bluetooth",
+            performance: "Từ 4000 - 5000 mah",
+            networkSupport: "5G",
+            priceOld: 9490000,
+            discountPercent: 21,
         },
         {
             id: 12,
-            name: "Keychron Q1 Pro",
-            image: "../../Images/BanPhim/Keychron Q1 Pro.jpg",
-            brand: "Keychron",
+            name: "Realme C71 4G 4GB 128GB",
+            image: "../Images/ĐT Realme/realme_c71_den_3_be93234e7b.jpg",
+            installment: "Trả góp 0%",
+            os: "Android",
+            ram: "4GB",
+            memoryCard: "MicroSD",
+            screen: "Từ 6 - 6.5 inch",
+            refreshRate: "60 Hz",
+            camera: "AI Camera",
+            connect: "Bluetooth",
+            performance: "Từ 3000 - 4000 mah",
+            networkSupport: "4G",
+            priceOld: 3990000,
+            discountPercent: 5,
+        },
+        {
+            id: 13,
+            name: "Logitech G Pro X TKL Lightspeed",
+            image: "../../Images/BanPhim/logitech_pro_x_tkl_lightspeed.jpg",
+            brand: "Logitech",
             type: "Cơ",
-            switchType: "Brown Switch",
-            layout: "75%",
-            connect: ["Không dây (Wireless)", "Bluetooth"],
+            switchType: "Blue Switch",
+            layout: "TKL",
+            connect: ["Không dây (Wireless)"],
             led: "RGB",
-            priceOld: 4990000,
+            priceOld: 4190000,
             discountPercent: 12,
+        },
+        {
+            id: 14,
+            name: "Razer DeathAdder V3 Pro",
+            image: "../Images/Chuot/Razer DeathAdder V3 Pro.webp",
+            brand: "Razer",
+            type: "Gaming",
+            connect: ["Không dây (Wireless)"],
+            priceOld: 4190000,
+            discountPercent: 10,
+        },
+        {
+            id: 15,
+            name: "Sony WH-1000XM5",
+            image: "../Images/TaiNghe/Sony WH-1000XM5.png"  ,
+            brand: "Sony",
+            type: "Chụp tai (Over-ear)",
+            connect: ["Bluetooth", "Jack 3.5mm"],
+            priceOld: 8990000,
+            discountPercent: 10,
+        },
+        {
+            id: 16,
+            name: "Dell UltraSharp WB7022",
+            image: "../Images/Webcam/Dell UltraSharp WB7022.webp",
+            brand: "Dell",
+            resolution: "4K Ultra HD",
+            features: ["Tích hợp micro", "Lấy nét tự động", "HDR"],
+            priceOld: 5990000,
+            discountPercent: 10,
         }
+        
   ];
 </script>
 
@@ -600,7 +661,7 @@ function scrollSlider(id, direction) {
     // Ví dụ: nếu mỗi card rộng 280px và có gap 12px (như trong style.css .product-container)
     // thì scrollAmount có thể là (280 + 12) * số card muốn scroll (ví dụ 3 card)
     // Hoặc đơn giản là một giá trị cố định phù hợp với thiết kế của bạn
-    const scrollAmount = (280 + 12) * 3; // ví dụ scroll 3 card
+    const scrollAmount = (280 + 12) * 2; // ví dụ scroll 2 card
     container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
   }
 }
@@ -650,13 +711,14 @@ function loadProductSection(sectionId, productsToLoad) { // Đổi tên biến �
 window.addEventListener("DOMContentLoaded", () => {
   if (typeof products !== 'undefined' && products.length > 0) {
     // Lấy 6 sản phẩm đầu tiên cho "Sản phẩm bán chạy"
-    const hotProducts = products.slice(0, 6);
-    loadProductSection("hot-products", hotProducts);
-
-    // Lấy 6 sản phẩm tiếp theo cho "Sản phẩm nổi bật"
-    // Nếu muốn lấy sản phẩm khác, bạn có thể thay đổi logic slice ở đây
-    const featuredProducts = products.slice(6, 12); 
-    loadProductSection("featured-products", featuredProducts);
+    const laptopProducts = products.slice(0, 4);
+    loadProductSection("laptop-products", laptopProducts);
+    const pcProducts = products.slice(4, 8); 
+    loadProductSection("pc-products", pcProducts);
+    const dienthoaiProducts = products.slice(8, 12); 
+    loadProductSection("dienthoai-products", dienthoaiProducts);
+    const phukienProducts = products.slice(12, 16); 
+    loadProductSection("phukien-products", phukienProducts);
   } else {
     console.warn("Biến 'products' không được định nghĩa hoặc rỗng.");
   }

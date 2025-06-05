@@ -38,7 +38,7 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
 
 /* --- Breadcrumbs --- */
 .breadcrumbs {
-    padding: 20px 0;
+    padding: 20px 30px;
     font-size: 0.9em;
     color: #a0a0a0;
     border-bottom: 1px solid #33373f; /* Thêm đường kẻ mờ dưới breadcrumbs */
