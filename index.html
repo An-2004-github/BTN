@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chua Dat Ten</title>
+    <title>TECH STORE</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <div id="header"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 <div id="imagePopup" class="popup" style="display: block;">
   <div class="popup-content" style="max-width: 700px; padding: 0; position: relative; background-color: transparent;">
     <span class="close" onclick="document.getElementById('imagePopup').style.display='none'"
@@ -149,24 +156,6 @@
   </div>
 </section>
 
-    <section class="service-features">
-      <div class="feature">
-        <img src="Images\footer\secure.png" alt="Đảm bảo" />
-        <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
-      </div>
-      <div class="feature">
-        <img src="Images\footer\exchange.png" alt="Đổi trả" />
-        <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
-      </div>
-      <div class="feature">
-        <img src="Images\footer\good-quality.png" alt="Chất lượng" />
-        <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
-      </div>
-      <div class="feature">
-        <img src="Images\footer\fast-delivery.png" alt="Giao hàng" />
-        <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
-      </div>
-    </section>
 <div id="footer"></div>
 <script> 
 fetch('header.html')
@@ -305,9 +294,9 @@ fetch('header.html')
 ];
 
 const computerBanners = [
-    { imgSrc: "Images/Trang chủ/banner8.png", href: "Maytinh.html", alt: "Khuyến mãi Máy tính - Banner 8" },
-    { imgSrc: "Images/Trang chủ/banner9.png", href: "Maytinh.html", alt: "Khuyến mãi Máy tính - Banner 9" },
-    { imgSrc: "Images/Trang chủ/banner10.png", href: "Maytinh.html", alt: "Khuyến mãi Máy tính - Banner 10" }
+    { imgSrc: "Images/Trang chủ/banner8.png", href: "Laptop.html", alt: "Khuyến mãi Máy tính - Banner 8" },
+    { imgSrc: "Images/Trang chủ/banner9.png", href: "Laptop.html", alt: "Khuyến mãi Máy tính - Banner 9" },
+    { imgSrc: "Images/Trang chủ/banner10.png", href: "Laptop.html", alt: "Khuyến mãi Máy tính - Banner 10" }
 ];
 </script>
 <script>
