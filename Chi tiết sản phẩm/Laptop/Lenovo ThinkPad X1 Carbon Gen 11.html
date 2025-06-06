@@ -62,12 +62,6 @@
                   class="thumbnail"
                   onclick="changeImage('../../Images/Laptop/Lenovo/legion-pro-5.jpg')"
                 />
-                <img
-                  src="../../Images/Laptop/Lenovo/yoga-9i.jpg"
-                  alt="Thumbnail 2"
-                  class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/Lenovo/yoga-9i.jpg')"
-                />
               </div>
             </div>
           </div>
@@ -122,6 +116,13 @@
                     style="background-color: black"
                     data-color="black"
                     onclick="changeProductImage('black')"
+                  ></button>
+
+                  <button
+                    class="color-swatch"
+                    style="background-color: pink"
+                    data-color="pink"
+                    onclick="changeProductImage('pink')"
                   ></button>
                 </div>
               </div>
@@ -460,7 +461,8 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        const colorSwatches = document.querySelectorAll(".color-swatch");
         const baseImagePath =
           "../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg";
 
@@ -505,23 +507,84 @@
           const storageButtons = document.querySelectorAll(".storage-btn");
           storageButtons.forEach((btn) => btn.classList.remove("active"));
           button.classList.add("active");
-        };
-        const decreaseBtn = document.getElementById("decrease-qty");
-        const increaseBtn = document.getElementById("increase-qty");
-        const quantityInput = document.getElementById("quantity");
+        }; // Xử lý nút tăng giảm số lượng
+        const setupQuantityButtons = function () {
+          const decreaseBtn = document.getElementById("decrease-qty");
+          const increaseBtn = document.getElementById("increase-qty");
+          const quantityInput = document.getElementById("quantity");
 
-        decreaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
+          if (decreaseBtn && increaseBtn && quantityInput) {
+            decreaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+              }
+            });
+
+            increaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              quantityInput.value = currentValue + 1;
+            });
+
+            console.log("Quantity buttons initialized successfully");
+          } else {
+            console.log("Could not find quantity buttons or input");
+          }
+        };
+
+        // Gọi hàm thiết lập
+        setupQuantityButtons();
+      });
+
+      // Màu sắc mặc định
+      let selectedColor = "black";
+
+      // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính
+      const thumbnailPaths = {
+        black: [
+          "../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg",
+          "../../Images/Laptop/Lenovo/legion-pro-5.jpg",
+        ],
+        pink: [
+          "../../Images/Laptop/Lenovo/yoga-9i.jpg",
+          "../../Images/Laptop/Lenovo/ideapad-slim-5.jpg",
+        ],
+      };
+
+      // Hàm thay đổi màu sắc sản phẩm
+      function changeProductImage(color) {
+        selectedColor = color; // Cập nhật màu sắc đã chọn
+        const mainImage = document.getElementById("mainImage");
+        const thumbnails = document.querySelectorAll(
+          ".thumbnail-images .thumbnail"
+        );
+
+        // Cập nhật ảnh chính ban đầu theo màu đã chọn
+        mainImage.src = thumbnailPaths[color][0]; // Ảnh chính đầu tiên của màu đã chọn
+
+        // Cập nhật ảnh thu nhỏ cho tất cả các thumbnail
+        thumbnails.forEach((thumb, index) => {
+          if (index < thumbnailPaths[color].length) {
+            thumb.src = thumbnailPaths[color][index]; // Thay đổi đường dẫn ảnh thu nhỏ theo màu sắc
+            thumb.setAttribute(
+              "onclick",
+              `changeImage('${thumbnailPaths[color][index]}')`
+            );
           }
         });
 
-        increaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          quantityInput.value = currentValue + 1;
+        // Cập nhật màu sắc của các swatch
+        const colorSwatches = document.querySelectorAll(".color-swatch");
+        colorSwatches.forEach((swatch) => {
+          swatch.classList.remove("active");
         });
-      });
+
+        // Thêm class 'active' cho màu sắc đã chọn
+        const selectedSwatch = document.querySelector(
+          `.color-swatch[data-color=${color}]`
+        );
+        selectedSwatch.classList.add("active");
+      }
     </script>
     <div id="footer"></div>
     <script>
