@@ -17,22 +17,22 @@
     <div id = 'header'></div>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="../TrangPCcuahang/" class="brand-btn">
+            <a href="asus.html" class="brand-btn">
                 <img src="../images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="../TrangPCcuahang/" class="brand-btn">
+            <a href="epower.html" class="brand-btn">
                 <img src="../images/Logo/logo epower.jpg" alt="E-power" />
             </a>
-            <a href="../TrangPccuahang/apple.html" class="brand-btn">
+            <a href="apple.html" class="brand-btn">
                 <img src="../images/Logo/apple logo.png" alt="Apple" />
             </a>
-            <a href="../TrangPCcuahang/" class="brand-btn">
+            <a href="lenovo.html" class="brand-btn">
                 <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
             </a>
-            <a href="../TrangPCcuahang/hp.html" class="brand-btn">
+            <a href="hp.html" class="brand-btn">
                 <img src="../images/Logo/HP  logo.png" alt="Hp" />
             </a>
-            <a href="../TrangPCcuahang/" class="brand-btn">
+            <a href="intel.html" class="brand-btn">
                 <img src="../images/Logo/Intel.png" alt="Intel" />
             </a>
         </div>
@@ -125,6 +125,7 @@
             os: "PC Đồ họa",
             cpu: "Apple M3",
             ssd: "SSD 512 GB",  
+            link: "../Chi tiết sản phẩm/PC/iMac 24 inch M4 2024.html"
         },
         {
             id: 2,
@@ -136,7 +137,7 @@
             priceNew: 39600000,
             os: "PC Đồ họa",
             cpu: "Apple M4",
-            ssd: "SSD 512 GB",  
+            ssd: "SSD 512 GB",
         },
         {
             id: 3,
@@ -149,6 +150,7 @@
             os: "PC Đồ họa",  
             cpu: "Apple M3", 
             ssd: "SSD 256 GB",  
+            link: "../Chi tiết sản phẩm/PC/Mac Mini M4 2024.html"
         },
     ];
 
@@ -192,6 +194,7 @@
             const col = document.createElement("div");
             col.className = "col-md-3 mb-4";
             col.innerHTML = `
+            <a href="${product.link || '#'}" class="product-link">
                 <div class="product-card">
                     <img src="${product.image}" alt="${product.name}" />
                     <h5>${product.name}</h5>

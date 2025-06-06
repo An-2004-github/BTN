@@ -14,24 +14,25 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div id = 'header'></div>
     <div class="container my-3">
         <div class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container">
-            <a href="../Trang PC của hãng\asus.html" class="brand-btn">
+            <a href="asus.html" class="brand-btn">
                 <img src="../images/Logo/logo asus.jpg" alt="Asus" />
             </a>
-            <a href="../Trang PC của hãng\epower.html" class="brand-btn">
+            <a href="epower.html" class="brand-btn">
                 <img src="../images/Logo/logo epower.jpg" alt="E-power" />
             </a>
-            <a href="../Trang PC của hãng/apple.html" class="brand-btn">
+            <a href="apple.html" class="brand-btn">
                 <img src="../images/Logo/apple logo.png" alt="Apple" />
             </a>
-            <a href="../Trang PC của hãng/lenovo.html" class="brand-btn">
+            <a href="lenovo.html" class="brand-btn">
                 <img src="../images/Logo/logo lenovo.jpg" alt="Lenovo" />
             </a>
-            <a href="../Trang PC của hãng/hp.html" class="brand-btn">
+            <a href="hp.html" class="brand-btn">
                 <img src="../images/Logo/HP  logo.png" alt="Hp" />
             </a>
-            <a href="../Trang PC của hãng/intel.html" class="brand-btn">
+            <a href="intel.html" class="brand-btn">
                 <img src="../images/Logo/Intel.png" alt="Intel" />
             </a>
         </div>
@@ -148,6 +149,7 @@
             os: "PC Gaming",
             cpu: "Intel Core i9",
             ssd: "SSD 512 GB",  // Ổ cứng
+            link: "../Chi tiết sản phẩm/PC/intel core i9.html"
         },
         { 
             id: 3,
@@ -185,14 +187,19 @@
     }
 
     function addToCart() {
-        const addCartButtons = document.querySelectorAll('.add-cart');
-        addCartButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                const productName = event.target.closest('.product-card').querySelector('h5').textContent;
-                showToast(`Đã thêm "${productName}" vào giỏ!`);
-            });
+    const addCartButtons = document.querySelectorAll('.add-cart');
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Ngăn hành động mặc định của thẻ <a> (chuyển trang)
+            event.preventDefault(); 
+            // Ngăn sự kiện click lan ra thẻ <a> cha
+            event.stopPropagation(); 
+
+            const productName = event.target.closest('.product-card').querySelector('h5').textContent; // Lấy tên sản phẩm
+            showToast(productName); // Gọi hàm hiển thị thông báo
         });
-    }
+    });
+}
 
     function displayProducts(list) {
         const productList = document.getElementById("product-list");
@@ -206,6 +213,7 @@
             const col = document.createElement("div");
             col.className = "col-md-3 mb-4";
             col.innerHTML = `
+            <a href="${product.link || '#'}" class="product-link">
                 <div class="product-card">
                     <img src="${product.image}" alt="${product.name}" />
                     <h5>${product.name}</h5>

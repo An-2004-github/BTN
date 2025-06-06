@@ -1696,6 +1696,15 @@ body {
     background-color: var(--primary-color);
     color: white;
 }
+.product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* --- TABS SECTION --- */
 .product-description-specs .nav-tabs {
