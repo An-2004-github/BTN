@@ -1137,6 +1137,19 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
         .storage-options {
         justify-content: left;
         gap: 10px; 
+        display: flex;
+        }
+        .storage-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .storage-btn:hover {
+            background-color: #ddd;
         }
         .btn-outline-secondary {
         border-radius: 8px;
