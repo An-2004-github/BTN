@@ -449,55 +449,88 @@ document.addEventListener("DOMContentLoaded", () => {
 const products = [
     {
             id: 1,
-            name: "Logitech G Pro X TKL Lightspeed",
-            image: "/Images/BanPhim/logitech_pro_x_tkl_lightspeed.jpg",
-            brand: "Logitech",
-            type: "Cơ",
-            switchType: "Blue Switch",
-            layout: "TKL",
-            connect: ["Không dây (Wireless)"],
-            led: "RGB",
-            priceOld: 4190000,
-            discountPercent: 12,
+            name: "Acer Swift Go 14 inch 16GB 512GB",
+              image: "/Images/Laptop/Acer/swift-14.jpg",
+              brand: "Acer",
+              installment: "Trả góp 0%",
+              os: "Windows",
+              cpu: "Intel Core i5",
+              ram: "16GB",
+              storage: "SSD 512GB",
+              screenSize: "13-14 inch",
+              resolution: "2K",
+              refreshRate: "90 Hz",
+              gpu: "Intel Iris Xe",
+              weight: "1.3 kg",
+              purpose: "Học tập - Văn phòng, Mỏng nhẹ - Di động",
+              ports: "2 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm",
+              battery: "Lên đến 12 giờ",
+              priceOld: 19990000,
+              discountPercent: 15,       
         },
         {
             id: 2,
-            name: "Corsair K70 RGB MK.2",
-            image: "/Images/BanPhim/Corsair K70 RGB MK.2.jpg",
-            brand: "Corsair",
-            type: "Cơ",
-            switchType: "Red Switch",
-            layout: "Full-size",
-            connect: ["Có dây"],
-            led: "RGB",
-            priceOld: 3890000,
-            discountPercent: 15,
+            name: "Asus ROG Zephyrus G14 GA402 14 inch 16GB 512GB",
+              image: "Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg",
+              brand: "Asus",
+              installment: "Trả góp 0%",
+              os: "Windows",
+              cpu: "AMD Ryzen 9",
+              ram: "16GB",
+              storage: "SSD 512GB",
+              screenSize: "13-14 inch",
+              resolution: "2K",
+              refreshRate: "144 Hz",
+              gpu: "NVIDIA GeForce RTX",
+              weight: "1.65 kg",
+              purpose: "Gaming, Mỏng nhẹ - Di động",
+              ports: "2 x USB-C, 2 x USB-A, 1 x HDMI, 1 x Jack 3.5mm",
+              battery: "Lên đến 10 giờ",
+              priceOld: 38990000, 
+              discountPercent: 18,
+                
         },
         {
             id: 3,
-            name: "Razer BlackWidow V4",
-            image: "/Images/BanPhim/Razer BlackWidow V4.jpg",
-            brand: "Razer",
-            type: "Cơ",
-            switchType: "Green Switch",
-            layout: "Full-size",
-            connect: ["Có dây"],
-            led: "RGB",
-            priceOld: 3200000,
-            discountPercent: 10,
+            name: "Dell XPS 13 Plus 13.4 inch 16GB 512GB",
+              image: "Images/Laptop/Dell/dell-xps-13-plus.jpg",
+              brand: "Dell",
+              installment: "Trả góp 0%",
+              os: "Windows",
+              cpu: "Intel Core i7",
+              ram: "16GB",
+              storage: "SSD 512GB",
+              screenSize: "13-14 inch",
+              resolution: "4K",
+              refreshRate: "60 Hz",
+              gpu: "Intel Iris Xe",
+              weight: "1.26 kg",
+              purpose: "Mỏng nhẹ - Di động, Đồ họa - Kỹ thuật",
+              ports: "2 x Thunderbolt, 1 x USB-C",
+              battery: "Lên đến 12 giờ",
+              priceOld: 41990000,
+              discountPercent: 10,
         },
         {
             id: 4,
-            name: "Keychron K8 Pro",
-            image: "/Images/BanPhim/Keychron K8 Pro.jpg",
-            brand: "Keychron",
-            type: "Cơ",
-            switchType: "Brown Switch",
-            layout: "TKL",
-            connect: ["Có dây", "Bluetooth"],
-            led: "Đơn sắc",
-            priceOld: 2590000,
-            discountPercent: 5,
+            name: "HP Spectre x360 14 inch 16GB 1TB",
+              image: "Images/Laptop/HP/hp-spectre-x360-14.jpg",
+              brand: "HP",
+              installment: "Trả góp 0%",
+              os: "Windows",
+              cpu: "Intel Core i7",
+              ram: "16GB",
+              storage: "SSD 1TB",
+              screenSize: "13-14 inch",
+              resolution: "2K",
+              refreshRate: "60 Hz",
+              gpu: "Intel Iris Xe",
+              weight: "1.36 kg",
+              purpose: "Mỏng nhẹ - Di động, Đồ họa - Kỹ thuật",
+              ports: "2 x Thunderbolt, 1 x USB-A, 1 x Jack 3.5mm",
+              battery: "Lên đến 14 giờ",
+              priceOld: 36990000, 
+              discountPercent: 12,
         },
         {
             id: 5,
@@ -673,30 +706,47 @@ function formatPrice(price) {
   return price.toLocaleString('vi-VN') + ' ₫';
 }
 
+const productLinks = {
+  1: "/Chi tiết sản phẩm/Laptop/Acer Swift Edge 16.html",
+  2: "/Chi tiết sản phẩm/Laptop/ASUS ROG Zephyrus G14 (2025).html",
+  3: "/Chi tiết sản phẩm/Laptop/Dell XPS 13 Plus (9330).html",
+  4: "/Chi tiết sản phẩm/Laptop/HP Spectre x360 14.html",
+  5: "/Chi tiết sản phẩm/PC/iMac 24 inch M4 2024.html",
+  6: "/Chi tiết sản phẩm/PC/PC CPS Quantum Blaze 5090.html",
+  7: "/Chi tiết sản phẩm/PC/intel core i9.html",
+  8: "/Chi tiết sản phẩm/PC/Mac Mini M4 2024.html",
+  9: "/Chi tiết sản phẩm/ĐT/CTiphone.html",
+  10: "/Chi tiết sản phẩm/ĐT/CTsamsung.html",
+  11: "/Chi tiết sản phẩm/ĐT/CToppo.html",
+  12: "/Chi tiết sản phẩm/ĐT/CTrealme.html",
+  13: "/Chi tiết sản phẩm/Bàn phím/Logitech G Pro X TKL Lightspeed.html",
+  14: "/Chi tiết sản phẩm/Chuột/Razer DeathAdder V3 Pro.html",
+  15: "/Chi tiết sản phẩm/TaiNghe/Sony WH-1000XM5.html",
+  16: "/Chi tiết sản phẩm/Webcam/Dell UltraSharp WB7022.html"
+};
+
 // *** HÀM createProductCard ĐƯỢC CẬP NHẬT Ở ĐÂY ***
 function createProductCard(product) {
-  const { id, name, image, priceOld, discountPercent, type, connect } = product; 
+  const { id, name, image, priceOld, discountPercent } = product;
   const priceNew = calcPrice(priceOld, discountPercent);
+  const link = productLinks[id] || "#"; // Dùng "#" nếu không tìm thấy link
 
-  // Cấu trúc thẻ sản phẩm này sử dụng các lớp tiện ích của Bootstrap 4
-  // (cần link CSS Bootstrap ở <head>)
-  // Các style có sẵn trong style.css cho .product-card (background, padding, etc.) vẫn sẽ được áp dụng.
   return `
-    <div class="product-card d-flex flex-column">
-    
-      <img src="${image}" alt="${name}"> 
-      
-      <h5 style="font-size: 1em; margin-top: 0.75em; margin-bottom: 0.3em; color: white; min-height: 2.4em; max-height: 2.4em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${name}</h5>
-
-      <div style="margin-bottom: 0.5em;">
-        <span class="price-old">${formatPrice(priceOld)}</span>
-        <span class="discount">-${discountPercent}%</span>
+    <a href="${link}" class="product-card-link" style="text-decoration: none;">
+      <div class="product-card d-flex flex-column">
+        <img src="${image}" alt="${name}"> 
+        <h5 style="font-size: 1em; margin-top: 0.75em; margin-bottom: 0.3em; color: white; min-height: 2.4em; max-height: 2.4em; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${name}</h5>
+        <div style="margin-bottom: 0.5em;">
+          <span class="price-old">${formatPrice(priceOld)}</span>
+          <span class="discount">-${discountPercent}%</span>
+        </div>
+        <h4 class="product-price" style="margin-bottom: 1em; color: white;">${formatPrice(priceNew)}</h4>
+        <button class="add-cart" onclick="event.preventDefault(); showToast('Đã thêm &quot;${name}&quot; vào giỏ!')">Thêm vào giỏ hàng</button>
       </div>
-      <h4 class="product-price" style="margin-bottom: 1em; color: white;">${formatPrice(priceNew)}</h4>
-      <button class="add-cart">Thêm vào giỏ hàng</button>
-    </div>
+    </a>
   `;
 }
+
 
 function loadProductSection(sectionId, productsToLoad) { // Đổi tên biến để tránh nhầm lẫn
   const container = document.querySelector(`#${sectionId} .product-container`);
