@@ -227,6 +227,7 @@
             { capacity: "256GB", priceOld: 34990000, discountPercent: 13 },
             { capacity: "512GB", priceOld: 40990000, discountPercent: 10 },
           ],
+          link: "Chi tiết sản phẩm/ĐT/CTiphone.html"
         },
         {
           id: 2,
@@ -270,6 +271,7 @@
             { capacity: "512GB", priceOld: 37490000, discountPercent: 17 },
             { capacity: "1TB", priceOld: 44790000, discountPercent: 21 },
           ],
+          link: "Chi tiết sản phẩm/ĐT/CTsamsung.html"
         },
         {
           id: 4,
@@ -310,6 +312,7 @@
           storages: [
             { capacity: "256GB", priceOld: 9490000, discountPercent: 21 },
           ],
+          link: "Chi tiết sản phẩm/ĐT/CToppo.html"
         },
         {
           id: 6,
@@ -346,6 +349,7 @@
           storages: [
             { capacity: "128GB", priceOld: 3990000, discountPercent: 5 },
           ],
+          link: "Chi tiết sản phẩm/ĐT/CTrealme.html"
         },
         {
           id: 8,
@@ -438,6 +442,7 @@
           storages: [
             { capacity: "64GB", priceOld: 2990000, discountPercent: 10 },
           ],
+          link: "Chi tiết sản phẩm/ĐT/CTvivo.html"
         },
         {
           id: 13,
@@ -851,6 +856,7 @@
           storages: [
             { capacity: "128GB", priceOld: 3290000, discountPercent: 9 },
           ],
+          link: "Chi tiết sản phẩm/ĐT/CTXiaomi.html"
         },
         {
           id: 35,
@@ -899,19 +905,36 @@
       function formatPrice(price) {
         return price.toLocaleString("vi-VN") + " ₫";
       }
-      function showToast(message) {
-        const toast = document.getElementById("toast");
-        toast.textContent = message;
-        toast.style.visibility = "visible";
-        toast.style.opacity = "1";
-
+      function showToast(productName) {
+        
+    const toast = document.getElementById('toast'); // Lấy phần tử thông báo
+    toast.textContent = `Đã thêm "${productName}" vào giỏ!`; // Thêm tên sản phẩm vào thông báo
+    toast.style.visibility = 'visible'; // Hiển thị thông báo
+    toast.style.opacity = '1'; // Đảm bảo thông báo có thể nhìn thấy
+    
+    setTimeout(() => {
+        toast.style.opacity = '0'; // Từ từ ẩn thông báo
         setTimeout(() => {
-          toast.style.opacity = "0";
-          setTimeout(() => {
-            toast.style.visibility = "hidden";
-          }, 500);
-        }, 2000);
-      }
+            toast.style.visibility = 'hidden'; // Ẩn hoàn toàn sau khi chuyển opacity về 0
+        }, 500);
+    }, 2000); // Hiển thị trong 2 giây
+}
+
+    // Gán sự kiện click cho các nút "Thêm vào giỏ hàng"
+    function addToCart() {
+    const addCartButtons = document.querySelectorAll('.add-cart');
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Ngăn hành động mặc định của thẻ <a> (chuyển trang)
+            event.preventDefault(); 
+            // Ngăn sự kiện click lan ra thẻ <a> cha
+            event.stopPropagation(); 
+
+            const productName = event.target.closest('.product-card').querySelector('h5').textContent; // Lấy tên sản phẩm
+            showToast(productName); // Gọi hàm hiển thị thông báo
+        });
+    });
+}
       function displayProducts(list) {
         const productList = document.getElementById("product-list");
         productList.innerHTML = "";
@@ -940,6 +963,7 @@
             .join("");
           const baseName = product.name.replace(/\s+\d+(GB|TB)$/, "").trim();
           col.innerHTML = `
+          <a href="${product.link || '#'}" class="product-link">
         <div class="product-card d-flex flex-column">
             <img src="${product.image}" alt="${product.name}" />
             <h5 data-basename="${baseName}">${product.name}</h5>
@@ -996,10 +1020,7 @@
             });
           });
           // Gán sự kiện click cho nút thêm vào giỏ hàng ngay sau khi tạo DOM
-          const addCartBtn = col.querySelector(".add-cart");
-          addCartBtn.addEventListener("click", () => {
-            showToast(`Đã thêm "${product.name}" vào giỏ!`);
-          });
+          addToCart();
         });
       }
 
