@@ -30,13 +30,11 @@
                 <div class="col-lg-6">
                     <div class="product-gallery">
                         <div class="main-image-container">
-                            <img src="../../Images/Xiaomi/redmi_14c_main.jpg" alt="Xiaomi Redmi 14C" class="img-fluid main-product-image" id="mainImage">
+                            <img src="../../Images/ĐT redmi/Xiaomi Redmi 14C đen.jpg" alt="Xiaomi Redmi 14C" class="img-fluid main-product-image" id="mainImage">
                         </div>
                         <div class="thumbnail-images">
-                            <img src="../../Images/Xiaomi/redmi_14c_thumb1.jpg" alt="Thumbnail main" class="thumbnail active" onclick="changeImage('../../Images/Xiaomi/redmi_14c_main.jpg')">
-                            <img src="../../Images/Xiaomi/redmi_14c_thumb2.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('../../Images/Xiaomi/redmi_14c_thumb1.jpg')">
-                            <img src="../../Images/Xiaomi/redmi_14c_thumb3.jpg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('../../Images/Xiaomi/redmi_14c_thumb2.jpg')">
-                            <img src="../../Images/Xiaomi/redmi_14c_thumb4.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('../../Images/Xiaomi/redmi_14c_thumb3.jpg')">
+                            <img src="../../Images/ĐT redmi/Xiaomi Redmi 14C đen.jpg" alt="Thumbnail main" class="thumbnail active" onclick="changeImage('../../Images/ĐT redmi/Xiaomi Redmi 14C đen.jpg')">
+                            <img src="../../Images/ĐT redmi/Xiaomi Redmi 14C trắng.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('../../Images/Xiaomi/Images/ĐT redmi/Xiaomi Redmi 14C trắng.jpg')">                           
                         </div>
                     </div>
                 </div>
@@ -288,24 +286,12 @@
     // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính của Xiaomi
     const thumbnailPaths = {
         'white': [
-            '../../Images/Xiaomi/redmi_note10_5g_main.jpg', // Ảnh chính cho màu trắng
-            '../../Images/Xiaomi/redmi_note10_5g_thumb1.jpg', 
-            '../../Images/Xiaomi/redmi_note10_5g_thumb2.jpg', 
-            '../../Images/Xiaomi/redmi_note10_5g_thumb3.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_main.jpg', // Ảnh chính
-            '../../Images/Xiaomi/redmi_note10_5g_thumb1.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_thumb2.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_thumb3.jpg'
+            '../../Images/ĐT redmi/Xiaomi Redmi 14C trắng.jpg', // Ảnh chính cho màu trắng
+            '../../Images/ĐT redmi/Xiaomi Redmi 14C đen.jpg', // Ảnh chính
         ],
         'black': [
-            '../../Images/Xiaomi/redmi_note10_5g_black_main.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_black_thumb1.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_black_thumb2.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_black_thumb3.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_black_main.jpg', // Ảnh chính cho màu đen
-            '../../Images/Xiaomi/redmi_note10_5g_black_thumb1.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_black_thumb2.jpg',
-            '../../Images/Xiaomi/redmi_note10_5g_black_thumb3.jpg'
+            '../../Images/ĐT redmi/Xiaomi Redmi 14C đen.jpg',
+            '../../Images/ĐT redmi/Xiaomi Redmi 14C trắng.jpg', // Ảnh chính cho màu đen
         ]
     };
 
@@ -316,7 +302,7 @@
         const thumbnails = document.querySelectorAll('.thumbnail-images .thumbnail');
         
         // Cập nhật ảnh chính ban đầu theo màu đã chọn
-        mainImage.src = thumbnailPaths[color][4]; // Ảnh chính đầu tiên của màu đã chọn
+        mainImage.src = thumbnailPaths[color][1]; // Ảnh chính đầu tiên của màu đã chọn
         
         // Cập nhật ảnh thu nhỏ cho tất cả các thumbnail
         thumbnails.forEach((thumb, index) => {

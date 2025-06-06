@@ -30,13 +30,11 @@
                 <div class="col-lg-6">
                     <div class="product-gallery">
                         <div class="main-image-container">
-                            <img src="../../Images/Vivo/y03_main.jpg" alt="Vivo Y03 4G" class="img-fluid main-product-image" id="mainImage">
+                            <img src="../../Images/ĐT Vivo/2024_3_20_638465432004890819_vivo-y03-den-4.jpg" alt="Vivo Y03 4G" class="img-fluid main-product-image" id="mainImage">
                         </div>
                         <div class="thumbnail-images">
-                            <img src="../../Images/Vivo/y03_thumb1.jpg" alt="Thumbnail main" class="thumbnail active" onclick="changeImage('../../Images/Vivo/y03_main.jpg')">
-                            <img src="../../Images/Vivo/y03_thumb2.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('../../Images/Vivo/y03_thumb1.jpg')">
-                            <img src="../../Images/Vivo/y03_thumb3.jpg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('../../Images/Vivo/y03_thumb2.jpg')">
-                            <img src="../../Images/Vivo/y03_thumb4.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('../../Images/Vivo/y03_thumb3.jpg')">
+                            <img src="../../Images/ĐT Vivo/2024_3_20_638465432004890819_vivo-y03-den-4.jpg" alt="Thumbnail main" class="thumbnail active" onclick="changeImage('../../Images/ĐT Vivo/2024_3_20_638465432004890819_vivo-y03-den-4.jpg')">
+                            <img src="../../Images/ĐT Vivo/dien-thoai-vivo-v30e_2_.jpg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('../../Images/ĐT Vivo/dien-thoai-vivo-v30e_2_.jpg')">
                         </div>
                     </div>
                 </div>
@@ -288,24 +286,12 @@
     // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính của Vivo
     const thumbnailPaths = {
         'white': [
-            '../../Images/Vivo/v21e_main.jpg', // Ảnh chính cho màu trắng
-            '../../Images/Vivo/v21e_thumb1.jpg', 
-            '../../Images/Vivo/v21e_thumb2.jpg', 
-            '../../Images/Vivo/v21e_thumb3.jpg',
-            '../../Images/Vivo/v21e_main.jpg', // Ảnh chính
-            '../../Images/Vivo/v21e_thumb1.jpg',
-            '../../Images/Vivo/v21e_thumb2.jpg',
-            '../../Images/Vivo/v21e_thumb3.jpg'
+            '../../Images/ĐT Vivo/dien-thoai-vivo-v30e_2_.jpg',
+            '../../Images/ĐT Vivo/2024_3_20_638465432004890819_vivo-y03-den-4.jpg' // Ảnh chính cho màu trắng
         ],
         'black': [
-            '../../Images/Vivo/v21e_black_main.jpg',
-            '../../Images/Vivo/v21e_black_thumb1.jpg',
-            '../../Images/Vivo/v21e_black_thumb2.jpg',
-            '../../Images/Vivo/v21e_black_thumb3.jpg',
-            '../../Images/Vivo/v21e_black_main.jpg', // Ảnh chính cho màu đen
-            '../../Images/Vivo/v21e_black_thumb1.jpg',
-            '../../Images/Vivo/v21e_black_thumb2.jpg',
-            '../../Images/Vivo/v21e_black_thumb3.jpg'
+            '../../Images/ĐT Vivo/2024_3_20_638465432004890819_vivo-y03-den-4.jpg',
+            '../../Images/ĐT Vivo/dien-thoai-vivo-v30e_2_.jpg' // Ảnh chính cho màu đen
         ]
     };
 
@@ -316,7 +302,7 @@
         const thumbnails = document.querySelectorAll('.thumbnail-images .thumbnail');
         
         // Cập nhật ảnh chính ban đầu theo màu đã chọn
-        mainImage.src = thumbnailPaths[color][4]; // Ảnh chính đầu tiên của màu đã chọn
+        mainImage.src = thumbnailPaths[color][1]; // Ảnh chính đầu tiên của màu đã chọn
         
         // Cập nhật ảnh thu nhỏ cho tất cả các thumbnail
         thumbnails.forEach((thumb, index) => {
