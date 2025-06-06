@@ -57,20 +57,8 @@
                   onclick="changeImage('../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg')"
                 />
                 <img
-                  src="../../Images/Laptop/Asus/asus-tuf-gaming-f15.jpg"
-                  alt="Thumbnail 1"
-                  class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/Asus/asus-tuf-gaming-f15.jpg')"
-                />
-                <img
-                  src="../../Images/Laptop/Asus/asus-proart-studiobook-16.jpg"
-                  alt="Thumbnail 2"
-                  class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/Asus/asus-proart-studiobook-16.jpg')"
-                />
-                <img
                   src="../../Images/Laptop/Asus/asus-zenbook-14-oled.jpg"
-                  alt="Thumbnail 3"
+                  alt="Thumbnail 1"
                   class="thumbnail"
                   onclick="changeImage('../../Images/Laptop/Asus/asus-zenbook-14-oled.jpg')"
                 />
@@ -477,7 +465,8 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        const colorSwatches = document.querySelectorAll(".color-swatch");
         const baseImagePath =
           "../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg";
         const variantImages = {
@@ -528,38 +517,46 @@
           storageButtons.forEach((btn) => btn.classList.remove("active"));
           button.classList.add("active");
         };
-        const decreaseBtn = document.getElementById("decrease-qty");
-        const increaseBtn = document.getElementById("increase-qty");
-        const quantityInput = document.getElementById("quantity");
 
-        decreaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
+        // Xử lý nút tăng giảm số lượng
+        const setupQuantityButtons = function () {
+          const decreaseBtn = document.getElementById("decrease-qty");
+          const increaseBtn = document.getElementById("increase-qty");
+          const quantityInput = document.getElementById("quantity");
+
+          if (decreaseBtn && increaseBtn && quantityInput) {
+            decreaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+              }
+            });
+
+            increaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              quantityInput.value = currentValue + 1;
+            });
+
+            console.log("Quantity buttons initialized successfully");
+          } else {
+            console.log("Could not find quantity buttons or input");
           }
-        });
+        };
 
-        increaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          quantityInput.value = currentValue + 1;
-        });
+        // Gọi hàm thiết lập
+        setupQuantityButtons();
       });
-
       let selectedColor = "white"; // Mặc định là màu trắng
 
       // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính
       const thumbnailPaths = {
         white: [
-          "../../images/Logo/asus image/ASUS PN64-E1.png",
-          "../../images/Logo/asus image/PC Mini Asus NUC 13 Pro RNUC13ANHi3000.jpg",
-          "../../images/Logo/asus image/Asus ProArt 32inch.jpg",
-          "../../images/Logo/asus image/Asus MB166C 16inch.png",
+          "../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg",
+          "../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg",
         ],
         black: [
-          "../../images/Logo/asus image/PC Mini Asus NUC 13 Pro RNUC13ANHi3000.jpg",
-          "../../images/Logo/asus image/Asus ProArt 32inch.jpg",
-          "../../images/Logo/asus image/Asus MB166C 16inch.png",
-          "../../images/Logo/asus image/AIO Asus A3402WBAK-WPC049W,png.webp",
+          "../../Images/Laptop/Asus/asus-tuf-gaming-f15.jpg",
+          "../../Images/Laptop/Asus/asus-proart-studiobook-16.jpg",
         ],
       };
 

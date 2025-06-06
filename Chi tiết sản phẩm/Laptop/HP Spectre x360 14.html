@@ -62,12 +62,6 @@
                   class="thumbnail"
                   onclick="changeImage('../../Images/Laptop/HP/hp-envy-14.jpg')"
                 />
-                <img
-                  src="../../Images/Laptop/HP/hp-omen-16.jpg"
-                  alt="Thumbnail 2"
-                  class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/HP/hp-omen-16.jpg')"
-                />
               </div>
             </div>
           </div>
@@ -486,7 +480,8 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        const colorSwatches = document.querySelectorAll(".color-swatch");
         const baseImagePath = "../../Images/Laptop/HP/hp-spectre-x360-14.jpg";
         const variantImages = {
           nightfall: "../../Images/Laptop/HP/hp-spectre-x360-14.jpg",
@@ -535,37 +530,45 @@
           const storageButtons = document.querySelectorAll(".storage-btn");
           storageButtons.forEach((btn) => btn.classList.remove("active"));
           button.classList.add("active");
-        };
-        const decreaseBtn = document.getElementById("decrease-qty");
-        const increaseBtn = document.getElementById("increase-qty");
-        const quantityInput = document.getElementById("quantity");
+        }; // Xử lý nút tăng giảm số lượng
+        const setupQuantityButtons = function () {
+          const decreaseBtn = document.getElementById("decrease-qty");
+          const increaseBtn = document.getElementById("increase-qty");
+          const quantityInput = document.getElementById("quantity");
 
-        decreaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
+          if (decreaseBtn && increaseBtn && quantityInput) {
+            decreaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+              }
+            });
+
+            increaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              quantityInput.value = currentValue + 1;
+            });
+
+            console.log("Quantity buttons initialized successfully");
+          } else {
+            console.log("Could not find quantity buttons or input");
           }
-        });
+        };
 
-        increaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          quantityInput.value = currentValue + 1;
-        });
+        // Gọi hàm thiết lập
+        setupQuantityButtons();
       });
-
       let selectedColor = "nightfall"; // Mặc định là màu Nightfall Bronze
 
       // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính
       const thumbnailPaths = {
         nightfall: [
-          "../../images/Logo/hp image/HP Pavilion.png",
-          "../../images/Logo/epower image/PC CPS Creator Pro 146 i5-14600K.png",
-          "../../images/Logo/apple image/pink iMac.png",
+          "../../Images/Laptop/HP/hp-spectre-x360-14.jpg",
+          "../../Images/Laptop/HP/hp-envy-14.jpg",
         ],
         poseidon: [
-          "../../images/Logo/epower image/PC CPS Creator Pro 146 i5-14600K.png",
-          "../../images/Logo/apple image/pink iMac.png",
-          "../../images/Logo/hp image/HP Pavilion.png",
+          "../../Images/Laptop/HP/hp-omen-16.jpg",
+          "../../Images/Laptop/HP/hp-pavilion-15.jpg",
         ],
       };
 
