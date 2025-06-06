@@ -80,6 +80,10 @@
       <input type="text" id="username" name="username" required>
       <label for="password">Mật khẩu:</label>
       <input type="password" id="password" name="password" required>
+      <label style="display: flex; align-items: center; margin-top: 10px; gap: 6px;">
+        <input type="checkbox" onclick="togglePassword('password')" style="width: 16px; height: 16px;">
+        <span style="color: white; font-size: 14px;">Hiện mật khẩu</span>
+      </label>
       <button type="submit">Đăng nhập</button>
     </form>
     <p style="text-align:center; margin-top: 10px;">
@@ -226,6 +230,53 @@ fetch('header.html')
     })
     .catch(error => console.error("Lỗi tải header:", error));
 </script> 
+<script>
+function togglePassword(id) {
+  const input = document.getElementById(id);
+  if (input) {
+    input.type = input.type === "password" ? "text" : "password";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Xử lý đăng nhập
+  const loginForm = document.querySelector("#loginModal form");
+  if (loginForm) {
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("loginModal").style.display = "none";
+      showToast("Đăng nhập thành công!");
+    });
+  }
+
+  // Xử lý đăng ký
+  const registerForm = document.querySelector("#registerModal form");
+  if (registerForm) {
+    registerForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const pass = document.getElementById("new-password").value;
+      const confirm = document.getElementById("confirm-password").value;
+      if (pass !== confirm) {
+        showToast("Mật khẩu xác nhận không khớp!");
+        return;
+      }
+
+      document.getElementById("registerModal").style.display = "none";
+      showToast("Đăng ký thành công!");
+    });
+  }
+});
+</script>
+<script>
+function togglePassword(id) {
+  const input = document.getElementById(id);
+  if (input) {
+    input.type = input.type === "password" ? "text" : "password";
+  }
+}
+</script>
+
 <script>   
     fetch('footer.html')
       .then(res => res.text())

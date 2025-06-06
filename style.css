@@ -520,7 +520,7 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
 }
 
 .order-modal-content {
-    background-color: #c0392b; /* Nền màu đỏ sẫm như trong hình */
+    background-color: #444444; /* Nền màu đỏ sẫm như trong hình */
     color: #fdfefe; /* Chữ màu trắng sáng */
     margin: auto;
     padding: 25px 35px; /* Tăng padding */
@@ -773,7 +773,7 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #444444;
   margin: 5% auto;
   padding: 20px;
   width: 400px;
@@ -963,7 +963,12 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
     gap: 10px;
     margin-top: 10px;
 }
-
+.user-cart .cart-btn:hover{
+    background-color: #320606;
+}
+.user-cart .icon-btn:hover{
+    background-color: #320606;
+}
 .icon-btn, .cart-btn {
     background-color: #500a0a;
     color: white;
