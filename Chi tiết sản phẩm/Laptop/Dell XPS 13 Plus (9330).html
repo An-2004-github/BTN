@@ -495,7 +495,7 @@
         const baseImagePath = "../../Images/Laptop/Dell/dell-xps-13-plus.jpg";
         const variantImages = {
           platinum: "../../Images/Laptop/Dell/dell-xps-13-plus.jpg",
-          graphite: "../../Images/Laptop/Dell/dell-inspiron-14-5430.jpg",
+          graphite: "../../Images/Laptop/Dell/dell-latitude-7440.jpg",
         };
 
         colorSwatches.forEach((swatch) => {
@@ -582,9 +582,7 @@
           "../../Images/Laptop/Dell/dell-latitude-7440.jpg",
           "../../Images/Laptop/Dell/dell-vostro-3430.jpg",
         ],
-      };
-
-      // Hàm thay đổi màu sắc sản phẩm
+      }; // Hàm thay đổi màu sắc sản phẩm
       function changeProductImage(color) {
         selectedColor = color; // Cập nhật màu sắc đã chọn
         const mainImage = document.getElementById("mainImage");
@@ -603,6 +601,13 @@
               "onclick",
               `changeImage('${thumbnailPaths[color][index]}')`
             );
+
+            // Đặt active cho thumbnail đầu tiên của màu mới, bỏ active các thumbnail khác
+            if (index === 0) {
+              thumb.classList.add("active");
+            } else {
+              thumb.classList.remove("active");
+            }
           }
         });
 

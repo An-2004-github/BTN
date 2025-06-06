@@ -485,7 +485,7 @@
         const baseImagePath = "../../Images/Laptop/HP/hp-spectre-x360-14.jpg";
         const variantImages = {
           nightfall: "../../Images/Laptop/HP/hp-spectre-x360-14.jpg",
-          poseidon: "../../Images/Laptop/HP/hp-envy-14.jpg",
+          poseidon: "../../Images/Laptop/HP/hp-omen-16.jpg",
         };
 
         colorSwatches.forEach((swatch) => {
@@ -502,6 +502,7 @@
             mainImage.src = variantImages[color] || baseImagePath;
           });
         });
+
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng
         window.updatePriceAndStorage = function (button) {
           const storage = button.getAttribute("data-storage"); // Lấy giá trị dung lượng từ nút
@@ -570,9 +571,7 @@
           "../../Images/Laptop/HP/hp-omen-16.jpg",
           "../../Images/Laptop/HP/hp-pavilion-15.jpg",
         ],
-      };
-
-      // Hàm thay đổi màu sắc sản phẩm
+      }; // Hàm thay đổi màu sắc sản phẩm
       function changeProductImage(color) {
         selectedColor = color; // Cập nhật màu sắc đã chọn
         const mainImage = document.getElementById("mainImage");
@@ -591,6 +590,13 @@
               "onclick",
               `changeImage('${thumbnailPaths[color][index]}')`
             );
+
+            // Đặt active cho thumbnail đầu tiên của màu mới, bỏ active các thumbnail khác
+            if (index === 0) {
+              thumb.classList.add("active");
+            } else {
+              thumb.classList.remove("active");
+            }
           }
         });
 

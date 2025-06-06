@@ -547,9 +547,7 @@
           "../../Images/Laptop/Acer/travelmate-p2.jpg",
           "../../Images/Laptop/Acer/predator-triton-17x.jpg",
         ],
-      };
-
-      // Hàm thay đổi màu sắc sản phẩm
+      }; // Hàm thay đổi màu sắc sản phẩm
       function changeProductImage(color) {
         selectedColor = color; // Cập nhật màu sắc đã chọn
         const mainImage = document.getElementById("mainImage");
@@ -568,6 +566,13 @@
               "onclick",
               `changeImage('${thumbnailPaths[color][index]}')`
             );
+
+            // Đặt active cho thumbnail đầu tiên của màu mới, bỏ active các thumbnail khác
+            if (index === 0) {
+              thumb.classList.add("active");
+            } else {
+              thumb.classList.remove("active");
+            }
           }
         });
 
