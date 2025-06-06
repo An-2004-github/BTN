@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMac 24 inch M4 2024 - Chi tiết sản phẩm</title>
+    <title>iMac 24 inch M4 2024</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="../../style.css">
 </head>
 <body class="ctsp">
-    <div id="header"></div>
+    <div id = 'header'></div>
     <main class="container my-4">
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="#">Máy tính</a></li>
+                <li class="breadcrumb-item"><a href="#">PC</a></li>
                 <li class="breadcrumb-item active" aria-current="page">iMac 24 inch M4 2024</li>
             </ol>
         </nav>
@@ -30,13 +30,14 @@
                 <div class="col-lg-6">
                     <div class="product-gallery">
                         <div class="main-image-container">
-                            <img src="../../Images/Logo/apple image/iMac 24 inch M4 2024.jpg" alt="iMac 24 inch M4 2024 - Blue" class="img-fluid main-product-image" id="mainImage">
+                            <!-- Cập nhật link ảnh chính với ảnh rõ nét -->
+                            <img src="../../Images/Logo/apple image/iMac 24 inch M4 2024.jpg" alt="iMac 24 inch M4 2024" alt="iMac 24 inch M4 2024" class="img-fluid main-product-image" id="mainImage">
                         </div>
                         <div class="thumbnail-images">
-                            <img src="../../Images/Logo/apple image/iMac 24 inch M4 2024.jpg" alt="Thumbnail 1" class="thumbnail active" onclick="changeImage(this.src)">
-                            <img src="../../Images/Logo/apple image/iMAC 24i 2023 M3.png" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this.src)">
-                            <img src="../../Images/Logo/apple image/Mac mini M4 2024.jpeg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this.src)">
-                            <img src="../../images/Logo/apple image/iMac sang lang.jpg" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this.src)">
+                            <img src="../../Images/Logo/apple image/iMac 24 inch M4 2024.jpg" alt="Thumbnail main" class="thumbnail active" onclick="changeImage('../../Images/Logo/apple image/iMac 24 inch M4 2024.jpg')">
+                            <img src="../../Images/Logo/apple image/iMAC 24i 2023 M3.png" alt="Thumbnail 1" class="thumbnail" onclick="changeImage('../../Images/Logo/apple image/iMAC 24i 2023 M3.png')">
+                            <img src="../../Images/Logo/apple image/Mac mini M4 2024.jpeg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage('../../Images/Logo/apple image/Mac mini M4 2024.jpeg')">
+                            <img src="../../images/Logo/apple image/iMac sang lang.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage('../../images/Logo/apple image/iMac sang lang.jpg')">
                         </div>
                     </div>
                 </div>
@@ -47,23 +48,24 @@
                         <div class="product-meta">
                             <span>Thương hiệu: <a href="#" class="text-primary">Apple</a></span>
                             <span class="mx-2">|</span>
-                            <span>SKU: AP-IMAC24-M4-BL</span>
+                            <span>SKU: AP-IP16PM256</span>
                         </div>
 
                         <div class="price-section">
-                            <span class="price-newctsp">35.640.000 ₫</span>
-                            <span class="price-oldctsp">39.990.000 ₫</span>
-                            <span class="discount-badge">-10%</span>
+                            <span class="price-newctsp" id="price-new">35.640.000 ₫</span>
+                            <span class="price-oldctsp" id="price-old">39.990.000 ₫</span>
+                            <span class="discount-badge" id="discount-badge">-10%</span>
                         </div>
-                        
+
                         <div class="variant-selection">
-                        <p><strong>Chọn màu sắc:</strong></p>
-                        <div class="colors">
-                            <button class="color-swatch active" style="background-color: #7DB1E3;" data-color="Blue"></button>
-                            <button class="color-swatch" style="background-color: #E3E4E6;" data-color="Silver"></button>
-                            <button class="color-swatch" style="background-color: #F3D7C9;" data-color="Pink"></button>
-                            <button class="color-swatch" style="background-color: #AEE1CD;" data-color="Green"></button>
-                        </div>
+                            
+                            <p><strong>Chọn màu sắc:</strong></p>
+                            <div class="colors">
+                                <button class="color-swatch active" style="background-color: #7DB1E3;" data-color="Blue" onclick="changeProductImage('Silver')"></button>
+                                <button class="color-swatch" style="background-color: #E3E4E6;" data-color="Silver" onclick="changeProductImage('Silver')"></button>
+                                <button class="color-swatch" style="background-color: #F3D7C9;" data-color="Pink" onclick="changeProductImage('Pink')"></button>
+                                <button class="color-swatch" style="background-color: #AEE1CD;" data-color="Green" onclick="changeProductImage('Green')"></button>
+                            </div>
                         </div>
 
                         <div class="product-promo">
@@ -76,8 +78,8 @@
                         </div>
                         
                         <div class="quantity-section">
-                             <p><strong>Số lượng:</strong></p>
-                             <div class="quantity-selector">
+                            <p><strong>Số lượng:</strong></p>
+                            <div class="quantity-selector">
                                 <button class="btn-quantity" id="decrease-qty">-</button>
                                 <input type="number" id="quantity" value="1" min="1">
                                 <button class="btn-quantity" id="increase-qty">+</button>
@@ -102,17 +104,13 @@
                     <a class="nav-link" id="specs-tab" data-toggle="tab" href="#specs" role="tab">Thông số kỹ thuật</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab">Đánh giá (3)</a>
+                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab">Đánh giá (0)</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="description" role="tabpanel">
-                    <h4 class="mt-4">Thiết Kế Mỏng Đến Kinh Ngạc. Sức Mạnh Từ Chip M4.</h4>
+                    <h4 class="mt-4">Thiết Kế Mỏng Đến Kinh Ngạc. Sức Mạnh Từ Chip M4</h4>
                     <p>Chào mừng bạn đến với iMac mới — được tái định hình hoàn toàn nhờ sức mạnh của chip Apple M4. Với thiết kế siêu mỏng chỉ 11,5mm và màn hình Retina 4.5K 24 inch tuyệt đẹp, iMac mang đến hiệu năng vượt trội và hình ảnh sống động trong một thân máy nhỏ gọn. Bảy màu sắc rực rỡ giúp bạn thể hiện cá tính riêng.</p>
-                    <h5>Màn Hình Retina 4.5K Đỉnh Cao</h5>
-                    <p>Mọi chi tiết đều trở nên sắc nét và rực rỡ trên màn hình Retina 4.5K. Độ sáng 500 nit, dải màu rộng P3 và công nghệ True Tone mang lại trải nghiệm xem chân thực, thoải mái cho mắt trong mọi điều kiện ánh sáng.</p>
-                    <h5>Hiệu Năng Bùng Nổ Với M4</h5>
-                    <p>Chip M4 mới nhất mang đến hiệu năng CPU nhanh hơn đến 50% và hiệu năng đồ họa nhanh hơn gấp đôi so với M1. Dù bạn đang chỉnh sửa video 4K, thiết kế đồ họa phức tạp hay chơi game đỉnh cao, iMac M4 đều xử lý mượt mà.</p>
                 </div>
                 <div class="tab-pane fade" id="specs" role="tabpanel">
                     <h4 class="mt-4">Thông số kỹ thuật chi tiết iMac 24 inch M4 2024</h4>
@@ -126,7 +124,7 @@
                                 <th scope="row">GPU</th>
                                 <td>10 lõi GPU, Ray Tracing tăng tốc phần cứng</td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <th scope="row">Neural Engine</th>
                                 <td>16 lõi</td>
                             </tr>
@@ -135,24 +133,8 @@
                                 <td>8GB RAM hợp nhất (Có thể cấu hình lên 16GB hoặc 24GB)</td>
                             </tr>
                             <tr>
-                                <th scope="row">Ổ cứng</th>
-                                <td>256GB SSD (Có thể cấu hình lên 512GB, 1TB, hoặc 2TB)</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Màn hình</th>
-                                <td>24 inch Retina 4.5K, độ phân giải 4480x2520, độ sáng 500 nit, dải màu P3, True Tone</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Camera</th>
-                                <td>FaceTime HD 1080p với bộ xử lý tín hiệu hình ảnh tiên tiến</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Cổng kết nối</th>
-                                <td>2 cổng Thunderbolt / USB 4, 2 cổng USB 3, Gigabit Ethernet, Jack 3.5mm</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Kết nối không dây</th>
-                                <td>Wi-Fi 6E (802.11ax), Bluetooth 5.3</td>
+                                <th scope="row">Tản nhiệt</th>
+                                <td>Quạt RGB tích hợp, hệ thống tản nhiệt chất lượng cao</td>
                             </tr>
                             <tr>
                                 <th scope="row">Trong hộp có</th>
@@ -163,14 +145,62 @@
                 </div>
                 <div class="tab-pane fade" id="reviews" role="tabpanel">
                     <h4 class="mt-4">Đánh giá từ khách hàng</h4>
-                    </div>
+                </div>
             </div>
         </section>
-
-         <section class="related-products mt-5">
+        <!-- Sản phẩm tương tự -->
+        <section class="related-products mt-5">
             <h3 class="text-center mb-4">Sản phẩm tương tự</h3>
             <div class="row">
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="productctsp-card h-100 d-flex flex-column">
+                        <a href="#">
+                            <img src="../../images/ĐT Iphone/2023_9_20_638307989548944936_iphone-15-promax-xanh-1.jpg" class="card-img-top" alt="Iphone 15 promax" style="height: 250px; object-fit: contain; background: white; border-bottom: 1px solid #eee;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2" style="font-size: 1rem; flex-grow: 1;">Iphone 15 promax 256 GB</h5>
+                            <h4 class="price-new mb-3">28.341.900 ₫</h4>
+                            <button class="btn btn-danger btn-block add-cart mt-auto">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="productctsp-card h-100 d-flex flex-column">
+                        <a href="#">
+                            <img src="../../images/Logo/apple image/Mac mini M4 2024.jpeg" class="card-img-top" alt="Mac mini M4 2024" style="height: 250px; object-fit: contain; background: white; border-bottom: 1px solid #eee;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2" style="font-size: 1rem; flex-grow: 1;">Mac mini M4 2024</h5>
+                            <h4 class="price-new mb-3">39.600.000 ₫</h4>
+                            <button class="btn btn-danger btn-block add-cart mt-auto">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="productctsp-card h-100 d-flex flex-column">
+                        <a href="#">
+                            <img src="../../images/Logo/apple image/Mac mini M4 Pro 2024.jpg" class="card-img-top" alt="Mac mini M4 Pro 2024" style="height: 250px; object-fit: contain; background: white; border-bottom: 1px solid #eee;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2" style="font-size: 1rem; flex-grow: 1;">Mac mini M4 Pro 2024</h5>
+                            <h4 class="price-new mb-3">14.240.500 ₫</h4>
+                            <button class="btn btn-danger btn-block add-cart mt-auto">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="productctsp-card h-100 d-flex flex-column">
+                        <a href="#">
+                            <img src="../../images/Logo/epower image/PC CPS Creator Pro 146 i5-14600K.png" class="card-img-top" alt="PC CPS Creator Pro 146 i5-14600K" style="height: 250px; object-fit: contain; background: white; border-bottom: 1px solid #eee;">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2" style="font-size: 1rem; flex-grow: 1;">PC CPS Creator Pro 146 i5-14600K</h5>
+                            <h4 class="price-new mb-3">22.490.000 ₫</h4>
+                            <button class="btn btn-danger btn-block add-cart mt-auto">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -179,132 +209,166 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            window.changeImage = function(newSrc) {
+                const mainImage = document.getElementById('mainImage');
+                mainImage.src = newSrc;
 
-    // --- IMAGE GALLERY LOGIC ---
-    // Hàm này dùng để thay đổi ảnh chính khi click vào ảnh thumbnail
-    window.changeImage = function(newSrc) {
-        const mainImage = document.getElementById('mainImage');
-        mainImage.src = newSrc;
+                const thumbnails = document.querySelectorAll('.thumbnail-images .thumbnail');
+                thumbnails.forEach(thumb => {
+                    thumb.classList.remove('active');
+                    if (thumb.src === newSrc) {
+                        thumb.classList.add('active');
+                    }
+                });
+            };
+                // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        const colorSwatches = document.querySelectorAll('.color-swatch');
+        
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                // Xóa class 'active' khỏi tất cả các màu
+                colorSwatches.forEach(s => s.classList.remove('active'));
+                
+                // Thêm class 'active' cho màu được chọn
+                this.classList.add('active');
+                
+                // Bạn có thể thêm logic thay đổi ảnh sản phẩm hoặc các tính năng khác ở đây
+                console.log('Selected color:', this.dataset.color);
+            });
+        });
+        // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng
+        window.updatePriceAndStorage = function(button) {
+        const storage = button.getAttribute('data-storage');  // Lấy giá trị dung lượng từ nút
+        const price = parseInt(button.getAttribute('data-price'));  // Lấy giá mới từ nút
+        const priceOld = parseInt(button.getAttribute('data-price-old'));  // Lấy giá cũ từ nút
+        const discountPercent = button.getAttribute('data-discount');  // Lấy phần trăm giảm giá từ nút
+        
+        // Cập nhật giá mới
+        const priceNewElement = document.getElementById('price-new');
+        priceNewElement.textContent = price.toLocaleString() + ' ₫';
+        
+        // Cập nhật giá cũ
+        const priceOldElement = document.getElementById('price-old');
+        priceOldElement.textContent = priceOld.toLocaleString() + ' ₫';
+        
+        // Cập nhật phần trăm giảm giá
+        const discountElement = document.getElementById('discount-badge');
+        discountElement.textContent = `-${discountPercent}%`;
 
-        // Cập nhật trạng thái 'active' cho thumbnail
-        const thumbnails = document.querySelectorAll('.thumbnail-images .thumbnail');
-        thumbnails.forEach(thumb => {
-            thumb.classList.remove('active');
-            if (thumb.src === newSrc) {
-                thumb.classList.add('active');
+        // Cập nhật tên sản phẩm với dung lượng đã chọn
+        const storageTextElement = document.querySelector('.product-title');
+        storageTextElement.textContent = 'iPhone 16 Pro Max ' + storage;
+        
+        // Thêm class "active" cho nút được chọn và bỏ "active" cho nút còn lại
+        const storageButtons = document.querySelectorAll('.storage-btn');
+        storageButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    }; 
+        const decreaseBtn = document.getElementById('decrease-qty');
+        const increaseBtn = document.getElementById('increase-qty');
+        const quantityInput = document.getElementById('quantity');
+
+        decreaseBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
             }
         });
+
+        increaseBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        });
+});
+
+    let selectedColor = 'white';  // Mặc định là màu trắng
+
+    // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính
+    const thumbnailPaths = {
+        'Blue': [
+            '../../images/Logo/apple image/blue imac.jpg',
+            '../../images/Logo/apple image/2 face blue.png',
+            '../../images/Logo/apple image/edge blue imac.png',
+            '../../images/Logo/apple image/detail blue imac.jpg',
+            '../../images/Logo/apple image/blue imac.jpg', // Ảnh chính cho màu xanh
+            '../../images/Logo/apple image/2 face blue.png',
+            '../../images/Logo/apple image/edge blue imac.png',
+            '../../images/Logo/apple image/detail blue imac.jpg'
+        ],
+        'Pink': [
+            '../../images/Logo/apple image/pink iMac.png',
+            '../../images/Logo/apple image/behind pink imac.webp',
+            '../../images/Logo/apple image/edge pink imac.jpg',
+            '../../images/Logo/apple image/more pink imac.jpg',
+            '../../images/Logo/apple image/pink iMac.png', // Ảnh chính cho màu hồng
+            '../../images/Logo/apple image/behind pink imac.webp',
+            '../../images/Logo/apple image/edge pink imac.jpg',
+            '../../images/Logo/apple image/more pink imac.jpg'
+        ],
+        'Green': [
+            '../../images/Logo/apple image/green iMac.png',
+            '../../images/Logo/apple image/front green imac.png',
+            '../../images/Logo/apple image/behind green imac.jpeg',
+            '../../images/Logo/apple image/edge green imac.png',
+            '../../images/Logo/apple image/green iMac.png', // Ảnh chính cho màu xanh lá
+            '../../images/Logo/apple image/front green imac.png',
+            '../../images/Logo/apple image/behind green imac.jpeg',
+            '../../images/Logo/apple image/edge green imac.png'
+        ],
+        'Silver': [
+            '../../images/Logo/apple image/silver iMac.png',
+            '../../images/Logo/apple image/2 face silver.jpg',
+            '../../images/Logo/apple image/edge silver imac.jpg',
+            '../../images/Logo/apple image/detail silver imac.jpeg',
+            '../../images/Logo/apple image/silver iMac.png', // Ảnh chính cho màu bạc
+            '../../images/Logo/apple image/2 face silver.jpg',
+            '../../images/Logo/apple image/edge silver imac.jpg',
+            '../../images/Logo/apple image/detail silver imac.jpeg'
+        ]
+
     };
 
-    // --- COLOR SWATCH LOGIC ---
-    const colorSwatches = document.querySelectorAll('.color-swatch');
-    colorSwatches.forEach(swatch => {
-        swatch.addEventListener('click', function() {
-            // Xóa active khỏi tất cả các swatch
-            colorSwatches.forEach(s => s.classList.remove('active'));
-            // Thêm active cho swatch được click
-            this.classList.add('active');
-            // Trong một ứng dụng thực tế, bạn sẽ thay đổi ảnh hoặc SKU ở đây
-            console.log('Selected color:', this.dataset.color);
+    // Hàm thay đổi màu sắc sản phẩm
+    function changeProductImage(color) {
+        selectedColor = color;  // Cập nhật màu sắc đã chọn
+        const mainImage = document.getElementById('mainImage');
+        const thumbnails = document.querySelectorAll('.thumbnail-images .thumbnail');
+        
+        // Cập nhật ảnh chính ban đầu theo màu đã chọn
+        mainImage.src = thumbnailPaths[color][4]; // Ảnh chính đầu tiên của màu đã chọn
+        
+        // Cập nhật ảnh thu nhỏ cho tất cả các thumbnail
+        thumbnails.forEach((thumb, index) => {
+            thumb.src = thumbnailPaths[color][index]; // Thay đổi đường dẫn ảnh thu nhỏ theo màu sắc
+        });
+
+        // Cập nhật màu sắc của các swatch
+        const colorSwatches = document.querySelectorAll('.color-swatch');
+        colorSwatches.forEach(swatch => {
+            swatch.classList.remove('active');
+        });
+        
+        // Thêm class 'active' cho màu sắc đã chọn
+        const selectedSwatch = document.querySelector(`.color-swatch[data-color=${color}]`);
+        selectedSwatch.classList.add('active');
+    }
+
+    // Hàm thay đổi ảnh chính khi click vào thumbnail
+    function changeMainImage(newSrc) {
+        const mainImage = document.getElementById('mainImage');
+        // Thay đổi ảnh chính khi click vào thumbnail
+        mainImage.src = newSrc;
+    }
+
+    // Gắn sự kiện click cho tất cả các thumbnail
+    document.querySelectorAll('.thumbnail-images .thumbnail').forEach((thumb, index) => {
+        thumb.addEventListener('click', () => {
+            const color = selectedColor;  // Dùng màu sắc hiện tại
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnailPaths[color][index + 4]; // Chọn ảnh lớn theo thumbnail
         });
     });
 
-    // --- QUANTITY COUNTER LOGIC ---
-    const decreaseBtn = document.getElementById('decrease-qty');
-    const increaseBtn = document.getElementById('increase-qty');
-    const quantityInput = document.getElementById('quantity');
-
-    decreaseBtn.addEventListener('click', function() {
-        let currentValue = parseInt(quantityInput.value);
-        if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
-        }
-    });
-
-    increaseBtn.addEventListener('click', function() {
-        let currentValue = parseInt(quantityInput.value);
-        quantityInput.value = currentValue + 1;
-    });
-
-    // --- BOOTSTRAP TABS INITIALIZATION ---
-    // Đoạn mã này đảm bảo các tab của Bootstrap hoạt động đúng
-    $('#myTab a').on('click', function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-    });
-});
-
-    </script>
-    <script src="../../sanpham.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-
-    // ----- BẮT ĐẦU CODE HIỂN THỊ SẢN PHẨM TƯƠNG TỰ -----
-
-    // LƯU Ý QUAN TRỌNG:
-    // Sếp hãy đảm bảo tên biến dưới đây ("macProducts")
-    // khớp với tên biến chứa danh sách sản phẩm trong file "sanpham.js" của sếp.
-    // Nếu trong file sanpham.js sếp đặt là "const sp = [...]" thì hãy đổi "macProducts" thành "sp".
-    const productsToShow = Mac; 
-
-    const relatedContainer = document.querySelector('.related-products .row');
-    const currentProductTitle = document.querySelector('.product-title').textContent;
-
-    // Hàm tiện ích để định dạng giá tiền
-    function formatPrice(price) {
-        if (!price) return '';
-        return price.toLocaleString("vi-VN") + " ₫";
-    }
-
-    if (productsToShow && relatedContainer) {
-        // Lọc để loại bỏ sản phẩm đang xem và lấy ngẫu nhiên 4 sản phẩm khác
-        const randomRelatedProducts = productsToShow
-            .filter(p => p.name !== currentProductTitle) // Loại sản phẩm hiện tại
-            .sort(() => 0.5 - Math.random())            // Xáo trộn mảng
-            .slice(0, 4);                               // Chọn 4 sản phẩm đầu tiên
-
-        if (randomRelatedProducts.length > 0) {
-            let productsHTML = '';
-            randomRelatedProducts.forEach(product => {
-                // Tạo HTML cho mỗi thẻ sản phẩm
-                // BỌC product-card BÊN TRONG MỘT THẺ DIV CÓ CLASS COLUMN CỦA BOOTSTRAP
-                productsHTML += `
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
-                        <div class="productctsp-card h-100 d-flex flex-column">
-                            <a href="#">
-                                <img src="${product.image}" class="card-img-top" alt="${product.name}" style="height: 250px; object-fit: contain; background: white; border-bottom: 1px solid #eee;">
-                            </a>
-                            <div class="card-body d-flex flex-column">
-                                <!-- Tên sản phẩm -->
-                                <h5 class="card-title mb-2" style="font-size: 1rem; flex-grow: 1;">${product.name}</h5>
-
-                                <!-- Khối giá cũ + giảm giá -->
-                                <div class="d-flex justify-content-between align-items-center mb-1 flex-wrap">
-                                    <span class="price-old">${formatPrice(product.priceOld)}</span>
-                                    ${
-                                        product.discountPercent > 0
-                                        ? `<span class="discount text-danger">-${product.discountPercent}%</span>`
-                                        : ""
-                                    }
-                                </div>
-
-                                <!-- Giá mới -->
-                                <h4 class="price-new mb-3">${formatPrice(product.priceNew)}</h4>
-
-                                <!-- Nút thêm vào giỏ -->
-                                <button class="btn btn-danger btn-block add-cart mt-auto">Thêm vào giỏ hàng</button>
-                            </div>
-                        </div>
-                    </div>
-
-                `;
-            });
-            // Chèn toàn bộ HTML đã tạo vào container
-            relatedContainer.innerHTML = productsHTML;
-        }
-    }
-    // ----- KẾT THÚC CODE HIỂN THỊ SẢN PHẨM TƯƠNG TỰ -----
-});
     </script>
     <div id="footer"></div>
     <script>
