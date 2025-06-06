@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="../../style.css" />
   </head>
   <body class="ctsp">
-    <div id = 'header'></div>
+    <div id="header"></div>
     <main class="container my-4">
       <nav aria-label="breadcrumb" class="breadcrumb-nav">
         <ol class="breadcrumb">
@@ -61,18 +61,6 @@
                   alt="Thumbnail 1"
                   class="thumbnail"
                   onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg')"
-                />
-                <img
-                  src="../../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg"
-                  alt="Thumbnail 2"
-                  class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg')"
-                />
-                <img
-                  src="../../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg"
-                  alt="Thumbnail 3"
-                  class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg')"
                 />
               </div>
             </div>
@@ -450,7 +438,8 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        const colorSwatches = document.querySelectorAll(".color-swatch");
         const baseImagePath =
           "../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg";
         const variantImages = {
@@ -500,51 +489,47 @@
           const storageButtons = document.querySelectorAll(".storage-btn");
           storageButtons.forEach((btn) => btn.classList.remove("active"));
           button.classList.add("active");
-        };
-        const decreaseBtn = document.getElementById("decrease-qty");
-        const increaseBtn = document.getElementById("increase-qty");
-        const quantityInput = document.getElementById("quantity");
+        }; // Xử lý nút tăng giảm số lượng
+        const setupQuantityButtons = function () {
+          const decreaseBtn = document.getElementById("decrease-qty");
+          const increaseBtn = document.getElementById("increase-qty");
+          const quantityInput = document.getElementById("quantity");
 
-        decreaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
+          if (decreaseBtn && increaseBtn && quantityInput) {
+            decreaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+              }
+            });
+
+            increaseBtn.addEventListener("click", function () {
+              let currentValue = parseInt(quantityInput.value);
+              quantityInput.value = currentValue + 1;
+            });
+
+            console.log("Quantity buttons initialized successfully");
+          } else {
+            console.log("Could not find quantity buttons or input");
           }
-        });
+        };
 
-        increaseBtn.addEventListener("click", function () {
-          let currentValue = parseInt(quantityInput.value);
-          quantityInput.value = currentValue + 1;
-        });
+        // Gọi hàm thiết lập
+        setupQuantityButtons();
       });
-
       let selectedColor = "silver"; // Mặc định là màu bạc
 
       // Mảng đường dẫn cho ảnh thu nhỏ và ảnh chính
       const thumbnailPaths = {
         silver: [
-          "../../images/Logo/apple image/iMac sang lang.jpg",
-          "../../images/Logo/apple image/iMac 24 inch M4 2024.jpg",
-          "../../images/Logo/apple image/Mac mini M4 Pro 2024.jpg",
-          "../../images/Logo/apple image/silver iMac.png",
-          "../../images/Logo/apple image/iMac sang lang.jpg", // Ảnh chính cho màu bạc
-          "../../images/Logo/apple image/iMac 24 inch M4 2024.jpg",
-          "../../images/Logo/apple image/Mac mini M4 Pro 2024.jpg",
-          "../../images/Logo/apple image/silver iMac.png",
+          "../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg",
+          "../../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg",
         ],
         black: [
-          "../../images/Logo/apple image/iMAC 24i 2023 M3.png",
-          "../../images/Logo/apple image/green iMac.png",
-          "../../images/Logo/apple image/Carbon Mac mini.jpg",
-          "../../images/Logo/apple image/behind Mac mini.png",
-          "../../images/Logo/apple image/iMAC 24i 2023 M3.png", // Ảnh chính cho màu đen
-          "../../images/Logo/apple image/green iMac.png",
-          "../../images/Logo/apple image/Carbon Mac mini.jpg",
-          "../../images/Logo/apple image/behind Mac mini.png",
+          "../../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg",
+          "../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg",
         ],
-      };
-
-      // Hàm thay đổi màu sắc sản phẩm
+      }; // Hàm thay đổi màu sắc sản phẩm
       function changeProductImage(color) {
         selectedColor = color; // Cập nhật màu sắc đã chọn
         const mainImage = document.getElementById("mainImage");
@@ -553,15 +538,17 @@
         );
 
         // Cập nhật ảnh chính ban đầu theo màu đã chọn
-        mainImage.src = thumbnailPaths[color][4]; // Ảnh chính đầu tiên của màu đã chọn
+        mainImage.src = thumbnailPaths[color][0]; // Ảnh chính đầu tiên của màu đã chọn
 
         // Cập nhật ảnh thu nhỏ cho tất cả các thumbnail
         thumbnails.forEach((thumb, index) => {
-          thumb.src = thumbnailPaths[color][index]; // Thay đổi đường dẫn ảnh thu nhỏ theo màu sắc
-          thumb.setAttribute(
-            "onclick",
-            `changeImage('${thumbnailPaths[color][index]}')`
-          );
+          if (index < thumbnailPaths[color].length) {
+            thumb.src = thumbnailPaths[color][index]; // Thay đổi đường dẫn ảnh thu nhỏ theo màu sắc
+            thumb.setAttribute(
+              "onclick",
+              `changeImage('${thumbnailPaths[color][index]}')`
+            );
+          }
         });
 
         // Cập nhật màu sắc của các swatch
