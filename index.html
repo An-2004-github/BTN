@@ -10,6 +10,13 @@
 </head>
 <body>
 <div id="header"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+  </script>
 <div id="imagePopup" class="popup" style="display: block;">
   <div class="popup-content" style="max-width: 700px; padding: 0; position: relative; background-color: transparent;">
     <span class="close" onclick="document.getElementById('imagePopup').style.display='none'"
