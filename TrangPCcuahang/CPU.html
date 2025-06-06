@@ -132,6 +132,7 @@
             <select id="romSelect" class="form-control form-control-sm">
             <option>Chọn CPU</option>
             <option>Apple M3</option>
+            <option>Apple M4</option>
             <option>Intel Core i5</option>
             <option>Intel Core i3</option>
             <option>AMD Ryzen 7</option>
@@ -186,8 +187,9 @@
             priceOld: 4100000,
             discountPercent: 5,
             priceNew: 2890000,
-            os: "PC Văn phòng",
-            cpu: "Intel Core i5",
+             os: "PC Gaming",
+            cpu: "Intel Core i3",
+            ssd: "SSD 512 GB",  // Ổ cứng
         },
         {
             id: 17,
@@ -197,8 +199,9 @@
             priceOld: 4390000,
             discountPercent: 5,
             priceNew: 3290000,
-            os: "PC Gaming",
-            cpu: "Intel Core i3",
+            os: "PC Văn phòng",
+            cpu: "Intel Core i5",
+            ssd: "SSD 256 GB",  // Ổ cứng
         },
         { 
             id: 18,
@@ -210,100 +213,183 @@
             priceNew: 13990000,
             os: "PC Gaming",
             cpu: "Intel Core i9",
+            ssd: "SSD 512 GB",  // Ổ cứng
         },
         ];
 
-        function formatPrice(price) {
-            return price.toLocaleString("vi-VN") + " ₫";
+       function formatPrice(price) {
+        return price.toLocaleString("vi-VN") + " ₫";
+    }
+     function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.visibility = 'visible';
+        toast.style.opacity = '1';
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => {
+                toast.style.visibility = 'hidden';
+            }, 500);
+        }, 2000);
+    }
+
+    function addToCart() {
+        const addCartButtons = document.querySelectorAll('.add-cart');
+        addCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productName = event.target.closest('.product-card').querySelector('h5').textContent;
+                showToast(`Đã thêm "${productName}" vào giỏ!`);
+            });
+        });
+    }
+
+    // Hiển thị sản phẩm
+    function displayProducts(list) {
+        const productList = document.getElementById("product-list");
+        productList.innerHTML = ""; // Clear current product list
+        if (list.length === 0) {
+            productList.innerHTML = "<div class='no-products'>Không có sản phẩm phù hợp!</div>";
+            return;
         }
 
-        function displayProducts(list) {
-            const productList = document.getElementById("product-list");
-            productList.innerHTML = ""; // Clear current product list
-
-            list.forEach(product => {
-                const col = document.createElement("div");
-                col.className = "col-md-3 mb-4";
-                col.innerHTML = `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}" />
-                        <h5>${product.name}</h5>
-                        <div>
-                            <span class="price-old">${formatPrice(product.priceOld)}</span>
-                            ${
+        list.forEach(product => {
+            const col = document.createElement("div");
+            col.className = "col-md-3 mb-4";
+            col.innerHTML = `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" />
+                    <h5>${product.name}</h5>
+                    <div>
+                        <span class="price-old">${formatPrice(product.priceOld)}</span>
+                        ${
                         product.discountPercent > 0
                         ? `<span class="discount">-${product.discountPercent}%</span>`
                         : ""
-                        } </div>
-                        <h4>    <span class="price-new">${formatPrice(product.priceNew)}</span></h4>
-                            
-                        
-                        <button class="add-cart">Thêm vào giỏ hàng</button>
+                        }
                     </div>
-                `;
-                productList.appendChild(col);
-            });
-        }
-
-    //  Hàm lọc
-    function handleFilter() {
-    const priceSelect = document.getElementById("priceSelect").value;
-    const osSelect = document.getElementById("osSelect").value;
-    const romSelect = document.getElementById("romSelect").value;
-
-    let minPrice = 0;
-    let maxPrice = Infinity;
-
-    // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
-    switch (priceSelect) {
-        case "Dưới 10 triệu":
-            maxPrice = 10000000;
-            break;
-        case "10 - 20 triệu":
-            minPrice = 10000000;
-            maxPrice = 20000000;
-            break;
-        case "20 - 30 triệu":
-            minPrice = 20000000;
-            maxPrice = 30000000;
-            break;
-        case "30 - 40 triệu":
-            minPrice = 30000000;
-            maxPrice = 40000000;
-            break;
-        case "Trên 40 triệu":
-            minPrice = 40000000;
-            break;
+                    <h4><span class="price-new">${formatPrice(product.priceNew)}</span></h4>
+                    <button class="add-cart">Thêm vào giỏ hàng</button>
+                </div>
+            `;
+            productList.appendChild(col);
+        });
     }
 
-    const filteredProducts = filterByPrice(minPrice, maxPrice, osSelect, romSelect);
-    displayProducts(filteredProducts);
-}
+    // Hàm lọc sản phẩm theo các điều kiện
+    function filterByPrice(minPrice, maxPrice, osSelect, romSelect, ssdSelect, ramSelect) {
+        return products.filter(product => {
+            // Lọc theo giá
+            const priceFilter = product.priceNew >= minPrice && product.priceNew <= maxPrice;
+            // Lọc theo Nhu cầu
+            const osFilter = osSelect === "Nhu cầu" || product.os === osSelect;
+            // Lọc theo CPU
+            const cpuFilter = romSelect === "Chọn CPU" || product.cpu === romSelect;
+            // Lọc theo Ổ cứng
+            const ssdFilter = ssdSelect === "Ổ cứng" || product.ssd === ssdSelect;
+            // Lọc theo RAM
+            const ramFilter = ramSelect === "RAM" || product.ram === ramSelect;
 
-// Hàm lọc sản phẩm theo giá, nhu cầu và CPU
-function filterByPrice(minPrice, maxPrice, osSelect, romSelect) {
-    return products.filter(product => {
-        // Lọc theo giá
-        const priceFilter = product.priceNew >= minPrice && product.priceNew <= maxPrice;
+            return priceFilter && osFilter && cpuFilter && ssdFilter && ramFilter;
+        });
+    }
 
-        // Lọc theo Nhu cầu
-        const osFilter = osSelect === "Chọn nhu cầu" || product.os === osSelect;
+    // Hàm lọc khi người dùng nhấn nút "Lọc"
+    function handleFilter() {
+        const priceSelect = document.getElementById("priceSelect").value;
+        const osSelect = document.getElementById("osSelect").value;
+        const romSelect = document.getElementById("romSelect").value;
+        const ssdSelect = document.getElementById("networkSelect").value;
+        const ramSelect = document.getElementById("connectSelect").value;
 
-        // Lọc theo CPU
-        const cpuFilter = romSelect === "Chọn CPU" || product.cpu === romSelect;
+        let minPrice = 0;
+        let maxPrice = Infinity;
 
-        return priceFilter && osFilter && cpuFilter;
-    });
-}
+        // Đặt giá trị min và max giá dựa trên lựa chọn của người dùng
+        switch (priceSelect) {
+            case "Dưới 10 triệu":
+                maxPrice = 10000000;
+                break;
+            case "10 - 20 triệu":
+                minPrice = 10000000;
+                maxPrice = 20000000;
+                break;
+            case "20 - 30 triệu":
+                minPrice = 20000000;
+                maxPrice = 30000000;
+                break;
+            case "30 - 40 triệu":
+                minPrice = 30000000;
+                maxPrice = 40000000;
+                break;
+            case "Trên 40 triệu":
+                minPrice = 40000000;
+                maxPrice = Infinity;
+                break;
+        }
 
-        // Lắng nghe sự kiện khi người dùng nhấn nút Lọc
-        document.getElementById("filterBtn").addEventListener("click", handleFilter);
+        // Lọc sản phẩm và hiển thị
+        const filteredProducts = filterByPrice(minPrice, maxPrice, osSelect, romSelect, ssdSelect, ramSelect);
+        displayProducts(filteredProducts);
+    }
 
-        // Hiển thị tất cả sản phẩm khi trang được tải lần đầu
-        window.onload = function() {
-            displayProducts(products);
-        };
+    // Gắn sự kiện cho nút "Lọc"
+    document.getElementById("filterBtn").addEventListener("click", handleFilter);
+
+    // Hiển thị tất cả sản phẩm khi trang được tải lần đầu
+    window.onload = function() {
+        displayProducts(products);
+        addToCart(); // Gán sự kiện cho các nút "Thêm vào giỏ hàng"
+    };
+</script>
+     </script>
+    <div id="toast" style="
+        visibility: hidden;
+        min-width: 250px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1000;
+        left: 50%;
+        top: 50%;             
+        transform: translate(-50%, -50%); 
+        font-size: 17px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        ">
+    </div>
+
+    <section class="service-features">
+      <div class="feature">
+        <img src="../Images\footer\secure.png" alt="Đảm bảo" />
+        <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
+      </div>
+      <div class="feature">
+        <img src="../Images\footer\exchange.png" alt="Đổi trả" />
+        <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại TechStore</p>
+      </div>
+      <div class="feature">
+        <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
+        <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
+      </div>
+      <div class="feature">
+        <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
+        <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
+      </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
     </script>
-
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+    </script>
 </body>
 </html>
