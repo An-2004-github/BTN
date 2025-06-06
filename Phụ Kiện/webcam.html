@@ -202,6 +202,7 @@
         features: ["Tích hợp micro", "Lấy nét tự động", "HDR"],
         priceOld: 5990000,
         discountPercent: 10,
+        link: "../Chi tiết sản phẩm/Webcam/Dell UltraSharp WB7022.html"
     },
     {
         id: 10,
@@ -324,20 +325,34 @@
         return price.toLocaleString("vi-VN") + " ₫";
     }
 
-    function showToast(message) {
-        const toast = document.getElementById('toast');
-        toast.textContent = message;
-        toast.style.visibility = 'visible';
-        toast.style.opacity = '1';
-
+    function showToast(productName) {
+        
+    const toast = document.getElementById('toast'); // Lấy phần tử thông báo
+    toast.textContent = `Đã thêm "${productName}" vào giỏ!`; // Thêm tên sản phẩm vào thông báo
+    toast.style.visibility = 'visible'; // Hiển thị thông báo
+    toast.style.opacity = '1'; // Đảm bảo thông báo có thể nhìn thấy
+    
+    setTimeout(() => {
+        toast.style.opacity = '0'; // Từ từ ẩn thông báo
         setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => {
-                toast.style.visibility = 'hidden';
-            }, 500);
-        }, 2000);
-    }
+            toast.style.visibility = 'hidden'; // Ẩn hoàn toàn sau khi chuyển opacity về 0
+        }, 500);
+    }, 2000); // Hiển thị trong 2 giây
+}
+    function addToCart() {
+    const addCartButtons = document.querySelectorAll('.add-cart');
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Ngăn hành động mặc định của thẻ <a> (chuyển trang)
+            event.preventDefault(); 
+            // Ngăn sự kiện click lan ra thẻ <a> cha
+            event.stopPropagation(); 
 
+            const productName = event.target.closest('.product-card').querySelector('h5').textContent; // Lấy tên sản phẩm
+            showToast(productName); // Gọi hàm hiển thị thông báo
+        });
+    });
+}
     // Logic hiển thị sản phẩm
     function displayProducts(list) {
         const productList = document.getElementById("product-list");
@@ -356,10 +371,11 @@
 
             col.innerHTML = `
             <div class="product-card d-flex flex-column h-100">
+                <a href="${product.link || '#'}" class="product-link">
                 <img src="${product.image}" alt="${product.name}" class="img-fluid" style="height: 200px; object-fit: contain; background: white; border-radius: 6px; padding: 10px;" />
                 <h5 class="mt-2">${product.name}</h5>
-                <p>Độ phân giải: ${product.resolution}</p>
-                <p>Tính năng: ${product.features.join(', ')}</p>
+                <p>Loại: ${product.type}</p>
+                <p>Layout: ${product.layout}</p>
                 <div>
                     <span class="price-old">${formatPrice(product.priceOld)}</span>
                     <span class="discount">-${product.discountPercent}%</span>
@@ -370,14 +386,9 @@
             `;
 
             productList.appendChild(col);
-
-            const addCartBtn = col.querySelector('.add-cart');
-            addCartBtn.addEventListener('click', () => {
-                showToast(`Đã thêm "${product.name}" vào giỏ!`);
-            });
         });
+        addToCart(); // Gọi hàm để thêm sự kiện click cho các nút "Thêm vào giỏ hàng"
     }
-
     // Điền các tùy chọn thương hiệu vào select box
     function populateBrandSelect() {
         const brandSelect = document.getElementById('brandSelect');

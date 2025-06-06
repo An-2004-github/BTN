@@ -150,6 +150,7 @@
             os: "PC Đồ họa",  // Nhu cầu
             cpu: "Apple M3" , // CPU
             ssd: "SSD 256 GB",  // Ổ cứng
+            link: "Chi tiết sản phẩm/PC/Mac Mini M4 2024.html"
         },
         {
             id: 4,
@@ -245,7 +246,8 @@
             priceNew: 39600000,
             os: "PC Đồ họa",
             cpu: "Apple M3",
-            ssd: "SSD 512 GB",  // Ổ cứng
+            ssd: "SSD 512 GB",
+            link: "Chi tiết sản phẩm/PC/iMac 24 inch M4 2024.html"  // Ổ cứng
         },
         {
             id: 12,
@@ -331,6 +333,7 @@
             os: "PC Gaming",
             cpu: "Intel Core i9",
             ssd: "SSD 512 GB",  // Ổ cứng
+            link: "Chi tiết sản phẩm/PC/intel core i9.html",
         },
         { 
             id: 19,
@@ -428,6 +431,7 @@
             cpu: "Intel Core i9",
             ssd: "SSD 256",  // Ổ cứng
             ram: "16Gb", // RAM
+            link: "Chi tiết sản phẩm/PC/PC CPS Quantum Blaze 5090.html"
         },
         { 
             id: 27,
@@ -496,6 +500,11 @@
     const addCartButtons = document.querySelectorAll('.add-cart');
     addCartButtons.forEach(button => {
         button.addEventListener('click', (event) => {
+            // Ngăn hành động mặc định của thẻ <a> (chuyển trang)
+            event.preventDefault(); 
+            // Ngăn sự kiện click lan ra thẻ <a> cha
+            event.stopPropagation(); 
+
             const productName = event.target.closest('.product-card').querySelector('h5').textContent; // Lấy tên sản phẩm
             showToast(productName); // Gọi hàm hiển thị thông báo
         });
@@ -504,37 +513,44 @@
         
 
         function displayProducts(list) {
-            
-            const productList = document.getElementById("product-list");
-            productList.innerHTML = ""; // Clear current product list
-             if (list.length === 0) {
-             productList.innerHTML = "<div class='no-products'>Không có sản phẩm phù hợp!</div>";
-             return;
-            }
+    const productList = document.getElementById("product-list");
+    productList.innerHTML = ""; // Clear current product list
 
-            list.forEach(product => {
-                const col = document.createElement("div");
-                col.className = "col-md-3 mb-4";
-                col.innerHTML = `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}" />
-                        <h5>${product.name}</h5>
-                        <div>
-                            <span class="price-old">${formatPrice(product.priceOld)}</span>
-                            ${
-                        product.discountPercent > 0
-                        ? `<span class="discount">-${product.discountPercent}%</span>`
-                        : ""
-                        } </div>
-                        <h4>    <span class="price-new">${formatPrice(product.priceNew)}</span></h4>
-                            
-                        
-                        <button class="add-cart">Thêm vào giỏ hàng</button>
+    if (list.length === 0) {
+        productList.innerHTML = "<div class='no-products'>Không có sản phẩm phù hợp!</div>";
+        return;
+    }
+
+    list.forEach(product => {
+        const col = document.createElement("div");
+        col.className = "col-md-3 mb-4";
+        
+        // Bọc toàn bộ thẻ sản phẩm bằng thẻ <a>
+        // Dùng product.link (nếu có) hoặc '#' làm href mặc định
+        col.innerHTML = `
+            <a href="${product.link || '#'}" class="product-link">
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" />
+                    <h5>${product.name}</h5>
+                    <div>
+                        <span class="price-old">${formatPrice(product.priceOld)}</span>
+                        ${
+                            product.discountPercent > 0
+                            ? `<span class="discount">-${product.discountPercent}%</span>`
+                            : ""
+                        }
                     </div>
-                `;
-                productList.appendChild(col);
-            });
-        }
+                    <h4><span class="price-new">${formatPrice(product.priceNew)}</span></h4>
+                    <button class="add-cart">Thêm vào giỏ hàng</button>
+                </div>
+            </a>
+        `;
+        productList.appendChild(col);
+    });
+
+    // Gán lại sự kiện click cho các nút "Thêm vào giỏ" sau khi hiển thị lại sản phẩm
+    addToCart();
+}
         
 
     //  Hàm lọc

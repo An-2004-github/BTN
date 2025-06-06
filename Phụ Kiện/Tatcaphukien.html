@@ -207,6 +207,7 @@
             led: "RGB",
             priceOld: 4190000,
             discountPercent: 12,
+            link: "../Chi tiết sản phẩm/Bàn phím/Logitech G Pro X TKL Lightspeed.html"
         },
         {
             id: 2,
@@ -474,6 +475,7 @@
             connect: ["Không dây (Wireless)"],
             priceOld: 4190000,
             discountPercent: 10,
+            link: "../Chi tiết sản phẩm/Chuột/Razer DeathAdder V3 Pro.html"
         },
         {
             id: 23,
@@ -664,6 +666,7 @@
         connect: ["Bluetooth", "Jack 3.5mm"],
         priceOld: 8990000,
         discountPercent: 10,
+        link: "../Chi tiết sản phẩm/TaiNghe/Sony WH-1000XM5.html"
         },
         {
             id: 42,
@@ -944,6 +947,7 @@
             features: ["Tích hợp micro", "Lấy nét tự động", "HDR"],
             priceOld: 5990000,
             discountPercent: 10,
+            link: "../Chi tiết sản phẩm/Webcam/Dell UltraSharp WB7022.html"
         },
         {
             id: 70,
@@ -1066,19 +1070,34 @@
         return price.toLocaleString("vi-VN") + " ₫";
     }
 
-    function showToast(message) {
-        const toast = document.getElementById('toast');
-        toast.textContent = message;
-        toast.style.visibility = 'visible';
-        toast.style.opacity = '1';
+    function showToast(productName) {
         
+    const toast = document.getElementById('toast'); // Lấy phần tử thông báo
+    toast.textContent = `Đã thêm "${productName}" vào giỏ!`; // Thêm tên sản phẩm vào thông báo
+    toast.style.visibility = 'visible'; // Hiển thị thông báo
+    toast.style.opacity = '1'; // Đảm bảo thông báo có thể nhìn thấy
+    
+    setTimeout(() => {
+        toast.style.opacity = '0'; // Từ từ ẩn thông báo
         setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => {
-                toast.style.visibility = 'hidden';
-            }, 500);
-        }, 2000);
-    }
+            toast.style.visibility = 'hidden'; // Ẩn hoàn toàn sau khi chuyển opacity về 0
+        }, 500);
+    }, 2000); // Hiển thị trong 2 giây
+}
+    function addToCart() {
+    const addCartButtons = document.querySelectorAll('.add-cart');
+    addCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Ngăn hành động mặc định của thẻ <a> (chuyển trang)
+            event.preventDefault(); 
+            // Ngăn sự kiện click lan ra thẻ <a> cha
+            event.stopPropagation(); 
+
+            const productName = event.target.closest('.product-card').querySelector('h5').textContent; // Lấy tên sản phẩm
+            showToast(productName); // Gọi hàm hiển thị thông báo
+        });
+    });
+}
 
     // Logic hiển thị sản phẩm
     function displayProducts(list) {
@@ -1136,6 +1155,7 @@
         // Gán nội dung đã được tùy biến vào thẻ product-card
         col.innerHTML = `
             <div class="product-card d-flex flex-column h-100">
+                <a href="${product.link || '#'}" class="product-link">
                 ${cardContentHTML}
             </div>
         `;
