@@ -115,7 +115,7 @@
             <div class="product-gallery">
               <div class="main-image-container">
                 <img
-                  src="../../images/Logo/hp image/HP Pavilion.png"
+                  src="../../Images/Laptop/HP/hp-spectre-x360-14.jpg"
                   alt="HP Spectre x360 14"
                   class="img-fluid main-product-image"
                   id="mainImage"
@@ -123,22 +123,22 @@
               </div>
               <div class="thumbnail-images">
                 <img
-                  src="../../images/Logo/hp image/HP Pavilion.png"
+                  src="../../Images/Laptop/HP/hp-spectre-x360-14.jpg"
                   alt="Thumbnail main"
                   class="thumbnail active"
-                  onclick="changeImage('../../images/Logo/hp image/HP Pavilion.png')"
+                  onclick="changeImage('../../Images/Laptop/HP/hp-spectre-x360-14.jpg')"
                 />
                 <img
-                  src="../../images/Logo/epower image/PC CPS Creator Pro 146 i5-14600K.png"
+                  src="../../Images/Laptop/HP/hp-envy-14.jpg"
                   alt="Thumbnail 1"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/epower image/PC CPS Creator Pro 146 i5-14600K.png')"
+                  onclick="changeImage('../../Images/Laptop/HP/hp-envy-14.jpg')"
                 />
                 <img
-                  src="../../images/Logo/apple image/pink iMac.png"
+                  src="../../Images/Laptop/HP/hp-omen-16.jpg"
                   alt="Thumbnail 2"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/apple image/pink iMac.png')"
+                  onclick="changeImage('../../Images/Laptop/HP/hp-omen-16.jpg')"
                 />
               </div>
             </div>
@@ -558,8 +558,12 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
-        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const baseImagePath = "../../Images/Laptop/HP/hp-spectre-x360-14.jpg";
+        const variantImages = {
+          nightfall: "../../Images/Laptop/HP/hp-spectre-x360-14.jpg",
+          poseidon: "../../Images/Laptop/HP/hp-envy-14.jpg",
+        };
 
         colorSwatches.forEach((swatch) => {
           swatch.addEventListener("click", function () {
@@ -569,8 +573,10 @@
             // Thêm class 'active' cho màu được chọn
             this.classList.add("active");
 
-            // Bạn có thể thêm logic thay đổi ảnh sản phẩm hoặc các tính năng khác ở đây
-            console.log("Selected color:", this.dataset.color);
+            // Thay đổi ảnh dựa trên màu sắc được chọn
+            const color = this.dataset.color;
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = variantImages[color] || baseImagePath;
           });
         });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng

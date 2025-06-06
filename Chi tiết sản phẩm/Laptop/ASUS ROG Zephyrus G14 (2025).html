@@ -115,7 +115,7 @@
             <div class="product-gallery">
               <div class="main-image-container">
                 <img
-                  src="../../images/Logo/asus image/ASUS PN64-E1.png"
+                  src="../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg"
                   alt="ROG Zephyrus G14"
                   class="img-fluid main-product-image"
                   id="mainImage"
@@ -123,28 +123,28 @@
               </div>
               <div class="thumbnail-images">
                 <img
-                  src="../../images/Logo/asus image/ASUS PN64-E1.png"
+                  src="../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg"
                   alt="Thumbnail main"
                   class="thumbnail active"
-                  onclick="changeImage('../../images/Logo/asus image/ASUS PN64-E1.png')"
+                  onclick="changeImage('../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg')"
                 />
                 <img
-                  src="../../images/Logo/asus image/PC Mini Asus NUC 13 Pro RNUC13ANHi3000.jpg"
+                  src="../../Images/Laptop/Asus/asus-tuf-gaming-f15.jpg"
                   alt="Thumbnail 1"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/asus image/PC Mini Asus NUC 13 Pro RNUC13ANHi3000.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Asus/asus-tuf-gaming-f15.jpg')"
                 />
                 <img
-                  src="../../images/Logo/asus image/Asus ProArt 32inch.jpg"
+                  src="../../Images/Laptop/Asus/asus-proart-studiobook-16.jpg"
                   alt="Thumbnail 2"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/asus image/Asus ProArt 32inch.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Asus/asus-proart-studiobook-16.jpg')"
                 />
                 <img
-                  src="../../images/Logo/asus image/Asus MB166C 16inch.png"
+                  src="../../Images/Laptop/Asus/asus-zenbook-14-oled.jpg"
                   alt="Thumbnail 3"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/asus image/Asus MB166C 16inch.png')"
+                  onclick="changeImage('../../Images/Laptop/Asus/asus-zenbook-14-oled.jpg')"
                 />
               </div>
             </div>
@@ -549,8 +549,13 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
-        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const baseImagePath =
+          "../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg";
+        const variantImages = {
+          white: "../../Images/Laptop/Asus/asus-rog-zephyrus-g14.jpg",
+          black: "../../Images/Laptop/Asus/asus-tuf-gaming-f15.jpg",
+        };
 
         colorSwatches.forEach((swatch) => {
           swatch.addEventListener("click", function () {
@@ -560,8 +565,10 @@
             // Thêm class 'active' cho màu được chọn
             this.classList.add("active");
 
-            // Bạn có thể thêm logic thay đổi ảnh sản phẩm hoặc các tính năng khác ở đây
-            console.log("Selected color:", this.dataset.color);
+            // Thay đổi ảnh dựa trên màu sắc được chọn
+            const color = this.dataset.color;
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = variantImages[color] || baseImagePath;
           });
         });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng

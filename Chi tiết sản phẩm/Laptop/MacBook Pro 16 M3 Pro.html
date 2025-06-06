@@ -115,7 +115,7 @@
             <div class="product-gallery">
               <div class="main-image-container">
                 <img
-                  src="../../images/Logo/apple image/iMac sang lang.jpg"
+                  src="../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg"
                   alt="MacBook Pro 16 M3 Pro"
                   class="img-fluid main-product-image"
                   id="mainImage"
@@ -123,28 +123,28 @@
               </div>
               <div class="thumbnail-images">
                 <img
-                  src="../../images/Logo/apple image/iMac sang lang.jpg"
+                  src="../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg"
                   alt="Thumbnail main"
                   class="thumbnail active"
-                  onclick="changeImage('../../images/Logo/apple image/iMac sang lang.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg')"
                 />
                 <img
-                  src="../../images/Logo/apple image/iMac 24 inch M4 2024.jpg"
+                  src="../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg"
                   alt="Thumbnail 1"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/apple image/iMac 24 inch M4 2024.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg')"
                 />
                 <img
-                  src="../../images/Logo/apple image/Mac mini M4 Pro 2024.jpg"
+                  src="../../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg"
                   alt="Thumbnail 2"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/apple image/Mac mini M4 Pro 2024.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg')"
                 />
                 <img
-                  src="../../images/Logo/apple image/silver iMac.png"
+                  src="../../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg"
                   alt="Thumbnail 3"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/apple image/silver iMac.png')"
+                  onclick="changeImage('../../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg')"
                 />
               </div>
             </div>
@@ -522,8 +522,13 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
-        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const baseImagePath =
+          "../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg";
+        const variantImages = {
+          silver: "../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg",
+          spacegray: "../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg",
+        };
 
         colorSwatches.forEach((swatch) => {
           swatch.addEventListener("click", function () {
@@ -533,8 +538,10 @@
             // Thêm class 'active' cho màu được chọn
             this.classList.add("active");
 
-            // Bạn có thể thêm logic thay đổi ảnh sản phẩm hoặc các tính năng khác ở đây
-            console.log("Selected color:", this.dataset.color);
+            // Thay đổi ảnh dựa trên màu sắc được chọn
+            const color = this.dataset.color;
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = variantImages[color] || baseImagePath;
           });
         });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng

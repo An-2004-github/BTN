@@ -115,7 +115,7 @@
             <div class="product-gallery">
               <div class="main-image-container">
                 <img
-                  src="../../images/Logo/lenovo image/Lenovo IdeaCentre AIO.jpg"
+                  src="../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg"
                   alt="ThinkPad X1 Carbon Gen 11"
                   class="img-fluid main-product-image"
                   id="mainImage"
@@ -123,22 +123,22 @@
               </div>
               <div class="thumbnail-images">
                 <img
-                  src="../../images/Logo/lenovo image/Lenovo IdeaCentre AIO.jpg"
+                  src="../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg"
                   alt="Thumbnail main"
                   class="thumbnail active"
-                  onclick="changeImage('../../images/Logo/lenovo image/Lenovo IdeaCentre AIO.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg')"
                 />
                 <img
-                  src="../../images/Logo/lenovo image/Lenovo IdeaCentre AIO - 24IRH9 i5 13420.jpg"
+                  src="../../Images/Laptop/Lenovo/legion-pro-5.jpg"
                   alt="Thumbnail 1"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/lenovo image/Lenovo IdeaCentre AIO - 24IRH9 i5 13420.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Lenovo/legion-pro-5.jpg')"
                 />
                 <img
-                  src="../../images/Logo/lenovo image/Lenovo IdeaCentre AIO 3 24ITL6.jpg"
+                  src="../../Images/Laptop/Lenovo/yoga-9i.jpg"
                   alt="Thumbnail 2"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/lenovo image/Lenovo IdeaCentre AIO 3 24ITL6.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Lenovo/yoga-9i.jpg')"
                 />
               </div>
             </div>
@@ -532,8 +532,9 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
-        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const baseImagePath =
+          "../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg";
 
         colorSwatches.forEach((swatch) => {
           swatch.addEventListener("click", function () {
@@ -543,8 +544,9 @@
             // Thêm class 'active' cho màu được chọn
             this.classList.add("active");
 
-            // Bạn có thể thêm logic thay đổi ảnh sản phẩm hoặc các tính năng khác ở đây
-            console.log("Selected color:", this.dataset.color);
+            // Giữ nguyên ảnh gốc vì chỉ có một màu
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = baseImagePath;
           });
         });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng

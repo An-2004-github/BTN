@@ -115,7 +115,7 @@
             <div class="product-gallery">
               <div class="main-image-container">
                 <img
-                  src="../../images/Logo/asus image/Asus ProArt 32inch.jpg"
+                  src="../../Images/Laptop/Dell/dell-xps-13-plus.jpg"
                   alt="Dell XPS 13 Plus"
                   class="img-fluid main-product-image"
                   id="mainImage"
@@ -123,22 +123,22 @@
               </div>
               <div class="thumbnail-images">
                 <img
-                  src="../../images/Logo/asus image/Asus ProArt 32inch.jpg"
+                  src="../../Images/Laptop/Dell/dell-xps-13-plus.jpg"
                   alt="Thumbnail main"
                   class="thumbnail active"
-                  onclick="changeImage('../../images/Logo/asus image/Asus ProArt 32inch.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Dell/dell-xps-13-plus.jpg')"
                 />
                 <img
-                  src="../../images/Logo/asus image/ASUS PN64-E1.png"
+                  src="../../Images/Laptop/Dell/dell-inspiron-14-5430.jpg"
                   alt="Thumbnail 1"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/asus image/ASUS PN64-E1.png')"
+                  onclick="changeImage('../../Images/Laptop/Dell/dell-inspiron-14-5430.jpg')"
                 />
                 <img
-                  src="../../images/Logo/hp image/HP Pavilion.png"
+                  src="../../Images/Laptop/Dell/dell-latitude-7440.jpg"
                   alt="Thumbnail 2"
                   class="thumbnail"
-                  onclick="changeImage('../../images/Logo/hp image/HP Pavilion.png')"
+                  onclick="changeImage('../../Images/Laptop/Dell/dell-latitude-7440.jpg')"
                 />
               </div>
             </div>
@@ -568,8 +568,12 @@
             }
           });
         };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
-        const colorSwatches = document.querySelectorAll(".color-swatch");
+        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const baseImagePath = "../../Images/Laptop/Dell/dell-xps-13-plus.jpg";
+        const variantImages = {
+          platinum: "../../Images/Laptop/Dell/dell-xps-13-plus.jpg",
+          graphite: "../../Images/Laptop/Dell/dell-inspiron-14-5430.jpg",
+        };
 
         colorSwatches.forEach((swatch) => {
           swatch.addEventListener("click", function () {
@@ -579,8 +583,10 @@
             // Thêm class 'active' cho màu được chọn
             this.classList.add("active");
 
-            // Bạn có thể thêm logic thay đổi ảnh sản phẩm hoặc các tính năng khác ở đây
-            console.log("Selected color:", this.dataset.color);
+            // Thay đổi ảnh dựa trên màu sắc được chọn
+            const color = this.dataset.color;
+            const mainImage = document.getElementById("mainImage");
+            mainImage.src = variantImages[color] || baseImagePath;
           });
         });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng
