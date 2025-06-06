@@ -9,7 +9,7 @@
 <body>
   <div id="header"></div>
 
-  <main style="max-width:900px; margin:30px auto; padding:0 15px; font-family: Arial, sans-serif; color:#333;">
+  <main style="max-width:900px; margin:30px auto; padding:0 15px; font-family: Arial, sans-serif; color:white;">
 
   <!-- Khung 1: Lịch sử hình thành -->
   <section style="display:flex; align-items:center; margin-bottom:40px; gap:20px; border: 2px solid red; padding: 15px; border-radius:8px;">
@@ -44,9 +44,9 @@
   </section>
 
   <!-- Khung 3: Cam kết -->
-  <section style="background:#f0f4ff; border-radius:8px; padding:20px; border: 2px solid red;">
+  <section style="background: #1e1e1e; border-radius:8px; padding:20px; border: 2px solid red;">
     <h2 style="color:#2f80ed; margin-bottom:10px; text-align: center;">CAM KẾT</h2>
-    <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6;">
+    <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.6; ">
         <li>Sản phẩm chính hãng với chất lượng đảm bảo.</li>
         <li>Giá cả cạnh tranh, minh bạch và không có chi phí phát sinh bất ngờ.</li>
         <li>Hỗ trợ tư vấn tận tình, chuyên nghiệp và thân thiện.</li>
@@ -60,25 +60,6 @@
 
 
 </main>
-
-  <section class="service-features">
-    <div class="feature">
-      <img src="../Images\footer\secure.png" alt="Đảm bảo" />
-      <p><strong>Thương hiệu đảm bảo</strong><br>Nhập khẩu, bảo hành chính hãng</p>
-    </div>
-    <div class="feature">
-      <img src="../Images\footer\exchange.png" alt="Đổi trả" />
-      <p><strong>Đổi trả dễ dàng</strong><br>Theo chính sách đổi trả tại FPT Shop</p>
-    </div>
-    <div class="feature">
-      <img src="../Images\footer\good-quality.png" alt="Chất lượng" />
-      <p><strong>Sản phẩm chất lượng</strong><br>Đảm bảo tương thích và độ bền cao</p>
-    </div>
-    <div class="feature">
-      <img src="../Images\footer\fast-delivery.png" alt="Giao hàng" />
-      <p><strong>Giao hàng tận nơi</strong><br>Tại 63 tỉnh thành</p>
-    </div>
-  </section>
   <div id="footer"></div>
   <script>
     // Tăng line-height cho toàn bộ nội dung trong main
@@ -90,11 +71,11 @@
     });
   </script>
   <script>
-    fetch('/header.html')
+    fetch('header.html')
       .then(res => res.text())
       .then(data => document.getElementById('header').innerHTML = data);
 
-    fetch('/footer.html')
+    fetch('footer.html')
       .then(res => res.text())
       .then(data => document.getElementById('footer').innerHTML = data);
   </script>
