@@ -57,10 +57,10 @@
                   onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg')"
                 />
                 <img
-                  src="../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg"
+                  src="../../Images/Laptop/Apple/macbook-air-m4-13-inch.jpg"
                   alt="Thumbnail 1"
                   class="thumbnail"
-                  onclick="changeImage('../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg')"
+                  onclick="changeImage('../../Images/Laptop/Apple/macbook-air-m4-13-inch.jpg')"
                 />
               </div>
             </div>
@@ -437,30 +437,9 @@
               thumb.classList.add("active");
             }
           });
-        };
-        // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        }; // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
+        // Việc này được xử lý bởi hàm changeProductImage phía dưới
         const colorSwatches = document.querySelectorAll(".color-swatch");
-        const baseImagePath =
-          "../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg";
-        const variantImages = {
-          silver: "../../Images/Laptop/Apple/macbook-pro-m3-pro-16-inch.jpg",
-          spacegray: "../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg",
-        };
-
-        colorSwatches.forEach((swatch) => {
-          swatch.addEventListener("click", function () {
-            // Xóa class 'active' khỏi tất cả các màu
-            colorSwatches.forEach((s) => s.classList.remove("active"));
-
-            // Thêm class 'active' cho màu được chọn
-            this.classList.add("active");
-
-            // Thay đổi ảnh dựa trên màu sắc được chọn
-            const color = this.dataset.color;
-            const mainImage = document.getElementById("mainImage");
-            mainImage.src = variantImages[color] || baseImagePath;
-          });
-        });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng
         window.updatePriceAndStorage = function (button) {
           const storage = button.getAttribute("data-storage"); // Lấy giá trị dung lượng từ nút
@@ -523,7 +502,7 @@
       const thumbnailPaths = {
         silver: [
           "../../Images/Laptop/Apple/macbook-pro-m3-max-16-inch.jpg",
-          "../../Images/Laptop/Apple/macbook-pro-m4-16-inch.jpg",
+          "../../Images/Laptop/Apple/macbook-air-m4-13-inch.jpg",
         ],
         black: [
           "../../Images/Laptop/Apple/macbook-air-m3-15-inch.jpg",
@@ -548,6 +527,13 @@
               "onclick",
               `changeImage('${thumbnailPaths[color][index]}')`
             );
+
+            // Đặt active cho thumbnail đầu tiên của màu mới, bỏ active các thumbnail khác
+            if (index === 0) {
+              thumb.classList.add("active");
+            } else {
+              thumb.classList.remove("active");
+            }
           }
         });
 

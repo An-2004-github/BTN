@@ -1524,6 +1524,21 @@ body {
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
+
+/* Fixed size for laptop main images */
+.ctsp .product-gallery .main-image-container {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ctsp .product-gallery .main-image-container img {
+    max-height: 350px;
+    max-width: 100%;
+    object-fit: contain;
+}
 .main-product-image {
     width: 100%;
     height: auto;

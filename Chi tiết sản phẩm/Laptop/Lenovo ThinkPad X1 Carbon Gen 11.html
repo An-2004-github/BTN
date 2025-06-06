@@ -461,10 +461,15 @@
             }
           });
         };
+
         // Hàm này sẽ thay đổi màu sắc chính khi người dùng nhấp vào nút màu
         const colorSwatches = document.querySelectorAll(".color-swatch");
         const baseImagePath =
           "../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg";
+        const variantImages = {
+          black: "../../Images/Laptop/Lenovo/thinkpad-x1-carbon-gen11.jpg",
+          pink: "../../Images/Laptop/Lenovo/yoga-9i.jpg",
+        };
 
         colorSwatches.forEach((swatch) => {
           swatch.addEventListener("click", function () {
@@ -474,9 +479,10 @@
             // Thêm class 'active' cho màu được chọn
             this.classList.add("active");
 
-            // Giữ nguyên ảnh gốc vì chỉ có một màu
+            // Thay đổi ảnh dựa trên màu sắc được chọn
+            const color = this.dataset.color;
             const mainImage = document.getElementById("mainImage");
-            mainImage.src = baseImagePath;
+            mainImage.src = variantImages[color] || baseImagePath;
           });
         });
         // Hàm này sẽ cập nhật giá, dung lượng và phần trăm giảm giá khi người dùng nhấp vào nút dung lượng
@@ -549,9 +555,7 @@
           "../../Images/Laptop/Lenovo/yoga-9i.jpg",
           "../../Images/Laptop/Lenovo/ideapad-slim-5.jpg",
         ],
-      };
-
-      // Hàm thay đổi màu sắc sản phẩm
+      }; // Hàm thay đổi màu sắc sản phẩm
       function changeProductImage(color) {
         selectedColor = color; // Cập nhật màu sắc đã chọn
         const mainImage = document.getElementById("mainImage");
@@ -570,6 +574,13 @@
               "onclick",
               `changeImage('${thumbnailPaths[color][index]}')`
             );
+
+            // Đặt active cho thumbnail đầu tiên của màu mới, bỏ active các thumbnail khác
+            if (index === 0) {
+              thumb.classList.add("active");
+            } else {
+              thumb.classList.remove("active");
+            }
           }
         });
 
