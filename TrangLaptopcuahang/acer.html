@@ -168,29 +168,6 @@
       const products = [
         {
           id: 1,
-          name: "Acer Predator Helios 16 16 inch 16GB 1TB",
-          image: "../Images/Laptop/Acer/predator-helios-16.jpg",
-          installment: "Trả góp 0%",
-          os: "Windows",
-          cpu: "Intel Core i7",
-          ram: "16GB",
-          storage: "SSD 1TB",
-          screenSize: "15-16 inch",
-          resolution: "2K",
-          refreshRate: "165 Hz",
-          gpu: "NVIDIA GeForce RTX",
-          weight: "2.6 kg",
-          purpose: "Gaming",
-          ports: "2 x USB-C, 3 x USB-A, 1 x HDMI, 1 x LAN, 1 x Jack 3.5mm",
-          battery: "Lên đến 6 giờ",
-          series: "Predator",
-          storages: [
-            { capacity: "1TB", priceOld: 39990000, discountPercent: 15 },
-            { capacity: "2TB", priceOld: 43990000, discountPercent: 12 },
-          ],
-        },
-        {
-          id: 2,
           name: "Acer Swift 14 14 inch 16GB 512GB",
           image: "../Images/Laptop/Acer/swift-14.jpg",
           installment: "Trả góp 0%",
@@ -210,6 +187,30 @@
           storages: [
             { capacity: "512GB", priceOld: 28990000, discountPercent: 14 },
             { capacity: "1TB", priceOld: 31990000, discountPercent: 12 },
+          ],
+          link: "../Chi tiết sản phẩm/Laptop/Acer Swift Edge 16.html",
+        },
+        {
+          id: 2,
+          name: "Acer Predator Helios 16 16 inch 16GB 1TB",
+          image: "../Images/Laptop/Acer/predator-helios-16.jpg",
+          installment: "Trả góp 0%",
+          os: "Windows",
+          cpu: "Intel Core i7",
+          ram: "16GB",
+          storage: "SSD 1TB",
+          screenSize: "15-16 inch",
+          resolution: "2K",
+          refreshRate: "165 Hz",
+          gpu: "NVIDIA GeForce RTX",
+          weight: "2.6 kg",
+          purpose: "Gaming",
+          ports: "2 x USB-C, 3 x USB-A, 1 x HDMI, 1 x LAN, 1 x Jack 3.5mm",
+          battery: "Lên đến 6 giờ",
+          series: "Predator",
+          storages: [
+            { capacity: "1TB", priceOld: 39990000, discountPercent: 15 },
+            { capacity: "2TB", priceOld: 43990000, discountPercent: 12 },
           ],
         },
         {
@@ -364,6 +365,7 @@
           const baseName = product.name.replace(/\s+\d+(GB|TB)$/, "").trim();
 
           col.innerHTML = `
+          <a href="${product.link || "#"}" class="product-link">
         <div class="product-card d-flex flex-column">
             <img src="${product.image}" alt="${product.name}" />
             <h5 data-basename="${baseName}">${product.name}</h5>
