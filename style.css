@@ -265,48 +265,6 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
     margin-left: 10px;
     flex-shrink: 0;
 }
-/* --- Phần Gói Bảo Hành --- */
-.product-item-addons {
-    border-top: 1px solid #3c4043; /* Đường kẻ phân cách */
-    margin-top: 20px;
-    padding-top: 20px;
-}
-.warranty-section .warranty-title {
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #f1f3f4;
-    display: flex;
-    align-items: center;
-    font-size: 0.95em;
-}
-.warranty-icon {
-    color: #e57373; /* Màu đỏ nhạt hơn cho icon */
-    margin-right: 10px;
-    font-size: 1.1em;
-}
-.warranty-options .warranty-option {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-}
-.warranty-options label {
-    font-size: 0.9em;
-    color: #bdc1c6;
-    margin-left: 12px; /* Tăng khoảng cách */
-    cursor: pointer;
-    line-height: 1.4;
-}
-.warranty-price-change {
-    color: #ffb74d; /* Màu cam cho giá bảo hành */
-    font-weight: 500;
-    margin-left: 5px;
-}
-.warranty-old-price {
-    color: #9aa0a6;
-    text-decoration: line-through;
-    margin-left: 8px;
-    font-size: 0.85em;
-}
 
 /* --- Cột Bên Phải: Tổng kết đơn hàng --- */
 .order-summary-column {
@@ -504,6 +462,26 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
     .current-price { font-size: 0.95em; }
     .old-price { font-size: 0.75em; }
     .warranty-options label { font-size: 0.85em; }
+}
+/* Liên hệ tới mesenger */
+#messenger-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#messenger-button img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#messenger-button img:hover {
+  transform: scale(1.1);
 }
 /* === CSS cho Modal/Popup Thông Tin Đặt Hàng === */
 .order-modal {
