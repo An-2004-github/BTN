@@ -1,20 +1,28 @@
+<!--
+  File: Laptop.html
+  Trang danh sách laptop với bộ lọc, sắp xếp, hiển thị sản phẩm động bằng JavaScript.
+  Các phần được chú thích chi tiết bên dưới.
+-->
 <!DOCTYPE html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laptop - Tech Store</title>
+    <!-- Import style.css chứa các class CSS dùng chung và riêng cho trang laptop -->
     <link rel="stylesheet" href="style.css" />
+    <!-- Import Font Awesome để dùng icon -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <!-- Bootstrap 4 CSS -->
+    <!-- Import Bootstrap 4 để dùng layout, form, button, responsive -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <style>
+      /* CSS riêng cho layout trang laptop, giúp body luôn full chiều cao */
       body {
         display: flex;
         flex-direction: column;
@@ -33,15 +41,25 @@
     </style>
   </head>
   <body>
+    <!-- Header động, sẽ được load bằng JS ở cuối file -->
     <div id="header"></div>
-    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <!--
+      PHẦN: IMPORT SCRIPT BOOTSTRAP, JQUERY thêm thư viện 
+      - jQuery: hỗ trợ thao tác DOM, sự kiện.
+      - Popper.js: hỗ trợ tooltip, popover cho Bootstrap.
+      - Bootstrap JS: các component động của Bootstrap.
+    -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <div class="content-wrapper">
       <div class="container my-3">
-        <!-- Hiển thị các hãng laptop -->
+        <!--
+          PHẦN: HIỂN THỊ LOGO CÁC HÃNG LAPTOP
+          - Dùng flexbox để xếp các logo hãng laptop.
+          - Mỗi logo là 1 link đến trang riêng của hãng.
+        -->
         <div
           class="container my-3 d-flex flex-wrap justify-content-between align-items-center gap-2 brand-container"
         >
@@ -89,7 +107,11 @@
           </a>
         </div>
 
-        <!-- Thanh bộ lọc nâng cao -->
+        <!--
+          PHẦN: THANH BỘ LỌC NÂNG CAO
+          - Form gồm nhiều select để lọc sản phẩm theo tiêu chí: giá, hãng, OS, CPU, RAM, ổ cứng, tỉ lệ giảm giá, card đồ họa, kích thước, độ phân giải, tần số quét, mục đích, sắp xếp giảm giá.
+          - Nút LỌC để submit form, thực hiện lọc sản phẩm.
+        -->
         <div class="container p-3 bg-light rounded shadow-sm">
           <form>
             <!-- Hàng trên: 6 mục -->
@@ -202,6 +224,9 @@
                 </select>
               </div>
               <div class="form-group col-md-2">
+                <!--
+                  Bộ lọc độ phân giải màn hình (HD, Full HD, 2K, 4K, Retina)
+                -->
                 <label for="resolutionSelect">Độ phân giải</label>
                 <select
                   id="resolutionSelect"
@@ -216,6 +241,9 @@
                 </select>
               </div>
               <div class="form-group col-md-2">
+                <!--
+                  Bộ lọc tần số quét màn hình (60Hz, 90Hz, 120Hz, ...)
+                -->
                 <label for="refreshRateSelect">Tần số quét</label>
                 <select
                   id="refreshRateSelect"
@@ -240,6 +268,7 @@
                   <option>Mỏng nhẹ - Di động</option>
                 </select>
               </div>
+          
               <div class="form-group col-md-2">
                 <button type="submit" class="btn btn-warning btn-sm btn-block">
                   LỌC
@@ -249,7 +278,10 @@
           </form>
         </div>
 
-        <!-- Khung danh sách sản phẩm -->
+        <!--
+          PHẦN: KHUNG DANH SÁCH SẢN PHẨM
+          - Sản phẩm sẽ được tạo động bằng JavaScript và hiển thị trong #product-list.
+        -->
         <div class="container my-3">
           <div class="row" id="product-list">
             <!-- Sản phẩm tạo bằng JS -->
@@ -257,7 +289,12 @@
         </div>
 
         <script>
-          const products = [
+          // =============================
+          // PHẦN: DỮ LIỆU SẢN PHẨM (JAVASCRIPT)
+          // =============================
+          // Danh sách sản phẩm mẫu, mỗi sản phẩm là một object với các thuộc tính chi tiết
+          // Mỗi sản phẩm có thể có nhiều tuỳ chọn dung lượng (storages), mỗi tuỳ chọn có giá và tỉ lệ giảm giá riêng
+          const products = [ 
             {
               id: 1,
               name: "Apple MacBook Pro M3 Pro 16 inch 18GB 512GB",
@@ -542,15 +579,20 @@
             },
           ];
 
+          // =============================
+          // PHẦN: HÀM XỬ LÝ GIÁ, ĐỊNH DẠNG, TOAST
+          // =============================
+          // Hàm tính giá mới sau khi áp dụng giảm giá
           function calcPriceNew(priceOld, discountPercent) {
             return priceOld * (1 - discountPercent / 100);
           }
 
+          // Hàm định dạng giá tiền theo chuẩn Việt Nam (có dấu chấm ngăn cách hàng nghìn)
           function formatPrice(price) {
             return price.toLocaleString("vi-VN") + " ₫";
           }
 
-          // Gán sự kiện click cho các nút "Thêm vào giỏ hàng"
+          // Hàm hiển thị thông báo (toast) khi thêm sản phẩm vào giỏ hàng
           function showToast(productName) {
             const toast = document.getElementById("toast"); // Lấy phần tử thông báo
             toast.textContent = `Đã thêm "${productName}" vào giỏ!`; // Thêm tên sản phẩm vào thông báo
@@ -564,7 +606,11 @@
               }, 500);
             }, 2000); // Hiển thị trong 2 giây
           }
-          // Gán sự kiện click cho các nút "Thêm vào giỏ hàng"
+
+          // =============================
+          // PHẦN: HÀM XỬ LÝ SỰ KIỆN VÀ HIỂN THỊ SẢN PHẨM
+          // =============================
+          // Hàm gán sự kiện click cho các nút "Thêm vào giỏ hàng"
           function addToCart() {
             const addCartButtons = document.querySelectorAll(".add-cart");
             addCartButtons.forEach((button) => {
@@ -581,20 +627,25 @@
               });
             });
           }
+
+          // Hàm hiển thị danh sách sản phẩm ra giao diện
           function displayProducts(list) {
             const productList = document.getElementById("product-list");
             productList.innerHTML = "";
 
+            // Nếu không có sản phẩm phù hợp, hiển thị thông báo
             if (list.length === 0) {
               productList.innerHTML =
                 "<div class='col-12 text-center my-5'><h3>Không tìm thấy sản phẩm nào phù hợp</h3></div>";
               return;
             }
 
+            // Duyệt qua từng sản phẩm và tạo HTML tương ứng
             list.forEach((product) => {
               const col = document.createElement("div");
               col.className = "col-md-3 mb-4";
 
+              // Lấy tuỳ chọn dung lượng mặc định (dòng đầu tiên)
               const defaultStorage = product.storages[0];
               const priceNew = calcPriceNew(
                 defaultStorage.priceOld,
@@ -614,16 +665,18 @@
                 )
                 .join("");
 
+              // Lấy tên sản phẩm gốc (không có dung lượng)
               const baseName = product.name
                 .replace(/\s+\d+(GB|TB)$/, "")
                 .trim();
 
+              // Tạo HTML cho card sản phẩm để duyệt qua mảng là xong, nếu ko thì tạo trên html phải gõ từng cái 1 
               col.innerHTML = `
               <a href="${product.link || "#"}" class="product-link">
           <div class="product-card d-flex flex-column">
               <img src="${product.image}" alt="${product.name}" />
               <h5 data-basename="${baseName}">${product.name}</h5>
-              <p>${product.installment}</p>
+              <p> ${product.installment}</p>
               <div class="specs">
                   <span><i class="fas fa-microchip"></i> ${product.cpu}</span>
                   <span><i class="fas fa-memory"></i> ${product.ram}</span>
@@ -663,6 +716,7 @@
                     storage.discountPercent
                   );
 
+                  // Cập nhật giá, tỉ lệ giảm giá, tên sản phẩm khi chọn dung lượng khác
                   const priceOldElem = col.querySelector(".price-old");
                   const discountElem = col.querySelector(".discount");
                   const priceNewElem = document.getElementById(
@@ -673,10 +727,12 @@
                   discountElem.textContent = `-${storage.discountPercent}%`;
                   priceNewElem.textContent = formatPrice(newPrice);
 
+                  // Cập nhật tên sản phẩm theo dung lượng
                   const nameElem = col.querySelector("h5");
                   const baseName = nameElem.getAttribute("data-basename");
                   nameElem.textContent = `${baseName} ${storage.capacity}`;
 
+                  // Đổi trạng thái active cho nút dung lượng
                   btnGroup
                     .querySelectorAll("button")
                     .forEach((btn) => btn.classList.remove("active"));
@@ -691,7 +747,10 @@
           // Lấy thẻ form lọc
           const filterForm = document.querySelector("form");
 
-          // Bắt sự kiện submit form (hoặc click nút)
+          // =============================
+          // PHẦN: XỬ LÝ LỌC VÀ SẮP XẾP SẢN PHẨM
+          // =============================
+          // Bắt sự kiện submit form (lọc sản phẩm)
           filterForm.addEventListener("submit", (e) => {
             e.preventDefault(); // ngăn submit reload trang
 
@@ -702,6 +761,7 @@
             const cpuValue = document.getElementById("cpuSelect").value;
             const ramValue = document.getElementById("ramSelect").value;
             const storageValue = document.getElementById("storageSelect").value;
+            const discountValue = document.getElementById("discountSelect").value;
             const gpuValue = document.getElementById("gpuSelect").value;
             const screenSizeValue =
               document.getElementById("screenSizeSelect").value;
@@ -710,16 +770,19 @@
             const refreshRateValue =
               document.getElementById("refreshRateSelect").value;
             const purposeValue = document.getElementById("purposeSelect").value;
+            const discountSortValue = document.getElementById("discountSortSelect").value;
 
             // Hàm tính giá sau khi giảm
             const calculateDiscountPrice = (priceOld, discountPercent) => {
               return priceOld * (1 - discountPercent / 100);
             };
 
-            // Lọc các sản phẩm theo điều kiện
+            // Lọc các sản phẩm theo điều kiện người dùng chọn
             let filteredProducts = products.filter((product) => {
               let priceMatch = true;
+              let discountMatch = true;
 
+              // Lọc theo giá (nếu chọn khoảng giá)
               if (priceValue !== "Chọn mức giá") {
                 const priceRanges = {
                   "Dưới 10 triệu": [0, 10000000],
@@ -749,7 +812,26 @@
                 }
               }
 
-              // Lọc theo các tiêu chí khác
+              // Lọc theo tỉ lệ giảm giá (discountPercent)
+              if (discountValue !== "Chọn tỉ lệ giảm giá") {
+                if (discountValue === "Dưới 10%") {
+                  discountMatch = product.storages.some(
+                    (storage) => storage.discountPercent < 10
+                  );
+                } else if (discountValue === "10% - 15%") {
+                  discountMatch = product.storages.some(
+                    (storage) =>
+                      storage.discountPercent >= 10 &&
+                      storage.discountPercent <= 15
+                  );
+                } else if (discountValue === "Trên 15%") {
+                  discountMatch = product.storages.some(
+                    (storage) => storage.discountPercent > 15
+                  );
+                }
+              }
+
+              // Lọc theo các tiêu chí khác (cái này gán trực tiếp được vì đơn giản nên không cần khai báo biến trước)
               const brandMatch =
                 brandValue === "Chọn thương hiệu" ||
                 product.brand === brandValue;
@@ -778,8 +860,10 @@
                 purposeValue === "Chọn mục đích" ||
                 product.purpose.includes(purposeValue);
 
+              // Trả về true nếu sản phẩm thỏa tất cả điều kiện
               return (
                 priceMatch &&
+                discountMatch &&
                 brandMatch &&
                 osMatch &&
                 cpuMatch &&
@@ -793,7 +877,7 @@
               );
             });
 
-            // Sắp xếp lại sản phẩm theo giá tăng dần hoặc giảm dần
+            // Sắp xếp lại sản phẩm theo giá tăng dần hoặc giảm dần nếu được chọn
             if (
               priceValue === "Giá tăng dần" ||
               priceValue === "Giá giảm dần"
@@ -811,13 +895,18 @@
                   ? priceA - priceB
                   : priceB - priceA;
               });
-            } // Hiển thị sản phẩm đã lọc
+      
+            // Hiển thị sản phẩm đã lọc
             displayProducts(filteredProducts);
           });
 
           // Hiển thị tất cả sản phẩm khi trang vừa load
           displayProducts(products);
         </script>
+        <!--
+          PHẦN: TOAST THÔNG BÁO
+          - Hiển thị thông báo khi thêm sản phẩm vào giỏ hàng.
+        -->
         <div
           id="toast"
           style="
@@ -845,6 +934,10 @@
 
     <div class="container-fluid p-0"></div>
 
+    <!--
+      PHẦN: FOOTER VÀ HEADER ĐƯỢC LOAD ĐỘNG BẰNG JS
+      - Sử dụng fetch để lấy nội dung header.html và footer.html, chèn vào trang.
+    -->
     <div id="footer"></div>
     <script>
       fetch("footer.html")
