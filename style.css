@@ -884,9 +884,6 @@ body.cart-active-page { /* Thêm class này vào thẻ body của giohang.html n
     margin: 0 auto;
     flex-wrap: wrap;
 }
-.center-group .menu-link:hover{
-    color:#320606;
-}
 .logo {
     height: 40px;
     margin-right: 15px;
